@@ -1,0 +1,2427 @@
+<?xml version="1.0"?>
+<!DOCTYPE input-forms SYSTEM "input-forms.dtd">
+
+
+<input-forms>
+
+ <!-- The form-map maps collection handles to forms. DSpace does not       -->
+ <!-- require a collection name to be unique, not even within a community. -->
+ <!-- DSpace does however ensure that each collection's handle is unique.  -->
+ <!-- Form-map provides the means to associate a unique collection name    -->
+ <!-- with a form. The form-map also provides the special handle "default" -->
+ <!-- (which is never a collection), here mapped to "traditional". Any     -->
+ <!-- collection which does not appear in this map will be associated with -->
+ <!-- the mapping for handle "default".                                    -->
+
+ <form-map>
+   <name-map collection-handle="default" form-name="traditional" />
+ </form-map>
+
+
+ <!-- The form-definitions map lays out the detailed definition of all the -->
+ <!-- submission forms. Each separate form set has a unique name as an     -->
+ <!-- attribute. This name matches one of the names in the form-map. One   -->
+ <!-- named form set has the name "traditional"; as this name suggests,    -->
+ <!-- it is the old style and is also the default, which gets used when    -->
+ <!-- the specified collection has no correspondingly-named form set.      -->
+ <!--                                                                      -->
+ <!-- Each form set contains an ordered set of pages; each page defines    -->
+ <!-- one submission metadata entry screen. Each page has an ordered list  -->
+ <!-- of field definitions, Each field definition corresponds to one       -->
+ <!-- metadata entry (a so-called row), which has a DC element name, a    -->
+ <!-- displayed label, a text string prompt which is called a hint, and    -->
+ <!-- an input-type. Each field also may hold optional elements: DC        -->
+ <!-- qualifier name, a repeatable flag, and a text string whose presence  -->
+ <!-- serves as a 'this field is required' flag.                           -->
+
+ <form-definitions>
+
+   <form name="traditional">
+            <page number="1">
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>isbn</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>ISBN</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el International Standard Book Number.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>issn</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>ISSN</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el International Standard Serial Number.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>title</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Nombre o Título</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el nombre o título propio del recurso.</hint>
+                    <required>Título obligatorio</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>title</dc-element>
+                    <dc-qualifier>alternative</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Nombre o Título alternativo</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra cualquier variante del nombre título original del recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>contributor</dc-element>
+                    <dc-qualifier>author</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Autor del recurso</label>
+                    <input-type>name</input-type>
+                    <hint>Persona responsable del contenido intelectual del recurso que se describe.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>language</dc-element>
+                    <dc-qualifier>iso</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Idioma código ISO</label>
+                    <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+                    <hint>Describe la forma ISO del idioma, descrito en 3 caracteres. Norma ISO 639-3 Code o el idioma de la pista de un material audiovisual.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>abstract</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Resumen o descripción</label>
+                    <input-type>textarea</input-type>
+                    <hint>Registra un resumen del contenido del recurso que se describe.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Descripción de contenido</label>
+                    <input-type>textarea</input-type>
+                    <hint>Para describir cualquier característica general del recurso descrito.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>subject</dc-element>
+                    <dc-qualifier>spanish</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Palabras Claves</label>
+                    <input-type>onebox</input-type>
+                    <hint>Se registra palabras claves representativas del recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>audience</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Audiencia objetivo</label>
+                    <input-type value-pairs-name="dc_audience">dropdown</input-type>
+                    <hint>Registra la clase de entidad para quién el recurso pretende ser útil.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>date</dc-element>
+                    <dc-qualifier>issued</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Fecha de Publicación</label>
+                    <input-type>date</input-type>
+                    <hint>Registra la fecha de publicación del recurso.</hint>
+                    <required>Campo requerido.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>País</label>
+                    <input-type value-pairs-name="coverage_pais">dropdown</input-type>
+                    <hint>Registra el nombre de país relacionado al recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>spatial</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Región</label>
+                    <input-type value-pairs-name="coverage_region">dropdown</input-type>
+                    <hint>Registra la región relacionada al recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>provincia</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Provincia</label>
+                    <input-type value-pairs-name="coverage_provincia">dropdown</input-type>
+                    <hint>Registra la provincia relacionada al recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>comuna</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Comuna</label>
+                    <input-type value-pairs-name="coverage_comuna">dropdown</input-type>
+                    <hint>Registra la comuna relacionada al recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>contributor</dc-element>
+                    <dc-qualifier>entity</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Autor institucional</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra las entidades ya sean instituciones y /o proyectos responsables del contenido del recurso descrito.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>contributor</dc-element>
+                    <dc-qualifier>editor</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Editor</label>
+                    <input-type>name</input-type>
+                    <hint>Registra a las personas que actúan como editores del recurso que se describe.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>document</dc-element>
+                    <dc-qualifier>status</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Estatus</label>
+                    <input-type value-pairs-name="document_status">dropdown</input-type>
+                    <hint>Un documento y/o publicación puede estar con estado"Embargado" o "Disponible", "Derechos en Trámite". Si está con embargo la publicación no es visible al público.</hint>
+                    <required></required>
+                </field>
+            </page>
+            <page number="2">
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>category</dc-element>
+                    <dc-qualifier>comunity</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Comunidad</label>
+                    <input-type value-pairs-name="category_comunity">dropdown</input-type>
+                    <hint>Registra la comunidad de pertenencia.</hint>
+                    <required></required>
+                </field>-->
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>category</dc-element>
+                    <dc-qualifier>document</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Tipo de recurso</label>
+                    <input-type value-pairs-name="category_document">dropdown</input-type>
+                    <hint>Registra la categoría del recurso o documento según tipología de recursos por cada comunidad.</hint>
+                    <required></required>
+                </field>
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>contributor</dc-element>
+                    <dc-qualifier>participant</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Participante</label>
+                    <input-type>name</input-type>
+                    <hint>Registra los participantes que han contribuido en el ciclo de vida del recurso de aprendizaje.</hint>
+                    <required></required>
+                </field>-->
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>language</dc-element>
+                    <dc-qualifier>item</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Idioma del registro</label>
+                    <input-type>onebox</input-type>
+                    <hint>Describe el idioma en el cuál el registro se encuentra disponible.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>format</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Formato del recurso</label>
+                    <input-type value-pairs-name="dc_format">dropdown</input-type>
+                    <hint>Manifestación física o digital del recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>type</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Tipo de archivo</label>
+                    <input-type value-pairs-name="dc_type">dropdown</input-type>
+                    <hint>Registra el tipo de archivo físico.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>rights</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Derechos</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el nombre o tipo de licencia de uso del recurso que se describe.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>rights</dc-element>
+                    <dc-qualifier>description</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Descripción de derechos</label>
+                    <input-type>textarea</input-type>
+                    <hint>Registra la descripción de los derechos de uso y/o restricciones específicas.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>rights</dc-element>
+                    <dc-qualifier>uri</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Enlace a la fuente de los derechos de uso y/o restricciones</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el enlace a la descripción de la licencia de uso, por ej. Creative Commons.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>type</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Tipo de relación</label>
+                    <input-type>onebox</input-type>
+                    <hint>Acá texto de ayuda de campo.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>ispartofseries</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Título de la Serie</label>
+                    <input-type>onebox</input-type>
+                    <hint>Nombre de la serie de la cual forma parte el recurso descrito.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>ispartofseriesno</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Número de la Serie</label>
+                    <input-type>onebox</input-type>
+                    <hint>Número de la serie de la cual forma parte el recurso descrito.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>ispartof</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Fuente</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra la fuente de la cual forma parte el recurso que se describe, inclusive material audiovisual.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>ispartofvol</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Volumen de la Fuente</label>
+                    <input-type>onebox</input-type>
+                    <hint>Volumen de la fuente de la cual forma parte el recurso descrito.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>ispartofno</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Número de la Fuente</label>
+                    <input-type>onebox</input-type>
+                    <hint>Número del cual forma parte el recurso descrito.</hint>
+                    <required></required>
+                </field>
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>idcatalogador</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>ID de Catalogador</label>
+                    <input-type>onebox</input-type>
+                    <hint>ID que identifica el catalogador del recurso.</hint>
+                    <required>Campo obligatorio</required>
+                </field>-->
+                
+
+
+
+            </page>
+        </form>
+
+   <form name="one">
+     <page number="1">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>One: Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the names of the authors of this item.</hint>
+         <required></required>
+       </field>
+      </page>
+    </form>
+ </form-definitions>
+
+
+ <!-- form-value-pairs populate dropdown and qualdrop-value lists.          -->
+ <!-- The form-value-pairs element holds child elements named 'value-pairs' -->
+ <!-- A 'value-pairs' element has a value-pairs-name and a dc-term          -->
+ <!-- attribute. The dc-term attribute specifies which to which Dublin Core -->
+ <!-- Term this set of value-pairs applies.                                 -->
+ <!--     Current dc-terms are: identifier-pairs, type-pairs, and           -->
+ <!--     language_iso-pairs. The name attribute matches a name             -->
+ <!--     in the form-map, above.                                           -->
+ <!-- A value-pair contains one 'pair' for each value displayed in the list -->
+ <!-- Each pair contains a 'displayed-value' element and a 'stored-value'   -->
+ <!-- element. A UI list displays the displayed-values, but the program     -->
+ <!-- stores the associated stored-values in the database.                  -->
+
+ <form-value-pairs>
+     <value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
+            <pair>
+                <displayed-value>Español</displayed-value>
+                <stored-value>es</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ingles (Estados Unidos)</displayed-value>
+                <stored-value>en_US</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ingles</displayed-value>
+                <stored-value>en</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Alemán</displayed-value>
+                <stored-value>de</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Francés</displayed-value>
+                <stored-value>fr</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Italiano</displayed-value>
+                <stored-value>it</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Japonés</displayed-value>
+                <stored-value>ja</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Chino</displayed-value>
+                <stored-value>zh</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Turco</displayed-value>
+                <stored-value>tr</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="dc_audience" dc-term="audience">
+            
+            <pair>
+                <displayed-value>Audiencia 1</displayed-value>
+                <stored-value>Audiencia 1</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Audiencia 2</displayed-value>
+                <stored-value>Audiencia 2</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Audiencia 3</displayed-value>
+                <stored-value>Audiencia 3</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="coverage_pais" dc-term="coverage">
+            
+            <pair>
+                  <displayed-value>Chile</displayed-value>
+                  <stored-value>Chile</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="coverage_region" dc-term="spatial">
+            
+            <pair>
+                  <displayed-value>Región I de Tarapacá</displayed-value>
+                  <stored-value>Región I de Tarapacá</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región II de Antofagasta</displayed-value>
+                  <stored-value>Región II de Antofagasta</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región III de Atacama</displayed-value>
+                  <stored-value>Región III de Atacama</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región IV de Coquimbo</displayed-value>
+                  <stored-value>Región IV de Coquimbo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región IX de La Araucanía</displayed-value>
+                  <stored-value>Región IX de La Araucanía</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región Metropolitana de Santiago</displayed-value>
+                  <stored-value>Región Metropolitana de Santiago</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región V de Valparaíso</displayed-value>
+                  <stored-value>Región V de Valparaíso</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región VI del Lib. Gral. Bernardo O'higgins R.</displayed-value>
+                  <stored-value>Región VI del Lib. Gral. Bernardo O'higgins R.</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región VII del Maule</displayed-value>
+                  <stored-value>Región VII del Maule</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región VIII del Bío-bío</displayed-value>
+                  <stored-value>Región VIII del Bío-bío</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región X de Los Lagos</displayed-value>
+                  <stored-value>Región X de Los Lagos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región XI Aisén del Gral. Carlos Ibáñez Del Campo</displayed-value>
+                  <stored-value>Región XI Aisén del Gral. Carlos Ibáñez Del Campo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región XII de Magallanes y La Antártica Chilena</displayed-value>
+                  <stored-value>Región XII de Magallanes y La Antártica Chilena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región XIV  de Los Ríos</displayed-value>
+                  <stored-value>Región XIV  de Los Ríos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Región XV Arica-Parinacota</displayed-value>
+                  <stored-value>Región XV Arica-Parinacota</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="coverage_provincia" dc-term="provincia">
+            
+            <pair>
+                  <displayed-value>Antártica Chilena</displayed-value>
+                  <stored-value>Antártica Chilena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Antofagasta</displayed-value>
+                  <stored-value>Antofagasta</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Arauco</displayed-value>
+                  <stored-value>Arauco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Arica</displayed-value>
+                  <stored-value>Arica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Aysén</displayed-value>
+                  <stored-value>Aysén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Biobío</displayed-value>
+                  <stored-value>Biobío</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cachapoal</displayed-value>
+                  <stored-value>Cachapoal</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Capitán Prat</displayed-value>
+                  <stored-value>Capitán Prat</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cardenal Caro</displayed-value>
+                  <stored-value>Cardenal Caro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cauquenes</displayed-value>
+                  <stored-value>Cauquenes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cautín</displayed-value>
+                  <stored-value>Cautín</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chacabuco</displayed-value>
+                  <stored-value>Chacabuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chañaral</displayed-value>
+                  <stored-value>Chañaral</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chiloé</displayed-value>
+                  <stored-value>Chiloé</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Choapa</displayed-value>
+                  <stored-value>Choapa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Colchagua</displayed-value>
+                  <stored-value>Colchagua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Concepción</displayed-value>
+                  <stored-value>Concepción</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Copiapó</displayed-value>
+                  <stored-value>Copiapó</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cordillera</displayed-value>
+                  <stored-value>Cordillera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coyhaique</displayed-value>
+                  <stored-value>Coyhaique</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curicó</displayed-value>
+                  <stored-value>Curicó</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Loa</displayed-value>
+                  <stored-value>El Loa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Elqui</displayed-value>
+                  <stored-value>Elqui</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>General Carrera</displayed-value>
+                  <stored-value>General Carrera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Huasco</displayed-value>
+                  <stored-value>Huasco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Iquique</displayed-value>
+                  <stored-value>Iquique</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Isla de Pascua</displayed-value>
+                  <stored-value>Isla de Pascua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Limarí</displayed-value>
+                  <stored-value>Limarí</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Linares</displayed-value>
+                  <stored-value>Linares</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Llanquihue</displayed-value>
+                  <stored-value>Llanquihue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Andes</displayed-value>
+                  <stored-value>Los Andes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Magallanes</displayed-value>
+                  <stored-value>Magallanes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Maipo</displayed-value>
+                  <stored-value>Maipo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Malleco</displayed-value>
+                  <stored-value>Malleco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Marga Marga</displayed-value>
+                  <stored-value>Marga Marga</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Melipilla</displayed-value>
+                  <stored-value>Melipilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ñuble</displayed-value>
+                  <stored-value>Ñuble</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Osorno</displayed-value>
+                  <stored-value>Osorno</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Palena</displayed-value>
+                  <stored-value>Palena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Parinacota</displayed-value>
+                  <stored-value>Parinacota</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Petorca</displayed-value>
+                  <stored-value>Petorca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quillota</displayed-value>
+                  <stored-value>Quillota</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ranco</displayed-value>
+                  <stored-value>Ranco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Antonio</displayed-value>
+                  <stored-value>San Antonio</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Felipe de Aconcagua</displayed-value>
+                  <stored-value>San Felipe de Aconcagua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santiago</displayed-value>
+                  <stored-value>Santiago</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Talagante</displayed-value>
+                  <stored-value>Talagante</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Talca</displayed-value>
+                  <stored-value>Talca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tamarugal</displayed-value>
+                  <stored-value>Tamarugal</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tierra del Fuego</displayed-value>
+                  <stored-value>Tierra del Fuego</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tocopilla</displayed-value>
+                  <stored-value>Tocopilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Última Esperanza</displayed-value>
+                  <stored-value>Última Esperanza</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Valdivia</displayed-value>
+                  <stored-value>Valdivia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Valparaíso</displayed-value>
+                  <stored-value>Valparaíso</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="coverage_comuna" dc-term="comuna">
+            
+            <pair>
+                  <displayed-value>Aisén</displayed-value>
+                  <stored-value>Aisén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Algarrobo</displayed-value>
+                  <stored-value>Algarrobo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Alhué</displayed-value>
+                  <stored-value>Alhué</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Alto Bíobío</displayed-value>
+                  <stored-value>Alto Bíobío</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Alto Del Carmen</displayed-value>
+                  <stored-value>Alto Del Carmen</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Alto Hospicio</displayed-value>
+                  <stored-value>Alto Hospicio</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ancud</displayed-value>
+                  <stored-value>Ancud</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Andacollo</displayed-value>
+                  <stored-value>Andacollo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Angol</displayed-value>
+                  <stored-value>Angol</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Antártica</displayed-value>
+                  <stored-value>Antártica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Antofagasta</displayed-value>
+                  <stored-value>Antofagasta</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Antuco</displayed-value>
+                  <stored-value>Antuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Arauco</displayed-value>
+                  <stored-value>Arauco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Arica</displayed-value>
+                  <stored-value>Arica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Buin</displayed-value>
+                  <stored-value>Buin</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Bulnes</displayed-value>
+                  <stored-value>Bulnes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cabildo</displayed-value>
+                  <stored-value>Cabildo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cabo De Hornos</displayed-value>
+                  <stored-value>Cabo De Hornos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cabrero</displayed-value>
+                  <stored-value>Cabrero</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Calama</displayed-value>
+                  <stored-value>Calama</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Calbuco</displayed-value>
+                  <stored-value>Calbuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Caldera</displayed-value>
+                  <stored-value>Caldera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Calera</displayed-value>
+                  <stored-value>Calera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Calera De Tango</displayed-value>
+                  <stored-value>Calera De Tango</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Calle Larga</displayed-value>
+                  <stored-value>Calle Larga</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Camarones</displayed-value>
+                  <stored-value>Camarones</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Camiña</displayed-value>
+                  <stored-value>Camiña</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Canela</displayed-value>
+                  <stored-value>Canela</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cañete</displayed-value>
+                  <stored-value>Cañete</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Carahue</displayed-value>
+                  <stored-value>Carahue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cartagena</displayed-value>
+                  <stored-value>Cartagena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Casablanca</displayed-value>
+                  <stored-value>Casablanca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Castro</displayed-value>
+                  <stored-value>Castro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Catemu</displayed-value>
+                  <stored-value>Catemu</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cauquenes</displayed-value>
+                  <stored-value>Cauquenes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cerrillos</displayed-value>
+                  <stored-value>Cerrillos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cerro Navia</displayed-value>
+                  <stored-value>Cerro Navia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chaitén</displayed-value>
+                  <stored-value>Chaitén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chanco</displayed-value>
+                  <stored-value>Chanco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chañaral</displayed-value>
+                  <stored-value>Chañaral</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chépica</displayed-value>
+                  <stored-value>Chépica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chiguayante</displayed-value>
+                  <stored-value>Chiguayante</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chile Chico</displayed-value>
+                  <stored-value>Chile Chico</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chillán</displayed-value>
+                  <stored-value>Chillán</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chillán Viejo</displayed-value>
+                  <stored-value>Chillán Viejo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chimbarongo</displayed-value>
+                  <stored-value>Chimbarongo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cholchol</displayed-value>
+                  <stored-value>Cholchol</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Chonchi</displayed-value>
+                  <stored-value>Chonchi</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cisnes</displayed-value>
+                  <stored-value>Cisnes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cobquecura</displayed-value>
+                  <stored-value>Cobquecura</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cochamó</displayed-value>
+                  <stored-value>Cochamó</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cochrane</displayed-value>
+                  <stored-value>Cochrane</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Codegua</displayed-value>
+                  <stored-value>Codegua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coelemu</displayed-value>
+                  <stored-value>Coelemu</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coihaique</displayed-value>
+                  <stored-value>Coihaique</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coihueco</displayed-value>
+                  <stored-value>Coihueco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coinco </displayed-value>
+                  <stored-value>Coinco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Colbún</displayed-value>
+                  <stored-value>Colbún</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Colchane</displayed-value>
+                  <stored-value>Colchane</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Colina</displayed-value>
+                  <stored-value>Colina</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Collipulli</displayed-value>
+                  <stored-value>Collipulli</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coltauco</displayed-value>
+                  <stored-value>Coltauco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Combarbalá</displayed-value>
+                  <stored-value>Combarbalá</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Concepción</displayed-value>
+                  <stored-value>Concepción</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Conchalí</displayed-value>
+                  <stored-value>Conchalí</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Concón</displayed-value>
+                  <stored-value>Concón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Constitución</displayed-value>
+                  <stored-value>Constitución</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Contulmo</displayed-value>
+                  <stored-value>Contulmo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Copiapó</displayed-value>
+                  <stored-value>Copiapó</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coquimbo</displayed-value>
+                  <stored-value>Coquimbo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Coronel</displayed-value>
+                  <stored-value>Coronel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Corral</displayed-value>
+                  <stored-value>Corral</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Cunco</displayed-value>
+                  <stored-value>Cunco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curacautín</displayed-value>
+                  <stored-value>Curacautín</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curacaví</displayed-value>
+                  <stored-value>Curacaví</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curaco de Velez</displayed-value>
+                  <stored-value>Curaco de Velez</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curanilahue</displayed-value>
+                  <stored-value>Curanilahue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curarrehue</displayed-value>
+                  <stored-value>Curarrehue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curepto</displayed-value>
+                  <stored-value>Curepto</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Curicó</displayed-value>
+                  <stored-value>Curicó</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Dalcahue</displayed-value>
+                  <stored-value>Dalcahue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Diego De Almagro</displayed-value>
+                  <stored-value>Diego De Almagro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Doñihue</displayed-value>
+                  <stored-value>Doñihue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Bosque</displayed-value>
+                  <stored-value>El Bosque</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Carmen</displayed-value>
+                  <stored-value>El Carmen</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Monte</displayed-value>
+                  <stored-value>El Monte</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Quisco</displayed-value>
+                  <stored-value>El Quisco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>El Tabo</displayed-value>
+                  <stored-value>El Tabo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Empedrado</displayed-value>
+                  <stored-value>Empedrado</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ercilla</displayed-value>
+                  <stored-value>Ercilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Estación Central</displayed-value>
+                  <stored-value>Estación Central</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Florida</displayed-value>
+                  <stored-value>Florida</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Freire</displayed-value>
+                  <stored-value>Freire</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Freirina</displayed-value>
+                  <stored-value>Freirina</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Fresia</displayed-value>
+                  <stored-value>Fresia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Frutillar</displayed-value>
+                  <stored-value>Frutillar</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Futaleufú</displayed-value>
+                  <stored-value>Futaleufú</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Futrono</displayed-value>
+                  <stored-value>Futrono</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Galvarino</displayed-value>
+                  <stored-value>Galvarino</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>General Lagos</displayed-value>
+                  <stored-value>General Lagos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Gorbea</displayed-value>
+                  <stored-value>Gorbea</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Graneros</displayed-value>
+                  <stored-value>Graneros</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Guaitecas</displayed-value>
+                  <stored-value>Guaitecas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Hijuelas</displayed-value>
+                  <stored-value>Hijuelas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Hualaihué</displayed-value>
+                  <stored-value>Hualaihué</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Hualañé</displayed-value>
+                  <stored-value>Hualañé</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Hualpén</displayed-value>
+                  <stored-value>Hualpén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Hualqui </displayed-value>
+                  <stored-value>Hualqui</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Huara</displayed-value>
+                  <stored-value>Huara</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Huasco</displayed-value>
+                  <stored-value>Huasco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Huechuraba</displayed-value>
+                  <stored-value>Huechuraba</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Illapel </displayed-value>
+                  <stored-value>Illapel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Independencia</displayed-value>
+                  <stored-value>Independencia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Iquique</displayed-value>
+                  <stored-value>Iquique</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Isla De Maipo</displayed-value>
+                  <stored-value>Isla De Maipo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Isla De Pascua</displayed-value>
+                  <stored-value>Isla De Pascua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Juan Fernández</displayed-value>
+                  <stored-value>Juan Fernández</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Cisterna</displayed-value>
+                  <stored-value>La Cisterna</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Cruz</displayed-value>
+                  <stored-value>La Cruz</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Estrella</displayed-value>
+                  <stored-value>La Estrella</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Florida</displayed-value>
+                  <stored-value>La Florida</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Granja</displayed-value>
+                  <stored-value>La Granja</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Higuera</displayed-value>
+                  <stored-value>La Higuera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Ligua</displayed-value>
+                  <stored-value>La Ligua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Pintana</displayed-value>
+                  <stored-value>La Pintana</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Reina</displayed-value>
+                  <stored-value>La Reina</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Serena</displayed-value>
+                  <stored-value>La Serena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>La Unión</displayed-value>
+                  <stored-value>La Unión</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lago Ranco</displayed-value>
+                  <stored-value>Lago Ranco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lago Verde</displayed-value>
+                  <stored-value>Lago Verde</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Laguna Blanca</displayed-value>
+                  <stored-value>Laguna Blanca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Laja</displayed-value>
+                  <stored-value>Laja</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lampa</displayed-value>
+                  <stored-value>Lampa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lanco</displayed-value>
+                  <stored-value>Lanco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Las Cabras</displayed-value>
+                  <stored-value>Las Cabras</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Las Condes</displayed-value>
+                  <stored-value>Las Condes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lautaro</displayed-value>
+                  <stored-value>Lautaro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lebu </displayed-value>
+                  <stored-value>Lebu</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Licantén</displayed-value>
+                  <stored-value>Licantén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Limache</displayed-value>
+                  <stored-value>Limache</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Linares</displayed-value>
+                  <stored-value>Linares</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Litueche</displayed-value>
+                  <stored-value>Litueche</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Llaillay</displayed-value>
+                  <stored-value>Llaillay</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Llanquihue</displayed-value>
+                  <stored-value>Llanquihue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lo Barnechea</displayed-value>
+                  <stored-value>Lo Barnechea</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lo Espejo</displayed-value>
+                  <stored-value>Lo Espejo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lo Prado</displayed-value>
+                  <stored-value>Lo Prado</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lolol</displayed-value>
+                  <stored-value>Lolol</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Loncoche</displayed-value>
+                  <stored-value>Loncoche</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Longaví</displayed-value>
+                  <stored-value>Longaví</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lonquimay</displayed-value>
+                  <stored-value>Lonquimay</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Alamos</displayed-value>
+                  <stored-value>Los Alamos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Andes</displayed-value>
+                  <stored-value>Los Andes</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Angeles</displayed-value>
+                  <stored-value>Los Angeles</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Lagos</displayed-value>
+                  <stored-value>Los Lagos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Muermos</displayed-value>
+                  <stored-value>Los Muermos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Sauces</displayed-value>
+                  <stored-value>Los Sauces</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Los Vilos</displayed-value>
+                  <stored-value>Los Vilos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lota</displayed-value>
+                  <stored-value>Lota</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Lumaco</displayed-value>
+                  <stored-value>Lumaco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Machalí</displayed-value>
+                  <stored-value>Machalí</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Macul</displayed-value>
+                  <stored-value>Macul</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Máfil</displayed-value>
+                  <stored-value>Máfil</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Maipú</displayed-value>
+                  <stored-value>Maipú</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Malloa</displayed-value>
+                  <stored-value>Malloa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Marchihue</displayed-value>
+                  <stored-value>Marchihue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>María Elena</displayed-value>
+                  <stored-value>María Elena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>María Pinto</displayed-value>
+                  <stored-value>María Pinto</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Mariquina</displayed-value>
+                  <stored-value>Mariquina</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Maule</displayed-value>
+                  <stored-value>Maule</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Maullín</displayed-value>
+                  <stored-value>Maullín</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Mejillones</displayed-value>
+                  <stored-value>Mejillones</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Melipeuco</displayed-value>
+                  <stored-value>Melipeuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Melipilla</displayed-value>
+                  <stored-value>Melipilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Molina</displayed-value>
+                  <stored-value>Molina</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Monte Patria</displayed-value>
+                  <stored-value>Monte Patria</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Mostazal</displayed-value>
+                  <stored-value>Mostazal</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Mulchén</displayed-value>
+                  <stored-value>Mulchén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Nacimiento</displayed-value>
+                  <stored-value>Nacimiento</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Nancagua</displayed-value>
+                  <stored-value>Nancagua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Natales</displayed-value>
+                  <stored-value>Natales</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Navidad</displayed-value>
+                  <stored-value>Navidad</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Negrete</displayed-value>
+                  <stored-value>Negrete</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ninhue</displayed-value>
+                  <stored-value>Ninhue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Nogales</displayed-value>
+                  <stored-value>Nogales</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Nueva Imperial</displayed-value>
+                  <stored-value>Nueva Imperial</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ñiquén</displayed-value>
+                  <stored-value>Ñiquén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ñuñoa</displayed-value>
+                  <stored-value>Ñuñoa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>O'higgins</displayed-value>
+                  <stored-value>O'higgins</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Olivar</displayed-value>
+                  <stored-value>Olivar</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ollagüe</displayed-value>
+                  <stored-value>Ollagüe</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Olmué</displayed-value>
+                  <stored-value>Olmué</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Osorno</displayed-value>
+                  <stored-value>Osorno</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ovalle </displayed-value>
+                  <stored-value>Ovalle</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Padre Hurtado</displayed-value>
+                  <stored-value>Padre Hurtado</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Padre Las Casas</displayed-value>
+                  <stored-value>Padre Las Casas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Paiguano</displayed-value>
+                  <stored-value>Paiguano</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Paillaco</displayed-value>
+                  <stored-value>Paillaco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Paine</displayed-value>
+                  <stored-value>Paine</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Palena</displayed-value>
+                  <stored-value>Palena</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Palmilla</displayed-value>
+                  <stored-value>Palmilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Panguipulli</displayed-value>
+                  <stored-value>Panguipulli</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Panquehue</displayed-value>
+                  <stored-value>Panquehue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Papudo</displayed-value>
+                  <stored-value>Papudo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Paredones</displayed-value>
+                  <stored-value>Paredones</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Parral</displayed-value>
+                  <stored-value>Parral</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pedro Aguirre Cerda</displayed-value>
+                  <stored-value>Pedro Aguirre Cerda</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pelarco</displayed-value>
+                  <stored-value>Pelarco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pelluhue</displayed-value>
+                  <stored-value>Pelluhue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pemuco</displayed-value>
+                  <stored-value>Pemuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pencahue</displayed-value>
+                  <stored-value>Pencahue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Penco</displayed-value>
+                  <stored-value>Penco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Peñaflor</displayed-value>
+                  <stored-value>Peñaflor</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Peñalolén</displayed-value>
+                  <stored-value>Peñalolén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Peralillo</displayed-value>
+                  <stored-value>Peralillo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Perquenco</displayed-value>
+                  <stored-value>Perquenco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Petorca</displayed-value>
+                  <stored-value>Petorca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Peumo</displayed-value>
+                  <stored-value>Peumo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pica</displayed-value>
+                  <stored-value>Pica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pichidegua</displayed-value>
+                  <stored-value>Pichidegua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pichilemu</displayed-value>
+                  <stored-value>Pichilemu</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pinto</displayed-value>
+                  <stored-value>Pinto</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pirque</displayed-value>
+                  <stored-value>Pirque</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pitrufquen</displayed-value>
+                  <stored-value>Pitrufquen</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Placilla</displayed-value>
+                  <stored-value>Placilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Portezuelo</displayed-value>
+                  <stored-value>Portezuelo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Porvenir</displayed-value>
+                  <stored-value>Porvenir</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pozo Almonte</displayed-value>
+                  <stored-value>Pozo Almonte</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Primavera</displayed-value>
+                  <stored-value>Primavera</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Providencia</displayed-value>
+                  <stored-value>Providencia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puchuncaví</displayed-value>
+                  <stored-value>Puchuncaví</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pucón</displayed-value>
+                  <stored-value>Pucón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pudahuel</displayed-value>
+                  <stored-value>Pudahuel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puente Alto</displayed-value>
+                  <stored-value>Puente Alto</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puerto Montt</displayed-value>
+                  <stored-value>Puerto Montt</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puerto Octay</displayed-value>
+                  <stored-value>Puerto Octay</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puerto Varas</displayed-value>
+                  <stored-value>Puerto Varas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Pumanque</displayed-value>
+                  <stored-value>Pumanque</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Punitaqui</displayed-value>
+                  <stored-value>Punitaqui</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Punta Arenas</displayed-value>
+                  <stored-value>Punta Arenas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puqueldón</displayed-value>
+                  <stored-value>Puqueldón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Purén</displayed-value>
+                  <stored-value>Purén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Purranque</displayed-value>
+                  <stored-value>Purranque</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Putaendo</displayed-value>
+                  <stored-value>Putaendo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Putre</displayed-value>
+                  <stored-value>Putre</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Puyehue</displayed-value>
+                  <stored-value>Puyehue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Queilén</displayed-value>
+                  <stored-value>Queilén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quellón</displayed-value>
+                  <stored-value>Quellón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quemchi</displayed-value>
+                  <stored-value>Quemchi</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quilaco</displayed-value>
+                  <stored-value>Quilaco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quilicura</displayed-value>
+                  <stored-value>Quilicura</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quilleco</displayed-value>
+                  <stored-value>Quilleco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quillón</displayed-value>
+                  <stored-value>Quillón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quillota</displayed-value>
+                  <stored-value>Quillota</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quilpué</displayed-value>
+                  <stored-value>Quilpué</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quinchao</displayed-value>
+                  <stored-value>Quinchao</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quinta De Tilcoco</displayed-value>
+                  <stored-value>Quinta De Tilcoco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quinta Normal</displayed-value>
+                  <stored-value>Quinta Normal</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quintero</displayed-value>
+                  <stored-value>Quintero</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Quirihue</displayed-value>
+                  <stored-value>Quirihue</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Rancagua</displayed-value>
+                  <stored-value>Rancagua</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Ránquil</displayed-value>
+                  <stored-value>Ránquil</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Rauco</displayed-value>
+                  <stored-value>Rauco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Recoleta</displayed-value>
+                  <stored-value>Recoleta</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Renaico</displayed-value>
+                  <stored-value>Renaico</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Renca</displayed-value>
+                  <stored-value>Renca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Rengo</displayed-value>
+                  <stored-value>Rengo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Requínoa</displayed-value>
+                  <stored-value>Requínoa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Retiro</displayed-value>
+                  <stored-value>Retiro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Rinconada</displayed-value>
+                  <stored-value>Rinconada</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Río Bueno</displayed-value>
+                  <stored-value>Río Bueno</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Río Claro</displayed-value>
+                  <stored-value>Río Claro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Río Hurtado</displayed-value>
+                  <stored-value>Río Hurtado</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Río Ibáñez</displayed-value>
+                  <stored-value>Río Ibáñez</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Rio Negro</displayed-value>
+                  <stored-value>Rio Negro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Río Verde</displayed-value>
+                  <stored-value>Río Verde</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Romeral</displayed-value>
+                  <stored-value>Romeral</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Saavedra</displayed-value>
+                  <stored-value>Saavedra</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Sagrada Familia</displayed-value>
+                  <stored-value>Sagrada Familia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Salamanca</displayed-value>
+                  <stored-value>Salamanca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Antonio</displayed-value>
+                  <stored-value>San Antonio</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Bernardo</displayed-value>
+                  <stored-value>San Bernardo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Carlos</displayed-value>
+                  <stored-value>San Carlos</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Clemente</displayed-value>
+                  <stored-value>San Clemente</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Esteban</displayed-value>
+                  <stored-value>San Esteban</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Fabián</displayed-value>
+                  <stored-value>San Fabián</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Felipe</displayed-value>
+                  <stored-value>San Felipe</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Fernando</displayed-value>
+                  <stored-value>San Fernando</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Gregorio</displayed-value>
+                  <stored-value>San Gregorio</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Ignacio</displayed-value>
+                  <stored-value>San Ignacio</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Javier</displayed-value>
+                  <stored-value>San Javier</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Joaquín</displayed-value>
+                  <stored-value>San Joaquín</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San José De Maipo</displayed-value>
+                  <stored-value>San José De Maipo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Juan De La Costa</displayed-value>
+                  <stored-value>San Juan De La Costa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Miguel</displayed-value>
+                  <stored-value>San Miguel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Nicolás</displayed-value>
+                  <stored-value>San Nicolás</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Pablo</displayed-value>
+                  <stored-value>San Pablo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Pedro</displayed-value>
+                  <stored-value>San Pedro</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Pedro De Atacama</displayed-value>
+                  <stored-value>San Pedro De Atacama</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Pedro De La Paz</displayed-value>
+                  <stored-value>San Pedro De La Paz</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Rafael</displayed-value>
+                  <stored-value>San Rafael</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Ramón</displayed-value>
+                  <stored-value>San Ramón</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Rosendo</displayed-value>
+                  <stored-value>San Rosendo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>San Vicente</displayed-value>
+                  <stored-value>San Vicente</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santa Bárbara</displayed-value>
+                  <stored-value>Santa Bárbara</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santa Cruz</displayed-value>
+                  <stored-value>Santa Cruz</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santa Juana</displayed-value>
+                  <stored-value>Santa Juana</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santa María</displayed-value>
+                  <stored-value>Santa María</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santiago</displayed-value>
+                  <stored-value>Santiago</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Santo Domingo </displayed-value>
+                  <stored-value>Santo Domingo</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Sierra Gorda</displayed-value>
+                  <stored-value>Sierra Gorda</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Talagante</displayed-value>
+                  <stored-value>Talagante</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Talca</displayed-value>
+                  <stored-value>Talca</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Talcahuano</displayed-value>
+                  <stored-value>Talcahuano</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Taltal</displayed-value>
+                  <stored-value>Taltal</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Temuco</displayed-value>
+                  <stored-value>Temuco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Teno</displayed-value>
+                  <stored-value>Teno</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Teodoro Schmidt</displayed-value>
+                  <stored-value>Teodoro Schmidt</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tierra Amarilla</displayed-value>
+                  <stored-value>Tierra Amarilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tiltil</displayed-value>
+                  <stored-value>Tiltil</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Timaukel</displayed-value>
+                  <stored-value>Timaukel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tirúa</displayed-value>
+                  <stored-value>Tirúa</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tocopilla</displayed-value>
+                  <stored-value>Tocopilla</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Toltén</displayed-value>
+                  <stored-value>Toltén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tome</displayed-value>
+                  <stored-value>Tome</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Torres Del Paine</displayed-value>
+                  <stored-value>Torres Del Paine</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tortel</displayed-value>
+                  <stored-value>Tortel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Traiguén</displayed-value>
+                  <stored-value>Traiguén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Treguaco</displayed-value>
+                  <stored-value>Treguaco</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tucapel</displayed-value>
+                  <stored-value>Tucapel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Valdivia</displayed-value>
+                  <stored-value>Valdivia</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Vallenar </displayed-value>
+                  <stored-value>Vallenar</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Valparaíso</displayed-value>
+                  <stored-value>Valparaíso</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Vichuquén</displayed-value>
+                  <stored-value>Vichuquén</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Victoria</displayed-value>
+                  <stored-value>Victoria</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Vicuña</displayed-value>
+                  <stored-value>Vicuña</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Vilcún</displayed-value>
+                  <stored-value>Vilcún</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Villa Alegre</displayed-value>
+                  <stored-value>Villa Alegre</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Villa Alemana</displayed-value>
+                  <stored-value>Villa Alemana</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Villarrica</displayed-value>
+                  <stored-value>Villarrica</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Viña Del Mar</displayed-value>
+                  <stored-value>Viña Del Mar</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Vitacura</displayed-value>
+                  <stored-value>Vitacura</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Yerbas Buenas</displayed-value>
+                  <stored-value>Yerbas Buenas</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Yumbel</displayed-value>
+                  <stored-value>Yumbel</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Yungay</displayed-value>
+                  <stored-value>Yungay</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Zapallar</displayed-value>
+                  <stored-value>Zapallar</stored-value>
+            </pair>
+        </value-pairs>
+     <value-pairs value-pairs-name="document_status" dc-term="status">   
+            <pair>
+                <displayed-value>Disponible</displayed-value>
+                <stored-value>Disponible</stored-value>
+            </pair>         
+            <pair>
+                <displayed-value>Derechos en Trámite</displayed-value>
+                <stored-value>Derechos en Trámite</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Embargado</displayed-value>
+                <stored-value>Embargado</stored-value>
+            </pair>         
+        </value-pairs>
+     <value-pairs value-pairs-name="category_document" dc-term="document">
+            
+            <pair>
+                <displayed-value>Tipo de Recurso 1</displayed-value>
+                <stored-value>Tipo de Recurso 1</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Tipo de Recurso 2</displayed-value>
+                <stored-value>Tipo de Recurso 2</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Tipo de Recurso 3</displayed-value>
+                <stored-value>Tipo de Recurso 3</stored-value>
+            </pair>
+            
+        </value-pairs>
+     <value-pairs value-pairs-name="dc_format" dc-term="format">
+            
+            <pair>
+                <displayed-value>doc</displayed-value>
+                <stored-value>application/msword</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>docx</displayed-value>
+                <stored-value>application/vnd.openxmlformats-officedocument.wordprocessingml.document</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>flv</displayed-value>
+                <stored-value>video/x-flv</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>gif</displayed-value>
+                <stored-value>image/gif</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>htm</displayed-value>
+                <stored-value>text/html</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>html</displayed-value>
+                <stored-value>text/html</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>jpeg</displayed-value>
+                <stored-value>image/jpeg</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>jpg</displayed-value>
+                <stored-value>image/jpeg</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>mov</displayed-value>
+                <stored-value>video/quicktime</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>mp3</displayed-value>
+                <stored-value>audio/mpeg</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>mp4</displayed-value>
+                <stored-value>video/mp4</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>mpeg</displayed-value>
+                <stored-value>video/mpeg</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>mpg</displayed-value>
+                <stored-value>video/mpeg</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>pdf</displayed-value>
+                <stored-value>application/pdf</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>ppt</displayed-value>
+                <stored-value>application/vnd.ms-powerpoint</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>pptx</displayed-value>
+                <stored-value>application/vnd.openxmlformats-officedocument.presentationml.presentation</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>rar</displayed-value>
+                <stored-value>application/x-rar-compressed</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>rdf</displayed-value>
+                <stored-value>application/rdf+xml; charset=utf-8</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>swf</displayed-value>
+                <stored-value>application/x-shockwave-flash</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>tif</displayed-value>
+                <stored-value>image/tiff</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>tiff</displayed-value>
+                <stored-value>image/tiff</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>txt</displayed-value>
+                <stored-value>text/plain</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>wmv</displayed-value>
+                <stored-value>video/x-ms-wmv</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>xls</displayed-value>
+                <stored-value>application/vnd.ms-excel</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>xlsx</displayed-value>
+                <stored-value>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>xml</displayed-value>
+                <stored-value>application/xml</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>zip</displayed-value>
+                <stored-value>application/zip</stored-value>
+            </pair>
+        </value-pairs>
+   <value-pairs value-pairs-name="dc_type" dc-term="type">
+            
+            <pair>
+                  <displayed-value>Tipo de Archivo 1</displayed-value>
+                  <stored-value>Tipo de Archivo 1</stored-value>
+            </pair>
+            <pair>
+                  <displayed-value>Tipo de Archivo 2</displayed-value>
+                  <stored-value>Tipo de Archivo 2</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Tipo de Archivo 3</displayed-value>
+                <stored-value>Tipo de Archivo 3</stored-value>
+            </pair>
+        </value-pairs>
+   <value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
+     <pair>
+       <displayed-value>ISSN</displayed-value>
+       <stored-value>issn</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>other</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>ISMN</displayed-value>
+       <stored-value>ismn</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Gov't Doc #</displayed-value>
+       <stored-value>govdoc</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>URI</displayed-value>
+       <stored-value>uri</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>ISBN</displayed-value>
+       <stored-value>isbn</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="common_types" dc-term="type">
+     <pair>
+       <displayed-value>Animation</displayed-value>
+       <stored-value>Animation</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Article</displayed-value>
+       <stored-value>Article</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Book</displayed-value>
+       <stored-value>Book</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Book chapter</displayed-value>
+       <stored-value>Book chapter</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Dataset</displayed-value>
+       <stored-value>Dataset</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Learning Object</displayed-value>
+       <stored-value>Learning Object</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Image</displayed-value>
+       <stored-value>Image</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Image, 3-D</displayed-value>
+       <stored-value>Image, 3-D</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Map</displayed-value>
+       <stored-value>Map</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Musical Score</displayed-value>
+       <stored-value>Musical Score</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Plan or blueprint</displayed-value>
+       <stored-value>Plan or blueprint</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Preprint</displayed-value>
+       <stored-value>Preprint</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Presentation</displayed-value>
+       <stored-value>Presentation</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Recording, acoustical</displayed-value>
+       <stored-value>Recording, acoustical</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Recording, musical</displayed-value>
+       <stored-value>Recording, musical</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Recording, oral</displayed-value>
+       <stored-value>Recording, oral</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Software</displayed-value>
+       <stored-value>Software</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Technical Report</displayed-value>
+       <stored-value>Technical Report</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Thesis</displayed-value>
+       <stored-value>Thesis</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Video</displayed-value>
+       <stored-value>Video</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Working Paper</displayed-value>
+       <stored-value>Working Paper</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+   </value-pairs>
+
+
+ </form-value-pairs>
+
+</input-forms>
