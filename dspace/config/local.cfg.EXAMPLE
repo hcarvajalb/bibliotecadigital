@@ -31,13 +31,13 @@
 dspace.dir=/dspace
 
 # DSpace host name - should match base URL.  Do not include port number
-dspace.hostname = localhost
+#dspace.hostname = localhost
 
 # DSpace base host URL.  Include port number etc.
-dspace.baseUrl = http://localhost:8080
+#dspace.baseUrl = http://localhost:8080
 
 # The user interface you will be using for DSpace. Common usage is either xmlui or jspui
-dspace.ui = xmlui
+#dspace.ui = xmlui
 
 # Full link your end users will use to access DSpace. In most cases, this will be the baseurl followed by
 # the context path to the UI you are using.
@@ -47,7 +47,7 @@ dspace.ui = xmlui
 #dspace.url = ${dspace.baseUrl}/${dspace.ui}
 
 # Name of the site
-dspace.name = DSpace at My University
+#dspace.name = DSpace at My University
 
 # assetstore.dir, look at DSPACE/config/spring/api/bitstore.xml for more options
 # default is ${dspace.dir}/assetstore, uncomment and modify if you need to use a different path
@@ -55,14 +55,14 @@ dspace.name = DSpace at My University
 assetstore.dir = ${dspace.dir}/assetstore
 
 # Default language for metadata values
-#default.language = en_US
+#default.language = es_ES
 
 # Solr server/webapp.
 # DSpace uses Solr for all search/browse capability (and for usage statistics by default).
 # The included 'solr' webapp MUST be deployed to Tomcat for DSpace to function.
 # Usually it will be available via port 8080 and the 'solr' context path. But,
 # But, you may need to modify this if you are running DSpace on a custom port, etc.
-solr.server = http://localhost:8080/solr
+#solr.server = http://localhost:8080/solr
 
 ##########################
 # DATABASE CONFIGURATION #
@@ -77,7 +77,7 @@ db.url = jdbc:postgresql://localhost:5432/dspace
 # JDBC Driver
 #    * For Postgres: org.postgresql.Driver
 #    * For Oracle:   oracle.jdbc.OracleDriver
-db.driver = org.postgresql.Driver
+#db.driver = org.postgresql.Driver
 
 # Database Dialect (for Hibernate)
 #    * For Postgres: org.dspace.storage.rdbms.hibernate.postgres.DSpacePostgreSQL82Dialect
