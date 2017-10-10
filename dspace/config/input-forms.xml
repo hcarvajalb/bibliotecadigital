@@ -38,7 +38,7 @@
 
    <form name="traditional">
             <page number="1">
-                <field>
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>identifier</dc-element>
                     <dc-qualifier>isbn</dc-qualifier>
@@ -57,7 +57,7 @@
                     <input-type>onebox</input-type>
                     <hint>Registra el International Standard Serial Number.</hint>
                     <required></required>
-                </field>
+                </field>-->
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>title</dc-element>
@@ -65,10 +65,10 @@
                     <repeatable>false</repeatable>
                     <label>Nombre o Título</label>
                     <input-type>onebox</input-type>
-                    <hint>Registra el nombre o título propio del recurso.</hint>
+                    <hint>Registra el nombre o título propio del recurso, asignado generalmente por el creador o editor.</hint>
                     <required>Título obligatorio</required>
                 </field>
-                <field>
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>title</dc-element>
                     <dc-qualifier>alternative</dc-qualifier>
@@ -77,115 +77,15 @@
                     <input-type>onebox</input-type>
                     <hint>Registra cualquier variante del nombre título original del recurso.</hint>
                     <required></required>
-                </field>
+                </field>-->
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>contributor</dc-element>
                     <dc-qualifier>author</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Autor del recurso</label>
+                    <label>Autor Personal</label>
                     <input-type>name</input-type>
-                    <hint>Persona responsable del contenido intelectual del recurso que se describe.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>language</dc-element>
-                    <dc-qualifier>iso</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Idioma código ISO</label>
-                    <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
-                    <hint>Describe la forma ISO del idioma, descrito en 3 caracteres. Norma ISO 639-3 Code o el idioma de la pista de un material audiovisual.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>abstract</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Resumen o descripción</label>
-                    <input-type>textarea</input-type>
-                    <hint>Registra un resumen del contenido del recurso que se describe.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier></dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Descripción de contenido</label>
-                    <input-type>textarea</input-type>
-                    <hint>Para describir cualquier característica general del recurso descrito.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>subject</dc-element>
-                    <dc-qualifier>spanish</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Palabras Claves</label>
-                    <input-type>onebox</input-type>
-                    <hint>Se registra palabras claves representativas del recurso.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>audience</dc-element>
-                    <dc-qualifier></dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Audiencia objetivo</label>
-                    <input-type value-pairs-name="dc_audience">dropdown</input-type>
-                    <hint>Registra la clase de entidad para quién el recurso pretende ser útil.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>date</dc-element>
-                    <dc-qualifier>issued</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Fecha de Publicación</label>
-                    <input-type>date</input-type>
-                    <hint>Registra la fecha de publicación del recurso.</hint>
-                    <required>Campo requerido.</required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>coverage</dc-element>
-                    <dc-qualifier></dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>País</label>
-                    <input-type value-pairs-name="coverage_pais">dropdown</input-type>
-                    <hint>Registra el nombre de país relacionado al recurso.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>coverage</dc-element>
-                    <dc-qualifier>spatial</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Región</label>
-                    <input-type value-pairs-name="coverage_region">dropdown</input-type>
-                    <hint>Registra la región relacionada al recurso.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>coverage</dc-element>
-                    <dc-qualifier>provincia</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Provincia</label>
-                    <input-type value-pairs-name="coverage_provincia">dropdown</input-type>
-                    <hint>Registra la provincia relacionada al recurso.</hint>
-                    <required></required>
-                </field>
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>coverage</dc-element>
-                    <dc-qualifier>comuna</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Comuna</label>
-                    <input-type value-pairs-name="coverage_comuna">dropdown</input-type>
-                    <hint>Registra la comuna relacionada al recurso.</hint>
+                    <hint>Persona natural responsable de crear el contenido intelectual del recurso que se describe.</hint>
                     <required></required>
                 </field>
                 <field>
@@ -195,9 +95,129 @@
                     <repeatable>true</repeatable>
                     <label>Autor institucional</label>
                     <input-type>onebox</input-type>
-                    <hint>Registra las entidades ya sean instituciones y /o proyectos responsables del contenido del recurso descrito.</hint>
+                    <hint>Registra las entidades ya sean instituciones, proyectos, unidades, departamentos y/o divisiones responsables del contenido del recurso descrito.</hint>
                     <required></required>
                 </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>date</dc-element>
+                    <dc-qualifier>issued</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Fecha de Publicación</label>
+                    <input-type>date</input-type>
+                    <hint>Se registra la fecha de creación o publicación del recurso.</hint>
+                    <required>Campo requerido.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>subject</dc-element>
+                    <dc-qualifier>spanish</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Palabras Claves</label>
+                    <input-type>onebox</input-type>
+                    <hint>Representan el o los temas del recurso, expresados a través de palabras representativas del contenido.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Descripción de contenido</label>
+                    <input-type>textarea</input-type>
+                    <hint>Relato breve que da cuenta del contenido global del recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>category</dc-element>
+                    <dc-qualifier>document</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Tipo de Estudio</label>
+                    <input-type value-pairs-name="category_document">dropdown</input-type>
+                    <hint>Registra el tipo de estudio al cual pertenece el recurso.</hint>
+                    <required></required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>source</dc-element>
+                    <dc-qualifier>entity</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Fuente del Recurso</label>
+                    <input-type>onebox</input-type>
+                    <hint>Registra el nombre de la institución desde la cual se sube el recurso a la plataforma.</hint>
+                    <required></required>
+                </field>
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>language</dc-element>
+                    <dc-qualifier>iso</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Idioma código ISO</label>
+                    <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+                    <hint>Describe la forma ISO del idioma, descrito en 3 caracteres. Norma ISO 639-3 Code o el idioma de la pista de un material audiovisual.</hint>
+                    <required></required>
+                </field>-->
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>abstract</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Resumen</label>
+                    <input-type>textarea</input-type>
+                    <hint>Registra un resumen del contenido del recurso que se describe.</hint>
+                    <required></required>
+                </field>
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>audience</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Audiencia objetivo</label>
+                    <input-type value-pairs-name="dc_audience">dropdown</input-type>
+                    <hint>Registra la clase de entidad para quién el recurso pretende ser útil.</hint>
+                    <required></required>
+                </field>-->
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>País</label>
+                    <input-type value-pairs-name="coverage_pais">dropdown</input-type>
+                    <hint>Registra el nombre de país relacionado al recurso.</hint>
+                    <required></required>
+                </field>-->
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>spatial</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Región</label>
+                    <input-type value-pairs-name="coverage_region">dropdown</input-type>
+                    <hint>Registra la región relacionada al recurso.</hint>
+                    <required></required>
+                </field>-->
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>provincia</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Provincia</label>
+                    <input-type value-pairs-name="coverage_provincia">dropdown</input-type>
+                    <hint>Registra la provincia relacionada al recurso.</hint>
+                    <required></required>
+                </field>-->
+<!--                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>coverage</dc-element>
+                    <dc-qualifier>comuna</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Comuna</label>
+                    <input-type value-pairs-name="coverage_comuna">dropdown</input-type>
+                    <hint>Registra la comuna relacionada al recurso.</hint>
+                    <required></required>
+                </field>-->
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>contributor</dc-element>
@@ -208,7 +228,7 @@
                     <hint>Registra a las personas que actúan como editores del recurso que se describe.</hint>
                     <required></required>
                 </field>
-                <field>
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>document</dc-element>
                     <dc-qualifier>status</dc-qualifier>
@@ -217,9 +237,9 @@
                     <input-type value-pairs-name="document_status">dropdown</input-type>
                     <hint>Un documento y/o publicación puede estar con estado"Embargado" o "Disponible", "Derechos en Trámite". Si está con embargo la publicación no es visible al público.</hint>
                     <required></required>
-                </field>
-            </page>
-            <page number="2">
+                </field>-->
+<!--            </page>
+            <page number="2">-->
 <!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>category</dc-element>
@@ -230,16 +250,7 @@
                     <hint>Registra la comunidad de pertenencia.</hint>
                     <required></required>
                 </field>-->
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>category</dc-element>
-                    <dc-qualifier>document</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Tipo de recurso</label>
-                    <input-type value-pairs-name="category_document">dropdown</input-type>
-                    <hint>Registra la categoría del recurso o documento según tipología de recursos por cada comunidad.</hint>
-                    <required></required>
-                </field>
+                
 <!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>contributor</dc-element>
@@ -247,10 +258,10 @@
                     <repeatable>false</repeatable>
                     <label>Participante</label>
                     <input-type>name</input-type>
-                    <hint>Registra los participantes que han contribuido en el ciclo de vida del recurso de aprendizaje.</hint>
+                    <hint>Registra los participantes que han contribuido en el ciclo de vida del recurso.</hint>
                     <required></required>
                 </field>-->
-                <field>
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>language</dc-element>
                     <dc-qualifier>item</dc-qualifier>
@@ -259,8 +270,8 @@
                     <input-type>onebox</input-type>
                     <hint>Describe el idioma en el cuál el registro se encuentra disponible.</hint>
                     <required></required>
-                </field>
-                <field>
+                </field>-->
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>format</dc-element>
                     <dc-qualifier></dc-qualifier>
@@ -269,8 +280,8 @@
                     <input-type value-pairs-name="dc_format">dropdown</input-type>
                     <hint>Manifestación física o digital del recurso.</hint>
                     <required></required>
-                </field>
-                <field>
+                </field>-->
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>type</dc-element>
                     <dc-qualifier></dc-qualifier>
@@ -279,8 +290,8 @@
                     <input-type value-pairs-name="dc_type">dropdown</input-type>
                     <hint>Registra el tipo de archivo físico.</hint>
                     <required></required>
-                </field>
-                <field>
+                </field>-->
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>rights</dc-element>
                     <dc-qualifier></dc-qualifier>
@@ -289,8 +300,8 @@
                     <input-type>onebox</input-type>
                     <hint>Registra el nombre o tipo de licencia de uso del recurso que se describe.</hint>
                     <required></required>
-                </field>
-                <field>
+                </field>-->
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>rights</dc-element>
                     <dc-qualifier>description</dc-qualifier>
@@ -309,8 +320,8 @@
                     <input-type>onebox</input-type>
                     <hint>Registra el enlace a la descripción de la licencia de uso, por ej. Creative Commons.</hint>
                     <required></required>
-                </field>
-                <field>
+                </field>-->
+<!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>relation</dc-element>
                     <dc-qualifier>type</dc-qualifier>
@@ -369,7 +380,7 @@
                     <input-type>onebox</input-type>
                     <hint>Número del cual forma parte el recurso descrito.</hint>
                     <required></required>
-                </field>
+                </field>-->
 <!--                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>idcatalogador</dc-element>
@@ -2164,16 +2175,44 @@
      <value-pairs value-pairs-name="category_document" dc-term="document">
             
             <pair>
-                <displayed-value>Tipo de Recurso 1</displayed-value>
-                <stored-value>Tipo de Recurso 1</stored-value>
+                <displayed-value>Análisis</displayed-value>
+                <stored-value>Análisis</stored-value>
             </pair>
             <pair>
-                <displayed-value>Tipo de Recurso 2</displayed-value>
-                <stored-value>Tipo de Recurso 2</stored-value>
+                <displayed-value>Estrategias</displayed-value>
+                <stored-value>Estrategias</stored-value>
             </pair>
             <pair>
-                <displayed-value>Tipo de Recurso 3</displayed-value>
-                <stored-value>Tipo de Recurso 3</stored-value>
+                <displayed-value>Estudios Nacionales Finales</displayed-value>
+                <stored-value>Estudios Nacionales Finales</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Evaluaciones de Planes</displayed-value>
+                <stored-value>Evaluaciones de Planes</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Informes</displayed-value>
+                <stored-value>Informes</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Investigaciones</displayed-value>
+                <stored-value>Investigaciones</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Mediciones</displayed-value>
+                <stored-value>Mediciones</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Modelos</displayed-value>
+                <stored-value>Modelos</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Monitoreo</displayed-value>
+                <stored-value>Monitoreo</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Prospectivas</displayed-value>
+                <stored-value>Prospectivas</stored-value>
             </pair>
             
         </value-pairs>
