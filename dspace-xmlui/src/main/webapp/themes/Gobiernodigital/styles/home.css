@@ -1,0 +1,89 @@
+.search-form {
+    background-color: #fff;
+    position: relative;
+    margin: 10px 20%;
+}
+
+input[type=text], input[type=email], input[type=password], input[type="date"], input[type="search"], input[type="tel"], select, textarea {
+    width: 100%;
+    color: #313131;
+    background-color: #fff;
+    border-radius: 0;
+    border: 2px solid #E3E5EF;
+    text-indent: 5px;
+    font-size: 14px;
+    padding: 5px 16px;
+    height: auto;
+    height: 50px;
+    -webkit-transition: background-color .4s;
+    transition: background-color .4s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.search-form_button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 54px;
+}
+
+.icon-search {
+    background-image: url("../images/search.svg");
+    width: 23px;
+    height: 23px;
+}
+[class*="icon-"] {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+input:focus, button:focus {
+    outline: none;
+}
+
+#aspect_discovery_SiteRecentSubmissions_div_site-home {
+    display: none;
+}
+
+
+body {
+    background: #0061ae;
+    background-image: url('../images/dpi-bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #eeeeee;
+    /*background-attachment: fixed;*/
+}
+
+#main-container .row-offcanvas, #main-container .main-content {
+    background-color: inherit;
+}
+
+a {
+    color: inherit;
+}
+a:hover {
+    color: inherit;
+}
+
+#main-container {
+    min-height: 500px;
+}
+
+@media (max-width: 767px) {
+.community-browser-row.odd-community-browser-row {
+    background-color: inherit;
+}
+}

@@ -135,7 +135,7 @@
             <map:parameter name="expires" value="access plus 1 hours"/>
 
             <!--
-                 Bypass the file extension check for the Mirage2 theme's scripts-dist.xml file.
+                 Bypass the file extension check for the gobiernodigital theme's scripts-dist.xml file.
                  That way, we don't have to whitelist all .xml files just to make JS loading work.
             -->
             <map:match pattern="themes/{global:theme-name}/scripts-dist.xml">
