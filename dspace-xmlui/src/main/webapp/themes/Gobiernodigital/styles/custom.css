@@ -142,7 +142,7 @@ h1, h2, h3 {
     font-family: 'Roboto Slab', sans-serif;
 }
 .breadcrumb>li+li:before {
-    content: "s" !important;
+    content: "\003E\00a0";
     padding: 0 5px;
     color: #ccc;
 }
