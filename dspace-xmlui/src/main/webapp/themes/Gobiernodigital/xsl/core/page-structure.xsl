@@ -1049,48 +1049,48 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
 <div class="ds-static-div row community-browser-row open-community-browser-row current-community-browser-row">
 
 <div class="ds-static-div col-xs-10 col-sm-11">
-<a href="/handle/123456789/19" name="community-browser-link"><strong>01.  Estudios</strong></a> [1]</div>
+<a href="/handle/123456789/19" name="community-browser-link"><strong>01.  Estudios</strong></a> </div>
 </div>
 <div id="collapse-123456789_19" class="ds-static-div sub-tree-wrapper">
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/21" name="community-browser-link">Análisis</a> [0]</div>
+<a href="/handle/123456789/21" name="community-browser-link">Análisis</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/24" name="community-browser-link">Estrategias</a> [0]</div>
+<a href="/handle/123456789/24" name="community-browser-link">Estrategias</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/22" name="community-browser-link">Estudios Nacionales Finales</a> [0]</div>
+<a href="/handle/123456789/22" name="community-browser-link">Estudios Nacionales Finales</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/23" name="community-browser-link">Evaluaciones de Planes</a> [0]</div>
+<a href="/handle/123456789/23" name="community-browser-link">Evaluaciones de Planes</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/25" name="community-browser-link">Informes</a> [0]</div>
+<a href="/handle/123456789/25" name="community-browser-link">Informes</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/26" name="community-browser-link">Investigaciones</a> [1]</div>
+<a href="/handle/123456789/26" name="community-browser-link">Investigaciones</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/54" name="community-browser-link">Mediciones</a> [0]</div>
+<a href="/handle/123456789/54" name="community-browser-link">Mediciones</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/55" name="community-browser-link">Modelos</a> [0]</div>
+<a href="/handle/123456789/55" name="community-browser-link">Modelos</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/56" name="community-browser-link">Monitoreo</a> [0]</div>
+<a href="/handle/123456789/56" name="community-browser-link">Monitoreo</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/57" name="community-browser-link">Prospectivas</a> [0]</div>
+<a href="/handle/123456789/57" name="community-browser-link">Prospectivas</a> </div>
 </div>
 </div>
 
