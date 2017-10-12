@@ -200,7 +200,7 @@
 	<!-- org.dspace.app.xmlui.artifactbrowser.CommunityBrowser.java -->
 <message key="xmlui.ArtifactBrowser.CommunityBrowser.title">Lista de comunidades</message>
 <message key="xmlui.ArtifactBrowser.CommunityBrowser.trail">Lista de comunidades</message>
-<message key="xmlui.ArtifactBrowser.CommunityBrowser.head">Estructura de colecciones y documentos</message>
+<message key="xmlui.ArtifactBrowser.CommunityBrowser.head">Biblioteca Digital de Estudios Gubernamentales</message>
 <message key="xmlui.ArtifactBrowser.CommunityBrowser.select">Elija una comunidad para listar sus colecciones</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.CommunityViewer.java -->

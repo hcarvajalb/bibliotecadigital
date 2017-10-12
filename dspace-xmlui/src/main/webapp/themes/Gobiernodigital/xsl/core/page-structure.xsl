@@ -842,6 +842,11 @@
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
+                    <xsl:choose>
+                    <xsl:when test="$request-uri =''">
+                    <xsl:call-template name="gobierno-estatico"/>
+                    </xsl:when>
+                    </xsl:choose>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -1026,7 +1031,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         <form method="get" action="/discover">
         <div class="search-form">
             <!--<input class="search-form_input" type="search" placeholder="Escribe aquí lo que deseas buscar"/>-->
-            <input class="search-form_input" type="text" placeholder="Buscar en la biblioteca">
+            <input class="search-form_input" type="text" placeholder="Buscar Estudios Gubernamentales">
                 <xsl:attribute name="name">
                     <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
                 </xsl:attribute>
@@ -1034,6 +1039,67 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
             <button class="search-form_button search-form_button--submit" type="submit"><i class="icon-search"></i></button>
         </div>
         </form>
+    </xsl:template>
+    
+    <xsl:template name="gobierno-estatico">
+        
+        <div id="aspect_artifactbrowser_CommunityBrowser_div_comunity-browser1" class="ds-static-div primary">
+<p class="ds-paragraph">Elija una colección</p>
+<div id="aspect_artifactbrowser_CommunityBrowser_referenceSet_community-browser" class="ds-static-div community-browser-wrapper">
+<div class="ds-static-div row community-browser-row open-community-browser-row current-community-browser-row">
+
+<div class="ds-static-div col-xs-10 col-sm-11">
+<a href="/handle/123456789/19" name="community-browser-link"><strong>01.  Estudios</strong></a> [1]</div>
+</div>
+<div id="collapse-123456789_19" class="ds-static-div sub-tree-wrapper">
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/21" name="community-browser-link">Análisis</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/24" name="community-browser-link">Estrategias</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/22" name="community-browser-link">Estudios Nacionales Finales</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/23" name="community-browser-link">Evaluaciones de Planes</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/25" name="community-browser-link">Informes</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/26" name="community-browser-link">Investigaciones</a> [1]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/54" name="community-browser-link">Mediciones</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/55" name="community-browser-link">Modelos</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/56" name="community-browser-link">Monitoreo</a> [0]</div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/57" name="community-browser-link">Prospectivas</a> [0]</div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+        
     </xsl:template>
 
 </xsl:stylesheet>

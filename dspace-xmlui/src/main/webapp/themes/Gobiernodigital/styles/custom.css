@@ -141,7 +141,11 @@ select:not([multiple]) {
 h1, h2, h3 {
     font-family: 'Roboto Slab', sans-serif;
 }
-
+.breadcrumb>li+li:before {
+    content: "s" !important;
+    padding: 0 5px;
+    color: #ccc;
+}
 
 /*Customización Header*/
 header .navbar-default {
