@@ -71,6 +71,7 @@ h2 {
     color: #eee;
     margin-top: 15px;
     padding: 10px !important;
+    margin-right: 0;
 }
 }
 
@@ -145,6 +146,20 @@ h1, h2, h3 {
     content: "\003E\00a0";
     padding: 0 5px;
     color: #ccc;
+}
+@media (min-width: 768px) {
+header .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+}
+
+.label-primary {
+    background-color: #428bca;
+}
+
+.label-primary:hover {
+    background-color: #85B1F5 !important;
 }
 
 /*Customización Header*/

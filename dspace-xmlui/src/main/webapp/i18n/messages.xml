@@ -2502,6 +2502,40 @@
     <message key="xmlui.Submission.submit.StartSubmissionLookupStep.lookup_help">Fill in a publication ID, DOI, Title or Author and then press "Search".  A list of all matching publications will be shown to you to select in order to proceed with the submission process.</message>
     <message key="xmlui.Submission.submit.StartSubmissionLookupStep.submit_publication_item">Imported publication Record</message>
     <message key="xmlui.Submission.submit.progressbar.lookup">Lookup</message>
+    
+    
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.category.column_heading">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_category">Tipo de Estudio</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_category">Tipo de Estudio</message>
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.entity.column_heading">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_entity">Autor institucional</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_entity">Autor institucional</message>
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.editor.column_heading">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_editor">Editor</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_editor">Editor</message>
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.fuente.column_heading">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_fuente">Fuente del Recurso</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_fuente">Fuente del Recurso</message>
+    
 
 
 </catalogue>

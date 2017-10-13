@@ -4,6 +4,12 @@
     margin: 10px 20%;
 }
 
+@media (max-width: 767px) {
+    .search-form {
+    margin: 10px 0 0 0;
+}
+}
+
 input[type=text], input[type=email], input[type=password], input[type="date"], input[type="search"], input[type="tel"], select, textarea {
     width: 100%;
     color: #313131;
@@ -79,12 +85,22 @@ a:hover {
     color: inherit;
 }
 
-#main-container {
+/*#main-container {
     min-height: 500px;
-}
+}*/
 
 @media (max-width: 767px) {
 .community-browser-row.odd-community-browser-row {
     background-color: inherit;
 }
 }
+
+@media (min-width: 768px) {
+    .button--lightblue {
+    background-color: #85B1F5;
+    color: #eee;
+    margin-top: 15px;
+    padding: 10px !important;    
+}
+}
+

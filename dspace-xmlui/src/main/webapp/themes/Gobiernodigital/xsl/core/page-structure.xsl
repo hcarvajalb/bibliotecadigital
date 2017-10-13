@@ -369,7 +369,8 @@
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-
+                        <xsl:choose>
+                        <xsl:when test="$request-uri !=''">
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
@@ -378,6 +379,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        </xsl:when>
+                        </xsl:choose>
 
 <!--                        <a href="{$context-path}/" class="navbar-brand">
                             <img src="{$theme-path}images/DSpace-logo-line.svg" />
@@ -1031,8 +1034,8 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
     </xsl:template>
     
     <xsl:template name="gobierno-buscador">
-        <form method="get" action="/discover">
         <div class="search-form">
+        <form method="get" action="/discover">
             <!--<input class="search-form_input" type="search" placeholder="Escribe aquí lo que deseas buscar"/>-->
             <input class="search-form_input" type="text" placeholder="Buscar Estudios Gubernamentales">
                 <xsl:attribute name="name">
@@ -1040,8 +1043,8 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                 </xsl:attribute>
             </input>
             <button class="search-form_button search-form_button--submit" type="submit"><i class="icon-search"></i></button>
-        </div>
         </form>
+        </div>
     </xsl:template>
     
     <xsl:template name="gobierno-estatico">

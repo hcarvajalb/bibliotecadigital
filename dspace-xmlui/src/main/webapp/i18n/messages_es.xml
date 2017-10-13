@@ -120,7 +120,7 @@
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.search_for">Buscar por</message>
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_author">Autor</message>
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_title">Título</message>
-<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_subject">Materia</message>
+<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_subject">Palabras Claves</message>
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_abstract">Resumen</message>
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_series">Serie</message>
 <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_sponsor">Patrocinador</message>
@@ -168,7 +168,7 @@
 <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.desc">descendente</message>
 
 <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.author.column_heading">Nombre de los autores</message>
-<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Materia</message>
+<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Palabras Claves</message>
 
 <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.author">Listar {0} por autor {1}</message>
 <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author">Listar {0} por autor</message>
@@ -256,7 +256,7 @@
 <message key="xmlui.ArtifactBrowser.Navigation.communities_and_collections">Comunidades y Colecciones</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_title">Títulos</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_author">Autores</message>
-<message key="xmlui.ArtifactBrowser.Navigation.browse_subject">Materias</message>
+<message key="xmlui.ArtifactBrowser.Navigation.browse_subject">Palabras Claves</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_dateissued">Por fecha de publicación</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_dateaccessioned">Por fecha de envío</message>
 <message key="xmlui.ArtifactBrowser.Navigation.head_this_collection">Esta colección</message>
@@ -752,7 +752,7 @@
 <message key="xmlui.Submission.submit.DescribeStep.report_no">Informe No.</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.link">Categorías temáticas</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.title">Categorías temáticas</message>
-<message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.filter.label">Filtrar materias</message>
+<message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.filter.label">Filtrar palabras claves</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.filter.button">Filtrar</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.loading">Espere mientras se carga el vocabulario controlado.</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.error">Hubo algún error en la carga del vocabulario controlado, por favor, inténtelo de nuevo más adelante.</message>
@@ -2194,7 +2194,7 @@ Puede reemplazar la plantilla que gestiona el caso general dri2xhtml para mejora
 <message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-date">Fecha</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-publisher">Editor</message>
-<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Materia</message>
+<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Palabras Claves</message>
 
 <message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Ficheros en el ítem</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-files-file">Ficheros</message>
@@ -2375,7 +2375,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 <message key="xmlui.mobile.browse_date">Fecha</message>
 <message key="xmlui.mobile.browse_author">Autor</message>
 <message key="xmlui.mobile.browse_title">Título</message>
-<message key="xmlui.mobile.browse_subject">Materia</message>
+<message key="xmlui.mobile.browse_subject">Palabras Claves</message>
 <message key="xmlui.mobile.related_google_scholar">Relacionado</message>
 <message key="xmlui.mobile.items_in_google_scholar">Ítems en Google Scholar</message>
 <message key="xmlui.mobile.download">Descargar</message>
@@ -2493,7 +2493,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
     <!-- org.dspace.app.xmlui.artifactbrowser.AdvancedSearch.java -->
   <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.contributor.author_filter">Autor</message> 
    
-	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.subject_filter">Materia</message> 
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.subject_filter">Palabras Claves</message> 
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.type_filter">Tipo</message> 
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.date.issued">Fecha</message> 
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateIssued">Fecha</message> 
@@ -2528,7 +2528,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.contributor.author_browse">Visualizar por: Autor</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.title_browse">Visualizar por: Título</message> 
-	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.subject_browse">Visualizar por: Materia</message> 
+	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.subject_browse">Visualizar por: Palabras Claves</message> 
 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.description.abstract_browse">Visualizar por: Resumen</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_series_browse">Visualizar por: Series</message> 
@@ -2539,7 +2539,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_taxon_browse">Visualizar por: Nombre Científico</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_contributor_browse">Visualizar por: Colaborador</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_creator_browse">Visualizar por: Creador</message> 
-	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_subject_browse">Visualizar por: Materia</message> 
+	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_subject_browse">Visualizar por: Palabras Claves</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_description_browse">Visualizar por: Descripción</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_relation_browse">Visualizar por: Relación</message> 
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.type_mime_browse">Visualizar por: Mime-Type</message> 
@@ -2551,7 +2551,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 
   	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author">Autor</message> 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.title">Título</message> 
-	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Materia</message> 
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Palabras Claves</message> 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateIssued">Fecha</message> 
 
 
@@ -2560,9 +2560,9 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 	<message key="xmlui.Discovery.AbstractSearch.type_author">Filtrar por: Autor</message> 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author">Autor</message> 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author_filter">Autor</message> 
-	<message key="xmlui.Discovery.AbstractSearch.type_subject">Filtrar por: Materia</message> 
-	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Materia</message> 
-	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject_filter">Materia</message> 
+	<message key="xmlui.Discovery.AbstractSearch.type_subject">Filtrar por: Palabras Claves</message> 
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Palabras Claves</message> 
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject_filter">Palabras Claves</message> 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateIssued.year">Fecha</message> 
 
 
@@ -2605,7 +2605,7 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
     <message key="xmlui.Discovery.SimpleSearch.filter.notauthority">No es ID</message>
     
     <message key="xmlui.Discovery.RelatedItems.head">Ítems relacionados</message>
-    <message key="xmlui.Discovery.RelatedItems.help">Mostrando ítems relacionados por Título, autor o materia.</message>
+    <message key="xmlui.Discovery.RelatedItems.help">Mostrando ítems relacionados por Título, autor o palabras claves.</message>
 
     <message key="xmlui.Discovery.AbstractSearch.head1_community">Mostrando  {0} de un total de  {1} resultados de la comunidad: {2}. <span class="searchTime">({3} segundos)</span></message>
  <message key="xmlui.Discovery.AbstractSearch.head1_collection">Mostrando  {0} de un total de  {1} resultados de la colección: {2}. <span class="searchTime">({3} segundos)</span></message>
@@ -2750,7 +2750,41 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
 
     <message key="xmlui.swordclient.SwordResponse.title">Respuesta Sword</message>
     <message key="xmlui.swordclient.SwordResponse.trail">Respuesta Sword</message>
-
-
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.category.column_heading">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_category">Tipo de Estudio</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_category">Tipo de Estudio</message>
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.entity.column_heading">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_entity">Autor institucional</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_entity">Autor institucional</message>
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.editor.column_heading">Editor</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_editor">Editor</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_editor">Editor</message>
+    
+    
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.fuente.column_heading">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_fuente">Fuente del Recurso</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_fuente">Fuente del Recurso</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_fuente">Fuente del Recurso</message>
+    
 
 </catalogue>
