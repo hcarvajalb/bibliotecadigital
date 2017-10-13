@@ -507,13 +507,16 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
-
+                        <xsl:choose>
+                        <xsl:when test="$request-uri !=''">
                         <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
                             <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        </xsl:when>
+                        </xsl:choose>
                     </div>
                 </div>
             </div>
