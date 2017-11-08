@@ -41,6 +41,9 @@ public class Group extends DSpaceObject implements DSpaceObjectLegacySupport
 
     @Transient
     public static final String ADMIN = "Administrator";
+    
+    @Transient
+    public static final String PROVEEDOR = "Proveedor";
 
     /**
      * Initial value is set to 2 since 0 & 1 are reserved for anonymous & administrative uses

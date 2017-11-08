@@ -318,6 +318,9 @@
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
+<!--                    <xsl:when test="starts-with($request-uri, 'claveunica-login')">
+                        <i18n:text>Acceso con clave única</i18n:text>
+                    </xsl:when>-->
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -385,11 +388,11 @@
 <!--                        <a href="{$context-path}/" class="navbar-brand">
                             <img src="{$theme-path}images/DSpace-logo-line.svg" />
                         </a>-->
-                        <a href="/" class="navbar-brand">Gobierno Digital</a>
+                        <a href="/" class="navbar-brand"><small>Biblioteca Digital</small></a>
 
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
+                        <ul class="nav nav-pills pull-left">
 
                             <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
                                 <li id="ds-language-selection-xs" class="dropdown">
@@ -446,14 +449,15 @@
                                     </li>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <li>
+<!--                                    <li>
                                         <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
                                             <button class="navbar-toggle navbar-link">
                                             <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                             </button>
                                         </form>
-                                    </li>
+                                    </li>-->
+                                    <a href="/openid"><img class="openidboton" src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
@@ -499,13 +503,20 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <li>
-                                        <a class="button button--block button--lightblue" href="{/dri:document/dri:meta/dri:userMeta/
+<!--                                        <a class="button button-block button-lightblue" href="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}">
                                             <span class="hidden-xs">
-                                                <!--<i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>-->
+                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
                                                 <xsl:text>Ingreso a la plataforma</xsl:text>
                                             </span>
-                                        </a>
+                                        </a>-->
+<!--                                        <a class="button button-block button-lightblue" href="/claveunica-login">
+                                            <span class="hidden-xs">
+                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                <xsl:text>Ingreso a la plataforma</xsl:text>
+                                            </span>
+                                        </a>-->
+                                        <a href="/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                     </li>
                                 </xsl:otherwise>
                             </xsl:choose>
@@ -797,7 +808,7 @@
 	            <div class="container">
 	                <div class="row">
 	                  <div class="col-xs-3">
-	                      <a class="main-logo" href="/" target="_blank"><img src="{$theme-path}images/logo.png" alt="Ministerio Secretaría General de la Presidencia"/></a>
+	                      <a class="main-logo" href="/" target="_blank"><img src="{$theme-path}images/logo-main.png" alt="Ministerio Secretaría General de la Presidencia"/></a>
 	                  </div>
 	                  <div class="col-xs-5">
 <!--	                      <h3>Enlaces</h3>
@@ -845,6 +856,13 @@
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
                 </xsl:when>
+                
+<!--                <xsl:when test="starts-with($request-uri, 'claveunica-login')">
+                    <div class="hero-unit">
+                        <h2 class="ds-div-head page-header first-page-header">Acceder con clave única</h2>
+                        <a href="/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_202px.png" alt=""/></a>
+                    </div>
+                </xsl:when>-->
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
