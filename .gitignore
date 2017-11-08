@@ -39,3 +39,6 @@ META-INF/
 
 ##Mac noise
 .DS_Store
+
+##Ignorar authentication-openid.cfg
+authentication-openid.cfg
