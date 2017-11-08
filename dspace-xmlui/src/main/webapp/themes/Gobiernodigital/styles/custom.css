@@ -186,6 +186,10 @@ header .navbar-default {
     line-height: 20px;
     height: 70px;
 }
+.openidboton {
+    margin-right: 10px;
+    margin-top: 15px;
+}
 /*Fin Customización Header*/
 
 

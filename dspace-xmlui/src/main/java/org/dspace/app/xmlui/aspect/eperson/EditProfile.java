@@ -397,43 +397,43 @@ public class EditProfile extends AbstractDSpaceTransformer
        }
        
        
-       if (allowSetPassword)
-       {
-           List security = form.addList("security",List.TYPE_FORM);
-           security.setHead(T_head_security);
-           
-           if (registering)
-           {
-                   security.addItem().addContent(T_create_password_instructions);
-           }
-           else
-           {
-                   security.addItem().addContent(T_update_password_instructions);
-           }
-           
-           
-           Field password = security.addItem().addPassword("password");
-           password.setLabel(T_password);
-           if (registering)
-           {
-               password.setRequired();
-           }
-           if (errors.contains("password"))
-           {
-               password.addError(T_error_invalid_password);
-           }
-           
-           Field passwordConfirm = security.addItem().addPassword("password_confirm");
-           passwordConfirm.setLabel(T_confirm_password);
-           if (registering)
-           {
-               passwordConfirm.setRequired();
-           }
-           if (errors.contains("password_confirm"))
-           {
-               passwordConfirm.addError(T_error_unconfirmed_password);
-           }
-       }
+//       if (allowSetPassword)
+//       {
+//           List security = form.addList("security",List.TYPE_FORM);
+//           security.setHead(T_head_security);
+//           
+//           if (registering)
+//           {
+//                   security.addItem().addContent(T_create_password_instructions);
+//           }
+//           else
+//           {
+//                   security.addItem().addContent(T_update_password_instructions);
+//           }
+//           
+//           
+//           Field password = security.addItem().addPassword("password");
+//           password.setLabel(T_password);
+//           if (registering)
+//           {
+//               password.setRequired();
+//           }
+//           if (errors.contains("password"))
+//           {
+//               password.addError(T_error_invalid_password);
+//           }
+//           
+//           Field passwordConfirm = security.addItem().addPassword("password_confirm");
+//           passwordConfirm.setLabel(T_confirm_password);
+//           if (registering)
+//           {
+//               passwordConfirm.setRequired();
+//           }
+//           if (errors.contains("password_confirm"))
+//           {
+//               passwordConfirm.addError(T_error_unconfirmed_password);
+//           }
+//       }
        
        Button submit = form.addItem().addButton("submit");
        if (registering)
