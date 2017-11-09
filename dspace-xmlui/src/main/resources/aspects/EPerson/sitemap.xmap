@@ -175,15 +175,15 @@ registration, forgotten passwords, editing profiles, and changing passwords.
 				<!-- Login failed, try again. --> 
 				<map:serialize type="xml"/>
 			</map:match>
-                        <map:match pattern="registeropenid">
+<!--                        <map:match pattern="registeropenid">
 				<map:act type="RegisterAction">
-					<!-- Login succeeded, request will be forwarded. -->
+					 Login succeeded, request will be forwarded. 
 					<map:serialize type="xml"/>
 				</map:act>
 				
-				<!-- Login failed, try again. --> 
+				 Login failed, try again.  
 				<map:serialize type="xml"/>
-			</map:match>
+			</map:match>-->
                         
                         <map:match pattern="loginopenid">
 				<map:act type="LoginAction">

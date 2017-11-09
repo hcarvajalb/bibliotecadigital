@@ -228,26 +228,26 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         List identity = edit.addList("form",List.TYPE_FORM);
         identity.setHead(T_head2.parameterize(eperson.getFullName()));       
         
-        if (admin)
-        {
-	        Text email = identity.addItem().addText("email_address");
-	        email.setRequired();
-	        email.setLabel(T_email_address);
-	        email.setValue(emailValue);
-	        if (errors.contains("eperson_email_key"))
-            {
-                email.addError(T_error_email_unique);
-            }
-	        else if (errors.contains("email_address"))
-            {
-                email.addError(T_error_email);
-            }
-        }
-        else
-        {
-        	identity.addLabel(T_email_address);
-        	identity.addItem(emailValue);
-        }
+//        if (admin)
+//        {
+//	        Text email = identity.addItem().addText("email_address");
+//	        email.setRequired();
+//	        email.setLabel(T_email_address);
+//	        email.setValue(emailValue);
+//	        if (errors.contains("eperson_email_key"))
+//            {
+//                email.addError(T_error_email_unique);
+//            }
+//	        else if (errors.contains("email_address"))
+//            {
+//                email.addError(T_error_email);
+//            }
+//        }
+//        else
+//        {
+//        	identity.addLabel(T_email_address);
+//        	identity.addItem(emailValue);
+//        }
         
         if (admin)
         {
@@ -310,7 +310,7 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         	// Buttons to reset, delete or login as
 	        identity.addItem().addHighlight("italic").addContent(T_special_help);
 	        Item special = identity.addItem();
-	        special.addButton("submit_reset_password").setValue(T_submit_reset_password);
+//	        special.addButton("submit_reset_password").setValue(T_submit_reset_password);
 	        
 	        Button submitDelete = special.addButton("submit_delete");
 	        submitDelete.setValue(T_submit_delete);
