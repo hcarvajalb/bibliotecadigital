@@ -99,7 +99,7 @@
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
-                <ref bean="searchFilterEditor" />
+                <!--<ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -115,7 +115,7 @@
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
-                <ref bean="searchFilterEditor" />
+                <!--<ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -214,7 +214,7 @@
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
-                <ref bean="searchFilterEditor" />
+<!--                <ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -230,7 +230,7 @@
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
-                <ref bean="searchFilterEditor" />
+<!--                <ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -451,7 +451,7 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
     </bean>
-    <bean id="searchFilterEditor" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+<!--    <bean id="searchFilterEditor" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="editor"/>
         <property name="metadataFields">
             <list>
@@ -462,7 +462,7 @@
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
-    </bean>
+    </bean>-->
     <bean id="searchFilterFuente" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="fuente"/>
         <property name="metadataFields">
