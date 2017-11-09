@@ -301,8 +301,8 @@ public class EditProfile extends AbstractDSpaceTransformer
        identity.setHead(T_head_identify);
        
        // Email
-       identity.addLabel(T_email_address);
-       identity.addItem(email);
+//       identity.addLabel(T_email_address);
+//       identity.addItem(email);
        
        // First name
        Text firstName = identity.addItem().addText("first_name");

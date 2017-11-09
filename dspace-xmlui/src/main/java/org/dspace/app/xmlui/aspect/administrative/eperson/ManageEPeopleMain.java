@@ -135,8 +135,8 @@ public class ManageEPeopleMain extends AbstractDSpaceTransformer
         actions.setHead(T_actions_head);
 
         List actionsList = actions.addList("actions");
-        actionsList.addLabel(T_actions_create);
-        actionsList.addItemXref(baseURL+"&submit_add", T_actions_create_link);
+//        actionsList.addLabel(T_actions_create);
+//        actionsList.addItemXref(baseURL+"&submit_add", T_actions_create_link);
         actionsList.addLabel(T_actions_browse);
         actionsList.addItemXref(baseURL+"&query&submit_search", 
         		T_actions_browse_link);

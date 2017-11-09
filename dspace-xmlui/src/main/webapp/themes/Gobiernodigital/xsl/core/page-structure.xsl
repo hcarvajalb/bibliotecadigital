@@ -457,7 +457,7 @@
                                             </button>
                                         </form>
                                     </li>-->
-                                    <a href="/openid"><img class="openidboton" src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
+                                    <a href="{$context-path}/openid"><img class="openidboton" src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
@@ -516,7 +516,7 @@
                                                 <xsl:text>Ingreso a la plataforma</xsl:text>
                                             </span>
                                         </a>-->
-                                        <a href="/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
+                                        <a href="{$context-path}/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                     </li>
                                 </xsl:otherwise>
                             </xsl:choose>

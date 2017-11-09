@@ -88,7 +88,7 @@ public class CallbackAction extends AbstractAction
             
             httpConnection http = new httpConnection();
             session.setAttribute("access_token", http.getAccessToken(code, tokenrecibido));
-            httpResponse.sendRedirect("/registeropenid");
+            httpResponse.sendRedirect("/loginopenid");
             
             
             

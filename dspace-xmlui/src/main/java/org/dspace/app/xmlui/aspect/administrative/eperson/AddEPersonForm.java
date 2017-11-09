@@ -143,54 +143,54 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 	    	problem.addHighlight("bold").addContent(T_email_taken);
 	    }
                 
-        List identity = add.addList("identity",List.TYPE_FORM);
-        identity.setHead(T_head2);       
-        
-        Text email = identity.addItem().addText("email_address");
-        email.setRequired();
-        email.setAutofocus("autofocus");
-        email.setLabel(T_email_address);
-        email.setValue(emailValue);
-        if (errors.contains("eperson_email_key")) {
-        	email.addError(T_error_email_unique);
-        }
-        else if (errors.contains("email_address")) {
-        	email.addError(T_error_email);
-        }
-        
-        Text firstName = identity.addItem().addText("first_name");
-        firstName.setRequired();
-        firstName.setLabel(T_first_name);
-        firstName.setValue(firstValue);
-        if (errors.contains("first_name")) {
-        	firstName.addError(T_error_fname);
-        }
-        
-        Text lastName = identity.addItem().addText("last_name");
-        lastName.setRequired();
-        lastName.setLabel(T_last_name);
-        lastName.setValue(lastValue);
-        if (errors.contains("last_name")) {
-        	lastName.addError(T_error_lname);
-        }
-        
-        Text phone = identity.addItem().addText("phone");
-        phone.setLabel(T_telephone);
-        phone.setValue(phoneValue);
-        
-        CheckBox canLogIn = identity.addItem().addCheckBox("can_log_in");
-        canLogIn.setLabel(T_can_log_in);
-        canLogIn.addOption(canLogInValue, "yes");
-        
-        CheckBox certificate = identity.addItem().addCheckBox("certificate");
-        certificate.setLabel(T_req_certs);
-        certificate.addOption(certificateValue,"yes");
-        
-        Item buttons = identity.addItem();
-        buttons.addButton("submit_save").setValue(T_submit_create);
-        buttons.addButton("submit_cancel").setValue(T_submit_cancel);
-        
-        add.addHidden("administrative-continue").setValue(knot.getId());
+//        List identity = add.addList("identity",List.TYPE_FORM);
+//        identity.setHead(T_head2);       
+//        
+//        Text email = identity.addItem().addText("email_address");
+//        email.setRequired();
+//        email.setAutofocus("autofocus");
+//        email.setLabel(T_email_address);
+//        email.setValue(emailValue);
+//        if (errors.contains("eperson_email_key")) {
+//        	email.addError(T_error_email_unique);
+//        }
+//        else if (errors.contains("email_address")) {
+//        	email.addError(T_error_email);
+//        }
+//        
+//        Text firstName = identity.addItem().addText("first_name");
+//        firstName.setRequired();
+//        firstName.setLabel(T_first_name);
+//        firstName.setValue(firstValue);
+//        if (errors.contains("first_name")) {
+//        	firstName.addError(T_error_fname);
+//        }
+//        
+//        Text lastName = identity.addItem().addText("last_name");
+//        lastName.setRequired();
+//        lastName.setLabel(T_last_name);
+//        lastName.setValue(lastValue);
+//        if (errors.contains("last_name")) {
+//        	lastName.addError(T_error_lname);
+//        }
+//        
+//        Text phone = identity.addItem().addText("phone");
+//        phone.setLabel(T_telephone);
+//        phone.setValue(phoneValue);
+//        
+//        CheckBox canLogIn = identity.addItem().addCheckBox("can_log_in");
+//        canLogIn.setLabel(T_can_log_in);
+//        canLogIn.addOption(canLogInValue, "yes");
+//        
+//        CheckBox certificate = identity.addItem().addCheckBox("certificate");
+//        certificate.setLabel(T_req_certs);
+//        certificate.addOption(certificateValue,"yes");
+//        
+//        Item buttons = identity.addItem();
+//        buttons.addButton("submit_save").setValue(T_submit_create);
+//        buttons.addButton("submit_cancel").setValue(T_submit_cancel);
+//        
+//        add.addHidden("administrative-continue").setValue(knot.getId());
 	}
 	
 }
