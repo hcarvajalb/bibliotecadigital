@@ -95,6 +95,8 @@
                         <map:transformer name="notice" src="org.dspace.app.xmlui.aspect.general.NoticeTransformer"/>
                         <map:transformer name="NamespaceFilter" src="org.dspace.app.xmlui.cocoon.NamespaceFilterTransformer"/>
                         <map:transformer name="RestrictedItem" src="org.dspace.app.xmlui.aspect.artifactbrowser.RestrictedItem"/>
+                        
+                        <map:transformer name="AddUser" src="org.dspace.app.xmlui.aspect.eperson.openid.AddUser"/>
                 </map:transformers>
                 <map:matchers default="wildcard">
                         <map:matcher logger="sitemap.matcher.wildcard" name="wildcard"

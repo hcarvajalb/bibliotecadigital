@@ -49,6 +49,8 @@ registration, forgotten passwords, editing profiles, and changing passwords.
                         <map:action name="CallbackAction" src="org.dspace.app.xmlui.aspect.eperson.openid.CallbackAction"/>
                         <map:action name="RegisterAction" src="org.dspace.app.xmlui.aspect.eperson.openid.RegisterAction"/>
                         <map:action name="LoginAction" src="org.dspace.app.xmlui.aspect.eperson.openid.LoginAction"/>
+                        
+                        <map:action name="AdduserAction" src="org.dspace.app.xmlui.aspect.eperson.openid.AdduserAction"/> 
 		</map:actions>
 		
 		<map:selectors>
@@ -194,6 +196,17 @@ registration, forgotten passwords, editing profiles, and changing passwords.
 				<!-- Login failed, try again. --> 
 				<map:serialize type="xml"/>
 			</map:match>
+                        
+                        <map:match pattern="admin/adduser">
+                                                <map:act type="AdduserAction">
+                                                        <!-- Login succeeded, request will be forwarded. -->
+                                                        <map:serialize type="xml"/>
+                                                </map:act>
+
+                                                <!-- Login failed, try again. --> 
+                                                <map:transform type="AddUser"/>
+                                                <map:serialize type="xml"/>
+                                        </map:match>
 			
          <map:match pattern="certificate-login">
             <map:act type="AuthenticateAction">
