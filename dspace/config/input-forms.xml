@@ -106,7 +106,7 @@
                     <label>Fecha de Publicación</label>
                     <input-type>date</input-type>
                     <hint>Se registra la fecha de creación o publicación del recurso.</hint>
-                    <required>Campo requerido.</required>
+                    <required></required>
                 </field>
                 <field>
                     <dc-schema>dc</dc-schema>
@@ -121,9 +121,9 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier></dc-qualifier>
+                    <dc-qualifier>abstract</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Descripción de contenido</label>
+                    <label>Resumen o descripción</label>
                     <input-type>textarea</input-type>
                     <hint>Relato breve que da cuenta del contenido global del recurso.</hint>
                     <required></required>
@@ -143,7 +143,7 @@
                     <dc-element>source</dc-element>
                     <dc-qualifier>entity</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Fuente del Recurso</label>
+                    <label>Origen del Recurso</label>
                     <input-type>onebox</input-type>
                     <hint>Registra el nombre de la institución desde la cual se sube el recurso a la plataforma.</hint>
                     <required></required>
@@ -157,18 +157,8 @@
                     <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
                     <hint>Describe la forma ISO del idioma, descrito en 3 caracteres. Norma ISO 639-3 Code o el idioma de la pista de un material audiovisual.</hint>
                     <required></required>
-                </field>-->
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>abstract</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Resumen</label>
-                    <input-type>textarea</input-type>
-                    <hint>Registra un resumen del contenido del recurso que se describe.</hint>
-                    <required></required>
                 </field>
-<!--                <field>
+                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>audience</dc-element>
                     <dc-qualifier></dc-qualifier>
@@ -217,18 +207,9 @@
                     <input-type value-pairs-name="coverage_comuna">dropdown</input-type>
                     <hint>Registra la comuna relacionada al recurso.</hint>
                     <required></required>
-                </field>-->
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>contributor</dc-element>
-                    <dc-qualifier>editor</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Editor</label>
-                    <input-type>name</input-type>
-                    <hint>Registra a las personas que actúan como editores del recurso que se describe.</hint>
-                    <required></required>
                 </field>
-<!--                <field>
+                
+                <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>document</dc-element>
                     <dc-qualifier>status</dc-qualifier>
