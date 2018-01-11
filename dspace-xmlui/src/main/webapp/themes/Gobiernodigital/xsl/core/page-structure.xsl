@@ -77,6 +77,8 @@
 
                 <!-- Then proceed to the body -->
                 <body>
+                    
+                    
                     <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
                    chromium.org/developers/how-tos/chrome-frame-getting-started -->
                     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -358,6 +360,17 @@
                 </script>
                 <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
             </xsl:if>
+            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-111468722-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-111468722-1');
+            </script>
+
 
         </head>
     </xsl:template>
@@ -1098,7 +1111,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
 </div>
 <div class="ds-static-div row community-browser-row odd-community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
-<a href="/handle/123456789/26" name="community-browser-link">Investigaciones</a> </div>
+<a href="/handle/123456789/832" name="community-browser-link">Investigaciones</a> </div>
 </div>
 <div class="ds-static-div row community-browser-row">
 <div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
