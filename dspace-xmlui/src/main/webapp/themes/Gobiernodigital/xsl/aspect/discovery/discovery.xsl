@@ -269,7 +269,7 @@
 
                             </div>
                         </xsl:when>
-<!--                        <xsl:when test="dri:list[@n=(concat($handle, ':fulltext'))]">
+                        <xsl:when test="dri:list[@n=(concat($handle, ':fulltext'))]">
                             <div class="abstract">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':fulltext'))]/dri:item">
                                     <xsl:apply-templates select="."/>
@@ -277,7 +277,7 @@
                                     <br/>
                                 </xsl:for-each>
                             </div>
-                        </xsl:when>--> 
+                        </xsl:when>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item">
                         <div class="abstract">
                                 <xsl:value-of select="util:shortenString(dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item[1], 220, 10)"/>
@@ -321,18 +321,24 @@
             </xsl:call-template>
 
             <div class="col-sm-3">
-                <p>
+                <div class="search-result-box">
                     <xsl:apply-templates select="dri:field[@id='aspect.discovery.SimpleSearch.field.scope']"/>
-                </p>
+                </div>
             </div>
 
             <div class="col-sm-9">
-                <p class="input-group">
+                <div id="lateral-search">
+                <div class="input-group">
                     <xsl:apply-templates select="dri:field[@id='aspect.discovery.SimpleSearch.field.query']"/>
                     <span class="input-group-btn">
-                        <xsl:apply-templates select="dri:field[@id='aspect.discovery.SimpleSearch.field.submit']"/>
+                        <!--<xsl:apply-templates select="dri:field[@id='aspect.discovery.SimpleSearch.field.submit']"/>-->
+                        <button id="aspect_discovery_SimpleSearch_field_submit" class="btn btn-default" name="submit" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
                     </span>
-                </p>
+                </div>
+                </div>
+                
             </div>
         </div>
 
