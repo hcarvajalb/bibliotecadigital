@@ -891,3 +891,11 @@ i.fa-cog {
     padding: 18px;
     height: 49px;
 }
+
+.row-offcanvas.row-offcanvas-right {
+    padding-top: 30px;
+}
+
+.media:first-child {
+    margin-top: 30px;
+}

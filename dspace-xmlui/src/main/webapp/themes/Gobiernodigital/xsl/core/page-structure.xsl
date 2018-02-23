@@ -135,9 +135,14 @@
 
                             <!--<div id="main-container" class="container">-->
 
-                                <div class="row row-offcanvas row-offcanvas-right">
+                                <div class="row-offcanvas row-offcanvas-right">
                                     <div class="container">
                                         <div class="search-list col-xs-12 col-sm-8">
+                                            <div id="container-floating" class="visible-xs">
+              <div id="floating-button" data-toggle="offcanvas">
+                <p class="menu"><i class="fa fa-indent" aria-hidden="true"></i></p>
+              </div>
+            </div>
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
 <!--                                            <div class="visible-xs visible-sm">
@@ -280,7 +285,19 @@
             <link rel="stylesheet" href="{concat($theme-path, 'styles/slick-theme.css')}"/>
             
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-            <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet"/>
+            
+            
+            <xsl:choose>
+                <xsl:when test="$request-uri !=''">
+                    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700, 400" rel="stylesheet"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet"/>
+
+                </xsl:otherwise>
+            </xsl:choose>
+            
+            
             <script src="https://use.fontawesome.com/2014d578b9.js"></script>
 
             <!-- Add syndication feeds -->
@@ -576,9 +593,11 @@
                     <!--<div class="col-xs-12">-->
                         <xsl:choose>
                             <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <div class="breadcrumb dropdown visible-xs">
+                                <ol class="breadcrumb dropdown visible-xs">
+                                    
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
+                                        <div class="breadcrumb container">
                                         <xsl:variable name="last-node"
                                                       select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
                                         <xsl:choose>
@@ -591,12 +610,15 @@
                                         </xsl:choose>
                                         <xsl:text>&#160;</xsl:text>
                                         <b class="caret"/>
+                                        </div>
                                     </a>
+                                    
+                                    
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
                                         <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
                                                              mode="dropdown"/>
                                     </ul>
-                                </div>
+                                </ol>
                                 <ol class="breadcrumb hidden-xs">
                                     <div class="breadcrumb container">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>

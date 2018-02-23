@@ -2786,5 +2786,13 @@ Cuando se usa QDC para los elementos de DSpace se recomienda el uso de crosswalk
     <message key="xmlui.Discovery.AbstractSearch.type_fuente">Fuente del Recurso</message>
     <message key="xmlui.ArtifactBrowser.Navigation.browse_fuente">Fuente del Recurso</message>
     
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ministerio">Ministerio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.ministerio">Ministerio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.ministerio.column_heading">Ministerio</message>
+    <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.ministerio">Ministerio</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ministerio">Ministerio</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_ministerio">Ministerio</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_ministerio">Ministerio</message>
+    
 
 </catalogue>

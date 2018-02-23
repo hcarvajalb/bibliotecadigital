@@ -10,7 +10,7 @@ $(function(){
           len=$(this).text().length;
           if(len>10)
           {
-            $(this).text($(this).text().substr(0,80)+'...');
+            $(this).text($(this).text().substr(0,280)+'...');
           }
         });       
       });
