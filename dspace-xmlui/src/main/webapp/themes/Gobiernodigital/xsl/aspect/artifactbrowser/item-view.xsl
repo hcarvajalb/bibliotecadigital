@@ -104,25 +104,19 @@
 
 
     <xsl:template match="dim:dim" mode="itemSummaryView-DIM">
-        <div class="item-summary-view-metadata">
+        <div class="item-details">
             <xsl:call-template name="itemSummaryView-DIM-title"/>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-12">
+            <div class="media">
+                <div class="media-left">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
-                        </div>
-                        <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
-                        </div>
-                    </div>
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
                 </div>
-                <div class="col-sm-8">
+                <div class="media-body">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-collections"/>
@@ -153,7 +147,7 @@
                 </div>
             </xsl:when>
             <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
-                <h2 class="page-header first-page-header">
+                <h2>
                     <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
                 </h2>
             </xsl:when>
@@ -166,7 +160,7 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
-        <div class="thumbnail">
+        <a href="{$current-uri}">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
                     <xsl:variable name="src">
@@ -185,7 +179,7 @@
                     <xsl:choose>
                         <xsl:when test="contains($src,'isAllowed=n')"/>
                         <xsl:otherwise>
-                            <img class="img-thumbnail" alt="Thumbnail">
+                            <img class="media-object" alt="Thumbnail">
                                 <xsl:attribute name="src">
                                     <xsl:value-of select="$src"/>
                                 </xsl:attribute>
@@ -194,16 +188,11 @@
                     </xsl:choose>
                 </xsl:when>
                 <xsl:otherwise>
-                    <img class="img-thumbnail" alt="Thumbnail">
-                        <xsl:attribute name="data-src">
-                            <xsl:text>holder.js/100%x</xsl:text>
-                            <xsl:value-of select="$thumbnail.maxheight"/>
-                            <xsl:text>/text:No Thumbnail</xsl:text>
-                        </xsl:attribute>
-                    </img>
+                    <img src="{$theme-path}images/mime.png" class="media-object" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </div>
+        </a>
+        
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-abstract">

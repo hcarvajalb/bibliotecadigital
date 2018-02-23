@@ -131,9 +131,65 @@
                             </div>
                             
                             <xsl:choose>
-                                <xsl:when test="$request-uri !=''">
+                                <xsl:when test="$request-uri =''">
+                                    
+                                     <div class="container">
+
+                                <div class="row row-home" role="toolbar">
+                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
+                                            <xsl:call-template name="segpres-ministerios"/>
+                                            <xsl:call-template name="segpres-tipodocumento"/>
+                                            <xsl:call-template name="segpres-ultimos"/>
+
+
+                                </div>
+                                
+
+                         </div>
+
+                           
+                                </xsl:when>
+                                <xsl:when test="starts-with($request-uri, 'handle')">
 
                             <!--<div id="main-container" class="container">-->
+
+                                <div class="row-offcanvas row-offcanvas-right ficha">
+                                    <div class="container">
+                                        <div class="col-xs-12 col-sm-8">
+                                            <div id="container-floating" class="visible-xs">
+              <div id="floating-button" data-toggle="offcanvas">
+                <p class="menu"><i class="fa fa-indent" aria-hidden="true"></i></p>
+              </div>
+            </div>
+                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
+
+<!--                                            <div class="visible-xs visible-sm">
+                                                <xsl:call-template name="buildFooter"/>
+                                            </div>-->
+                                        </div>
+                                        <div class="col-xs-6 col-sm-4 sidebar-offcanvas" id="sidebar" role="navigation">
+                                            <xsl:apply-templates select="dri:options"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                
+
+                                <!--
+                            The footer div, dropping whatever extra information is needed on the page. It will
+                            most likely be something similar in structure to the currently given example. -->
+                            <div class="hidden-xs hidden-sm">
+                            <!--<xsl:call-template name="buildFooter"/>-->
+                             </div>
+                         <!--</div>-->
+                         
+                                </xsl:when>
+                                
+                                
+                                <xsl:otherwise>
+                                    
+                                     <!--<div id="main-container" class="container">-->
 
                                 <div class="row-offcanvas row-offcanvas-right">
                                     <div class="container">
@@ -165,36 +221,7 @@
                             <!--<xsl:call-template name="buildFooter"/>-->
                              </div>
                          <!--</div>-->
-                         
-                                </xsl:when>
-                                
-                                <xsl:otherwise>
-                                    
-                                    <div class="container">
-
-                                <div class="row row-home" role="toolbar">
-                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
-                                            <xsl:call-template name="segpres-ministerios"/>
-                                            <xsl:call-template name="segpres-tipodocumento"/>
-                                            <xsl:call-template name="segpres-ultimos"/>
-<!--                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>-->
-<!--                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>-->
-
-                                </div>
-                                
-                                
-
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-<!--                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>-->
-                         </div>
+                                   
                                     
                                 </xsl:otherwise>
                             </xsl:choose>
@@ -1386,11 +1413,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                     <xsl:variable name="datos" select="document($item)"/>
                     
                     
-                    
+                    <xsl:variable name="enlace" select="concat($url-principal,'/handle/', str[@name='handle'])"/>
                     
                     <div class="media col-xs-12  col-sm-12 col-md-4">
                     <div class="media-left media-top">
-                    <a class="uestudios" href="#">
+                    <a class="uestudios" href="{$enlace}">
                     <xsl:choose>
                                  <xsl:when test="$datos//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
                                      <xsl:for-each select="$datos//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat">
@@ -1417,7 +1444,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                     </div>
                     <!--<xsl:value-of select="substring('Hola como estas',1, 24 )"/>-->
                     <div class="media-body">
-                    <h4 class="media-heading "><a href=""><xsl:value-of select="substring($titulo,1,30)"/>
+                    <h4 class="media-heading "><a href="{$enlace}"><xsl:value-of select="substring($titulo,1,30)"/>
                     
                     <xsl:if test="string-length($titulo) &gt; 30">
                         <xsl:text>...</xsl:text>
