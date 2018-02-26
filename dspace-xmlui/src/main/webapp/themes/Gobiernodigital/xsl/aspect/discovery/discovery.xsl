@@ -299,7 +299,7 @@
                 </dl>
                 
                 <br/>
-                <xsl:choose>
+<!--                <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item/dri:hi">
                             <p class="desc">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item">
@@ -309,7 +309,7 @@
                                 </xsl:for-each>
 
                             </p>
-                        </xsl:when>
+                        </xsl:when>-->
 <!--                        <xsl:when test="dri:list[@n=(concat($handle, ':fulltext'))]">
                             <p class="desc">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':fulltext'))]/dri:item">
@@ -319,12 +319,12 @@
                                 </xsl:for-each>
                             </p>
                         </xsl:when>-->
-                        <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item">
+<!--                        <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item">
                         <p class="desc">
                                 <xsl:value-of select="util:shortenString(dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item[1], 220, 10)"/>
                         </p>
                     </xsl:when>
-                    </xsl:choose>
+                    </xsl:choose>-->
             </div>
         </div>
     </xsl:template>

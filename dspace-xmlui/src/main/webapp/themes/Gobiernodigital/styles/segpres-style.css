@@ -1,7 +1,7 @@
 body {
   font-family:'Roboto', sans-serif;;
   background:#FFF;
-  font-size: 16px;
+  font-size: 14px;
   padding:0;
   margin:0;
 }
@@ -91,7 +91,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin:0;
 	padding:0;
 	background-image:url('../images/header-img.png');
-	min-height:670px;
+	min-height:470px;
   background-position: center center;
   background-repeat: no-repeat;
   display: table;
@@ -473,13 +473,13 @@ hr.search-result {
     margin: -10px 0 40px;
 }
 .search-list .media-heading a {
-  margin-bottom: 45px;
+  margin-bottom: 13px;
   font-weight: 400;
 }
 
-.search-list .media-heading a {
+/*.search-list .media-heading a {
   text-transform: uppercase;
-}
+}*/
 
 .search-list .media-body p {
     margin: 0;
@@ -716,7 +716,7 @@ i.fa-cog {
 
 /*-- Recuersos por estudios-items --*/
 .est-items a {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Roboto Slab', serif;
   color: #4B4B4B;
   padding: 0;
@@ -898,4 +898,25 @@ i.fa-cog {
 
 .row-offcanvas .media:first-child {
     margin-top: 30px;
+}
+
+/*#aspect_viewArtifacts_Navigation_list_administrative, #aspect_viewArtifacts_Navigation_list_context {
+    display: none;
+}*/
+
+ul.list-group {
+    margin-bottom: 10px;
+}
+
+div:focus, a:focus{
+    outline: none;
+}
+
+.minis-item img {
+        height: 254px;
+    width: 254px;
+}
+
+footer .min-logo img {
+    height: 111px;
 }

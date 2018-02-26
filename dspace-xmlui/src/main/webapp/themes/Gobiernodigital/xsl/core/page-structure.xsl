@@ -130,6 +130,10 @@
                                 </div>
                             </div>
                             
+                          
+                            
+                            
+                            
                             <xsl:choose>
                                 <xsl:when test="$request-uri =''">
                                     
@@ -191,7 +195,7 @@
                                     
                                      <!--<div id="main-container" class="container">-->
 
-                                <div class="row-offcanvas row-offcanvas-right">
+                                <div class="row-offcanvas row-offcanvas-right ficha">
                                     <div class="container">
                                         <div class="search-list col-xs-12 col-sm-8">
                                             <div id="container-floating" class="visible-xs">
@@ -1101,11 +1105,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         <nav class="navbar">
         <div class="container">
           <div class="up bicolor row">
-            <a href="" class="ministerio min-logo text-center hidden-xs"><img src="{$theme-path}images/logo-segpres.png"/></a>
+            <!--<a href="" class="ministerio min-logo text-center hidden-xs"><img src="{$theme-path}images/logo-segpres.png"/></a>-->
 
-                <span class="col-md-6 azul visible-xs"></span>
-                <span class="col-md-6 rojo visible-xs"></span> 
-                <a href="" class="ministerio text-center visible-xs">Ministerio Segpres</a>
+                <span class="col-md-6 azul"></span>
+                <span class="col-md-6 rojo"></span> 
+                <a href="/" class="ministerio text-center">Ministerio Segpres</a>
 
           </div>
           <div class="navbar-header">
@@ -1171,7 +1175,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
           <blockquote>Un Gobierno abierto a la Ciudadanía</blockquote>
         </div>
 
-
+        <xsl:if test="$request-uri = ''">
         <div id="main-search" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="container"> 
             <div class="row">
@@ -1198,6 +1202,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
           </div>
         </div>
       </div><!-- /.col-lg-12-->
+        </xsl:if>
     </span>
   </div>
         
@@ -1213,140 +1218,140 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         <div class="minis-item">
           <img class="img-circle" src="{$theme-path}images/interior.png"/>
           <h3 class="text-center">Ministerio del Interior y Seguridad Pública</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Interior y Seguridad Pública" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/relacionesexteriores.jpg"/>
           <h3 class="text-center">Ministerio de Relaciones Exteriores</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Relaciones Exteriores" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/defensa.jpg"/>
           <h3 class="text-center">Ministerio de Defensa</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="{$theme-path}images/hacienda.png"/>
           <h3 class="text-center">Ministerio de Hacienda</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio+de+Hacienda" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="{$theme-path}images/segpress.png"/>
           <h3 class="text-center">Ministerio Secretaría General de la Presidencia</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio+Secretaría+General+de+la+Presidencia" class="vermas"> Ver más</a>
         </div>
 
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio Secretaría General de Gobierno</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio Secretaría General de Gobierno" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
-          <h3 class="text-center">Ministerio Economía, Fomento y Turismo</h3>
-          <a class="vermas"> Ver más</a>
+          <h3 class="text-center">Ministerio de Economía, Fomento y Turismo</h3>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Economía, Fomento y Turismo" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Desarrollo Social</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Desarrollo Social" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Educación</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Educación" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Justicia y Derechos Humanos</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Justicia y Derechos Humanos" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio del Trabajo y Previsión Social</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Trabajo y Previsión Social" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Obras Públicas</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Obras Públicas" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Salud</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Salud" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Vivienda y Urbanismo</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Vivienda y Urbanismo" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Agricultura</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Agricultura" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Minería</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Minería" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de  Transportes y Telecomunicaciones</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de  Transportes y Telecomunicaciones" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Bienes Nacionales</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Bienes Nacionales" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio de Energía</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Energía" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio del  Medio Ambiente</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del  Medio Ambiente" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
           <h3 class="text-center">Ministerio del Deporte</h3>
-          <a class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Deporte" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
-          <h3 class="text-center">Ministerio de la Mujer y Equidad de Género</h3>
-          <a class="vermas"> Ver más</a>
+          <h3 class="text-center">Ministerio de la Mujer y la Equidad de Género</h3>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de la Mujer y la Equidad de Género" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
           <img class="img-circle" src="http://via.placeholder.com/256x256"/>
-          <h3 class="text-center">Ministerio Presidente del Consejo de la Cultura y las Artes</h3>
-          <a class="vermas"> Ver más</a>
+          <h3 class="text-center">Ministerio de las Culturas, las Artes y el Patrimonio</h3>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de las Culturas, las Artes y el Patrimonio" class="vermas"> Ver más</a>
         </div>
 
 
@@ -1379,19 +1384,27 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
       <h2 class="text-center">TIPOS DE DOCUMENTOS</h2>
       <p class="short-dec text-center">Acceda a los documentos clasificados por tipo de estudio.</p>
       <section class="r-est-items row">
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/1.svg"/><a href="" class="algo">Estudios Nacionales</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/22" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/1.svg"/><br/>Estudios Nacionales Finales</a></div>
 
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/2.svg"/><a href="" class="algo">Análisis</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/21" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/2.svg"/><br/>Análisis</a></div>
 
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><a href="" class="algo">Prospectivas</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/57" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Prospectivas</a></div>
 
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><a href="" class="algo">Modelos</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/55" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><br/>Modelos</a></div>
 
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><a href="" class="algo"> na</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/24" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><br/>Estrategias</a></div>
 
-        <div class="est-items col-md-6"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><a href="" class="algo"> na</a></div>
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/23" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Evaluaciones de Planes</a></div>
+        
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/25" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Informes</a></div>
+        
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/26" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Investigaciones</a></div>
+        
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/54" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Mediciones</a></div>
+        
+        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/56" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Monitoreo</a></div>
       </section><!-- est-items -->
-      <a href="" class="vermas col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-10 col-xs-offset-1">Ver todos los estudios</a>
+      <a href="/handle/{$repositoryID}/19" class="vermas col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-10 col-xs-offset-1">Ver todos los estudios</a>
 
     </xsl:template>
     
@@ -1479,23 +1492,28 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
       </div>
       <div class="container">
       <div class="col-md-5 col-lg-5 lista border">
-        <h5>Enlaces</h5>
+        <h5>Sitios de Interés</h5>
 
 
         <ul>
-          <li><a href="#">Enlace uno</a></li>
-          <li><a href="#">Enlace dos</a></li>
-          <li><a href="#">Enlace tres</a></li>
-          <li><a href="#">Enlace cuatro</a></li>
+          <li><a target="_blank" href="https://www.iadb.org/es">Banco Interamericano de Desarrollo</a></li>
+          <li><a target="_blank" href="https://www.cepal.org/es">Cepal</a></li>
+          <li><a target="_blank" href="http://www.oecd.org/chile/">OECD</a></li>
+          <li><a target="_blank" href="https://es.unesco.org/">UNESCO</a></li>
         </ul>
       </div>
 
       <div class="col-md-7 col-lg-7 lista">
-        <h5>Sitios Relacionados</h5>
+        <h5>Sitios de Interés</h5>
 
         <ul>
-          <li><a href="#">Enlace cinco</a></li>
-          <li><a href="#">Enlace seis</a></li>
+          <li><a target="_blank" href="http://www.dipres.gob.cl/">Dipres</a></li>
+          <li><a target="_blank" href="http://www.conicyt.cl/">Conicyt</a></li>
+          <li><a target="_blank" href="http://www.conicyt.cl/">Conicyt</a></li>
+          <li><a target="_blank" href="https://www.bcn.cl/">Biblioteca del Congreso Nacional</a></li>
+          <li><a target="_blank" href="http://www.bibliotecanacional.cl/">Biblioteca Nacional</a></li>
+          
+          
         </ul>
       </div>
       <div class="clearfix"></div>
@@ -1507,11 +1525,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         <p>Moneda 1160 Entrepiso, Santiago - Chile.</p>
       </div>
 
-<!--      <div class="links col-md-6 col-lg-6">
+      <div class="links col-md-6 col-lg-6">
         <ul class="list-inline admin">
-          <li><a href="#">Administración</a></li>
+          <a href="/" class="ministerio min-logo text-center hidden-xs"><img src="{$theme-path}images/logo-segpres.png"/></a>
         </ul>
-      </div>-->
+      </div>
       <div class="bottom col-md-12">
         <div class="bicolor">
           <span class="azul"></span>
@@ -1520,6 +1538,148 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
       </div>
       </div><!--/.container-->
     </footer>
+        
+    </xsl:template>
+    
+    <xsl:template name="segpres-menu">
+        
+          
+<!--                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='browse']/dri:list/dri:item">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='browse']/dri:list/dri:item">
+                                        
+                                        <i18n:text>
+                                            <xsl:value-of select="."/>
+                                        </i18n:text>
+                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>
+                                        <br/>
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>-->
+                            
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='browse']">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='browse']/dri:list">
+                                        <h2>
+                                        <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text>
+                                        </h2>
+<!--                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>-->
+                                        <br/>
+                                        <xsl:for-each select="dri:item">
+                                            <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text><br/>
+                                        </xsl:for-each>
+                                        
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='account']">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='account']">
+<!--                                        <h2>
+                                        <i18n:text>
+                                            <xsl:value-of select="dri/head"/>
+                                        </i18n:text>
+                                        </h2>-->
+<!--                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>-->
+                                        <!--<br/>-->
+                                        <xsl:for-each select="dri:item">
+                                            <i18n:text>
+                                                <xsl:value-of select="node()[not(self::dri:xref/i18n:translate)]"/>
+                                            </i18n:text>
+<!--                                            <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text>-->
+                                        <br/>
+                                        </xsl:for-each>
+                                        
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='context']">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='context']/dri:list">
+                                        <h2>
+                                        <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text>
+                                        </h2>
+<!--                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>-->
+                                        <br/>
+                                        <xsl:for-each select="dri:item">
+                                            <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text><br/>
+                                        </xsl:for-each>
+                                        
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='administrative']">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='administrative']/dri:list">
+                                        <h2>
+                                        <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text>
+                                        </h2>
+<!--                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>-->
+                                        <br/>
+                                        <xsl:for-each select="dri:item">
+                                            <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text><br/>
+                                        </xsl:for-each>
+                                        
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="/dri:document/dri:options/dri:list[@n='discovery']">
+                                    
+                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='discovery']/dri:list">
+                                        <h2>
+                                        <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text>
+                                        </h2>
+<!--                                        <xsl:text> === </xsl:text>
+                                        <xsl:value-of select="dri:xref/@target"/>-->
+                                        <br/>
+                                        <xsl:for-each select="dri:item">
+                                            <i18n:text>
+                                            <xsl:value-of select="node()"/>
+                                        </i18n:text><br/>
+                                        </xsl:for-each>
+                                        
+                                        
+                                    </xsl:for-each>
+                                    
+                                </xsl:when>
+                            </xsl:choose>
         
     </xsl:template>
 

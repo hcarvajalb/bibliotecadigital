@@ -1,8 +1,5 @@
 $(document).ready(function(){
-    
-    
-//$(".list-group .title").append('<ul id="aspect_viewArtifacts_Navigation_list_administrative" class="list-group">');
-    
+        
     
     
 $(function(){
@@ -17,7 +14,7 @@ $(function(){
 
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
-      })
+      });
       
 
 
@@ -40,16 +37,11 @@ $(this).html(value);
 });
 
 
-
-
 $('[id^="aspect_discovery_SearchFacetFilter_div_browse-by-"][id$="-results"] td a').each(function() {
 value = $(this).text();
 value=value.replaceLast("(", "<span class=\"badge pull-right\">").replaceLast(")","</span>");
 $(this).html(value);
 });
-
-
-
 
 
 $('[id^="aspect_artifactbrowser_ConfigurableBrowse_div_browse-by-"][id$="-results"] td').each(function() {
