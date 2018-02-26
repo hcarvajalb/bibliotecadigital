@@ -1109,7 +1109,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
 
                 <span class="col-md-6 azul"></span>
                 <span class="col-md-6 rojo"></span> 
-                <a href="/" class="ministerio text-center">Ministerio Segpres</a>
+                <!--<a href="/" class="ministerio text-center">Ministerio Segpres</a>-->
 
           </div>
           <div class="navbar-header">
@@ -1222,13 +1222,13 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/relacionesexteriores.jpg"/>
+          <img class="img-circle" src="{$theme-path}images/minrel.jpg"/>
           <h3 class="text-center">Ministerio de Relaciones Exteriores</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Relaciones Exteriores" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/defensa.jpg"/>
+          <img class="img-circle" src="{$theme-path}images/dfensa.jpg"/>
           <h3 class="text-center">Ministerio de Defensa</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa" class="vermas"> Ver más</a>
         </div>
@@ -1247,109 +1247,109 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
 
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/msgg.jpg"/>
           <h3 class="text-center">Ministerio Secretaría General de Gobierno</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio Secretaría General de Gobierno" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/economia.png"/>
           <h3 class="text-center">Ministerio de Economía, Fomento y Turismo</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Economía, Fomento y Turismo" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/MDS.png"/>
           <h3 class="text-center">Ministerio de Desarrollo Social</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Desarrollo Social" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/mineduc.png"/>
           <h3 class="text-center">Ministerio de Educación</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Educación" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/justicia.png"/>
           <h3 class="text-center">Ministerio de Justicia y Derechos Humanos</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Justicia y Derechos Humanos" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/trabajo.jpg"/>
           <h3 class="text-center">Ministerio del Trabajo y Previsión Social</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Trabajo y Previsión Social" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/MOP.png"/>
           <h3 class="text-center">Ministerio de Obras Públicas</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Obras Públicas" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/MINSAL.png"/>
           <h3 class="text-center">Ministerio de Salud</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Salud" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/vivienda.jpg"/>
           <h3 class="text-center">Ministerio de Vivienda y Urbanismo</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Vivienda y Urbanismo" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/agricultura.jpg"/>
           <h3 class="text-center">Ministerio de Agricultura</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Agricultura" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/mineria.jpg"/>
           <h3 class="text-center">Ministerio de Minería</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Minería" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/mtt.jpg"/>
           <h3 class="text-center">Ministerio de  Transportes y Telecomunicaciones</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de  Transportes y Telecomunicaciones" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/bienes.jpg"/>
           <h3 class="text-center">Ministerio de Bienes Nacionales</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Bienes Nacionales" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/energia.jpg"/>
           <h3 class="text-center">Ministerio de Energía</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Energía" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/medioambiente.jpg"/>
           <h3 class="text-center">Ministerio del  Medio Ambiente</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del  Medio Ambiente" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/deporte.png"/>
           <h3 class="text-center">Ministerio del Deporte</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Deporte" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/mujer.png"/>
           <h3 class="text-center">Ministerio de la Mujer y la Equidad de Género</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de la Mujer y la Equidad de Género" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
-          <img class="img-circle" src="http://via.placeholder.com/256x256"/>
+          <img class="img-circle" src="{$theme-path}images/cultura.png"/>
           <h3 class="text-center">Ministerio de las Culturas, las Artes y el Patrimonio</h3>
           <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de las Culturas, las Artes y el Patrimonio" class="vermas"> Ver más</a>
         </div>
@@ -1508,7 +1508,6 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
 
         <ul>
           <li><a target="_blank" href="http://www.dipres.gob.cl/">Dipres</a></li>
-          <li><a target="_blank" href="http://www.conicyt.cl/">Conicyt</a></li>
           <li><a target="_blank" href="http://www.conicyt.cl/">Conicyt</a></li>
           <li><a target="_blank" href="https://www.bcn.cl/">Biblioteca del Congreso Nacional</a></li>
           <li><a target="_blank" href="http://www.bibliotecanacional.cl/">Biblioteca Nacional</a></li>

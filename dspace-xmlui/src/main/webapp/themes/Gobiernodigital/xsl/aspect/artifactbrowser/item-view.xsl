@@ -322,9 +322,9 @@
         <xsl:choose>
             <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL' or @USE='LICENSE']/mets:file">
                 <div class="item-page-field-wrapper table word-break">
-                    <h5>
+<!--                    <h5>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
-                    </h5>
+                    </h5>-->
 
                     <xsl:variable name="label-1">
                             <xsl:choose>
@@ -376,6 +376,10 @@
         <xsl:param name="title" />
         <xsl:param name="label" />
         <xsl:param name="size" />
+        
+        <a href="{$href}" class="btn btn-primary visualizar" data-toggle="tooltip" data-placement="bottom" title="PDF - 250Kb"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
+        <a href="{$href}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="PDF - 250Kb"><i class="fa fa-download" aria-hidden="true"></i> Descargar</a>
+        
         <div>
             <a>
                 <xsl:attribute name="href">
@@ -649,7 +653,7 @@
             <xsl:attribute name="href">
                 <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
             </xsl:attribute>
-            <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
+            <!--<i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>-->
         </a>
     </xsl:template>
 

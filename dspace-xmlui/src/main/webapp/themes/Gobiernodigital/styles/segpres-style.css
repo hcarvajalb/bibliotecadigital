@@ -846,10 +846,10 @@ i.fa-cog {
       padding: 18px 6px;
   }
 
-  .ficha .media-left {
+/*  .ficha .media-left {
     display: block;
     margin-bottom: 20px;
-  }
+  }*/
 }
 
 @media (max-width: 360px) {
