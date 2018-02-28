@@ -128,7 +128,7 @@ public class RegisterAction extends AbstractAction
         
         if (eperson == null)
         {
-            Group admins = groupService.findByName(context, Group.ADMIN);
+            Group admins = groupService.findByName(context, Group.ANONYMOUS);
                         try {
                         eperson = ePersonService.create(context);
                         eperson.setEmail(email);

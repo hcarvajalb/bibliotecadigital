@@ -97,7 +97,7 @@ public class AdduserAction extends AbstractAction
        context.turnOffAuthorisationSystem();
        eperson = ePersonService.findByEmail(context, rut);
         
-        Group admins = groupService.findByName(context, Group.ADMIN);
+        Group admins = groupService.findByName(context, Group.ANONYMOUS);
                        
                         
                         if (eperson == null)

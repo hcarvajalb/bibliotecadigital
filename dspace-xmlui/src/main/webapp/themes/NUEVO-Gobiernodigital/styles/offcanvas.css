@@ -1,0 +1,191 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+    padding: 5px;
+  }
+
+  .row-offcanvas-right .sidebar-offcanvas {
+    right: -80%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 85%; /* 6 columns */
+  }
+
+.sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 85%; /* 6 columns */
+  }
+}
+
+/*
+*Floatin button 
+*
+*
+*/
+
+#floating-button{
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #6C338A;
+  position: fixed;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px #666;
+}
+
+#container-floating{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  top: 200px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.menu {
+  color: white;
+  position: absolute;
+  left: 2px;
+  right: 0;
+  text-align: center;
+  font-size: 24px;
+  animation: menu-out 0.3s;
+  transition: all 0.3s;
+  vertical-align: middle;
+  top:14px;
+}
+
+.menu>.fa-close {
+  margin-left: -1px;
+  margin-top: 3px;
+}
+
+
+
+#container-floating .fa.fa-close{
+  animation: menu-in 0.15s ease-in;
+  animation-fill-mode: forwards;
+}
+
+#container-floating .fa.fa-indent {
+  animation: close-in 0.3s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes close-in{
+    from {opacity: 1; transform: rotateZ(-70deg);}
+    to {opacity: 1; transform: rotateZ(0deg);}
+}
+
+@keyframes close-out{
+    from {opacity: 1; transform: rotateZ(0deg);}
+    to {opacity: 1; transform: rotateZ(-70deg);}
+}
+
+@keyframes menu-in{
+    from {opacity: 0; transform: rotateZ(0deg);}
+    to {opacity: 1; transform: rotateZ(180deg);}
+}
+
+/*Sidebar*/
+
+.panel>.list-group .list-group-item, .panel>.panel-collapse>.list-group .list-group-item {
+    border-width: 1px 0 0;
+    border-radius: 0;
+}
+
+.panel {
+  border:none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-top: 94px;
+  margin-left: 20px;
+  margin-right: -15px;
+}
+.ficha .panel {
+  margin-top: 30px;
+} 
+.panel div.clearfix {
+    background-color: transparent;
+    height: 20px;
+    margin: 0;
+}
+
+.panel-heading {
+    color: #999!important;
+    background-color: transparent!important;
+    border-color: transparent!important;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    padding:10px 0;
+    text-transform: uppercase;
+}
+
+.panel-heading, .list-group-item:first-child, 
+ .list-group-item:last-child {
+    border-radius:0!important;
+}
+
+.list-group .title {
+    border:none;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 24px;
+    font-family: 'Roboto Slab', serif;
+    color: #4B4B4B;
+    font-weight: 700;
+ }
+li.list-group-item>a {
+  border-top: none;
+}
+
+li.list-group-item>a {
+    display:block;
+    width:100%;
+    padding:10px 15px;
+}
+li.list-group-item>a:hover {
+    padding:10px 15px;
+    background:#f2f2f2;
+}
+
+#sidebar .list-group {
+  border: 1px solid #01B5BC;
+  border-radius: 10px;
+}
+
+#sidebar .list-group-item {
+  background-color: transparent;
+  padding: 0;
+}
+
+#sidebar .list-group-item:nth-child(2) {
+  border-top:none;
+}
+
+#sidebar .vermas {
+  margin-top: 15px
+}
