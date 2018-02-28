@@ -104,19 +104,25 @@
 
 
     <xsl:template match="dim:dim" mode="itemSummaryView-DIM">
-        <div class="item-details">
+        <div class="item-summary-view-metadata">
             <xsl:call-template name="itemSummaryView-DIM-title"/>
-            <div class="media">
-                <div class="media-left">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                        </div>
+                        <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
+                        </div>
+                    </div>
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
                 </div>
-                <div class="media-body">
+                <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-collections"/>
@@ -147,7 +153,7 @@
                 </div>
             </xsl:when>
             <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
-                <h2>
+                <h2 class="page-header first-page-header">
                     <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
                 </h2>
             </xsl:when>
@@ -160,7 +166,7 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
-        <a href="{$current-uri}">
+        <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
                     <xsl:variable name="src">
@@ -179,7 +185,7 @@
                     <xsl:choose>
                         <xsl:when test="contains($src,'isAllowed=n')"/>
                         <xsl:otherwise>
-                            <img class="media-object" alt="Thumbnail">
+                            <img class="img-thumbnail" alt="Thumbnail">
                                 <xsl:attribute name="src">
                                     <xsl:value-of select="$src"/>
                                 </xsl:attribute>
@@ -188,11 +194,16 @@
                     </xsl:choose>
                 </xsl:when>
                 <xsl:otherwise>
-                    <img src="{$theme-path}images/mime.png" class="media-object" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt"/>
+                    <img class="img-thumbnail" alt="Thumbnail">
+                        <xsl:attribute name="data-src">
+                            <xsl:text>holder.js/100%x</xsl:text>
+                            <xsl:value-of select="$thumbnail.maxheight"/>
+                            <xsl:text>/text:No Thumbnail</xsl:text>
+                        </xsl:attribute>
+                    </img>
                 </xsl:otherwise>
             </xsl:choose>
-        </a>
-        
+        </div>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-abstract">
@@ -322,9 +333,9 @@
         <xsl:choose>
             <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL' or @USE='LICENSE']/mets:file">
                 <div class="item-page-field-wrapper table word-break">
-<!--                    <h5>
+                    <h5>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
-                    </h5>-->
+                    </h5>
 
                     <xsl:variable name="label-1">
                             <xsl:choose>
@@ -376,10 +387,6 @@
         <xsl:param name="title" />
         <xsl:param name="label" />
         <xsl:param name="size" />
-        
-        <a href="{$href}" class="btn btn-primary visualizar" data-toggle="tooltip" data-placement="bottom" title="PDF - 250Kb"><i class="fa fa-eye" aria-hidden="true"></i> Visualizar</a>
-        <a href="{$href}" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="PDF - 250Kb"><i class="fa fa-download" aria-hidden="true"></i> Descargar</a>
-        
         <div>
             <a>
                 <xsl:attribute name="href">
@@ -653,7 +660,7 @@
             <xsl:attribute name="href">
                 <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
             </xsl:attribute>
-            <!--<i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>-->
+            <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
         </a>
     </xsl:template>
 

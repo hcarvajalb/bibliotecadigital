@@ -60,15 +60,14 @@
             <xsl:when test="'file' = $emphasis">
 
 
-                <div class="media">
-                    
-                    <div class="media-left">
+                <div class="item-wrapper row">
+                    <div class="col-sm-3 hidden-xs">
                         <xsl:apply-templates select="./mets:fileSec" mode="artifact-preview">
                             <xsl:with-param name="href" select="$href"/>
                         </xsl:apply-templates>
                     </div>
 
-                    <div class="media-body">
+                    <div class="col-sm-9">
                         <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
                                              mode="itemSummaryList-DIM-metadata">
                             <xsl:with-param name="href" select="$href"/>
@@ -88,7 +87,8 @@
     <!--handles the rendering of a single item in a list in metadata mode-->
     <xsl:template match="dim:dim" mode="itemSummaryList-DIM-metadata">
         <xsl:param name="href"/>
-            <h4 class="media-heading">
+        <div class="artifact-description">
+            <h4 class="artifact-title">
                 <xsl:element name="a">
                     <xsl:attribute name="href">
                         <xsl:value-of select="$href"/>
@@ -109,8 +109,7 @@
                     &#xFEFF; <!-- non-breaking space to force separating the end tag -->
                 </span>
             </h4>
-            <dl>
-            <p class="desc">
+            <div class="artifact-info">
                 <span class="author h4">
                     <small>
                     <xsl:choose>
@@ -165,15 +164,14 @@
 	                    <xsl:text>)</xsl:text>
                         </small></span>
                 </xsl:if>
-            </p>
-            
+            </div>
             <xsl:if test="dim:field[@element = 'description' and @qualifier='abstract']">
                 <xsl:variable name="abstract" select="dim:field[@element = 'description' and @qualifier='abstract']/node()"/>
                 <div class="artifact-abstract">
                     <xsl:value-of select="util:shortenString($abstract, 220, 10)"/>
                 </div>
             </xsl:if>
-            </dl>
+        </div>
     </xsl:template>
 
     <xsl:template name="itemDetailList-DIM">
@@ -183,7 +181,8 @@
 
     <xsl:template match="mets:fileSec" mode="artifact-preview">
         <xsl:param name="href"/>
-            <a class="uestudios" href="{$href}">
+        <div class="thumbnail artifact-preview">
+            <a class="image-link" href="{$href}">
                 <xsl:choose>
                     <xsl:when test="mets:fileGrp[@USE='THUMBNAIL']">
                         <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
@@ -197,7 +196,7 @@
                                 </div>
                             </xsl:when>
                             <xsl:otherwise>
-                                <img class="media-object" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
+                                <img class="img-responsive img-thumbnail" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
                                     <xsl:attribute name="src">
                                         <xsl:value-of select="$src"/>
                                     </xsl:attribute>
@@ -206,11 +205,17 @@
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <img src="{$theme-path}images/mime.png" class="media-object" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt"/>
-                            
+                        <img class="img-thumbnail" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
+                            <xsl:attribute name="data-src">
+                                <xsl:text>holder.js/100%x</xsl:text>
+                                <xsl:value-of select="$thumbnail.maxheight"/>
+                                <xsl:text>/text:No Thumbnail</xsl:text>
+                            </xsl:attribute>
+                        </img>
                     </xsl:otherwise>
                 </xsl:choose>
             </a>
+        </div>
     </xsl:template>
 
 

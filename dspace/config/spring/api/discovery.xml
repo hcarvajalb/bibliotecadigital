@@ -94,6 +94,7 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
+                <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
@@ -101,7 +102,6 @@
                 <ref bean="searchFilterEntity" />
                 <!--<ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
-                <ref bean="searchFilterMinisterio" />
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -110,6 +110,7 @@
         <!--The search filters which can be used on the discovery search page-->
         <property name="searchFilters">
             <list>
+                <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
@@ -118,7 +119,7 @@
                 <ref bean="searchFilterEntity" />
                 <!--<ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
-                <ref bean="searchFilterMinisterio" />
+                
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -211,6 +212,7 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
+                <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
@@ -218,7 +220,6 @@
                 <ref bean="searchFilterEntity" />
 <!--                <ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
-                <ref bean="searchFilterMinisterio" />
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -227,6 +228,7 @@
         <!--The search filters which can be used on the discovery search page (same as defaultConfiguration above)-->
         <property name="searchFilters">
             <list>
+                <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
@@ -235,7 +237,6 @@
                 <ref bean="searchFilterEntity" />
 <!--                <ref bean="searchFilterEditor" />-->
                 <ref bean="searchFilterFuente" />
-                <ref bean="searchFilterMinisterio" />
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -482,8 +483,8 @@
         <property name="indexFieldName" value="ministerio"/>
         <property name="metadataFields">
             <list>
-                <value>dc.source.entity</value>
-                <value>dc.contributor.entity</value>
+<!--                <value>dc.source.entity</value>
+                <value>dc.contributor.entity</value>-->
                 <value>dc.source.ministerio</value>
             </list>
         </property>

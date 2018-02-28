@@ -39,38 +39,7 @@
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
-    
-    
-    
-    <xsl:variable name="puerto">
-	
-	<xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort'] != 80">
-		<xsl:value-of select="concat(':',/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort'])"/>
-	</xsl:if>
-	
-	</xsl:variable>
-	<xsl:variable name="url-completa">
 
-	<xsl:value-of select="concat(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='scheme'],
-	'://',/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName'],$puerto,'/',
-	/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'])"/>
-	</xsl:variable>
-	
-        <xsl:variable name="url-principal">
-
-	<xsl:value-of select="concat(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='scheme'],
-	'://',/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName'],$puerto,/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)])"/>
-	</xsl:variable>
-        
-        <xsl:variable name="total" select="document('http://localhost:8080/solr/search/select?q=search.resourcetype:2%20AND%20withdrawn:false&amp;sort=dc.date.accessioned_dt%20desc&amp;rows=6&amp;fl=handle&amp;fl=title&amp;fl=dc.date.issued&amp;fl=dc.description.abstract&amp;omitHeader=true')"/>
-        
-        <xsl:variable name="historico" select="document('http://localhost:8080/solr/search/select?q=search.resourcetype:2%20AND%20withdrawn:false&amp;sort=dc.date.issued_dt%20asc&amp;rows=4&amp;fl=handle&amp;fl=dc.date.issued&amp;omitHeader=true')"/>
-        
-        <xsl:variable name="repositoryID" select="/dri:document/dri:meta/dri:repositoryMeta/dri:repository/@repositoryID"/>
-        
-        <xsl:variable name="isitem" select="/dri:document/dri:body/dri:div[@id='aspect.artifactbrowser.ItemViewer.div.item-view']/@n"/>
-    
-    
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
         which contains a version attribute and three top level elements: body, options, meta (in that order).
@@ -108,6 +77,8 @@
 
                 <!-- Then proceed to the body -->
                 <body>
+                    
+                    
                     <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
                    chromium.org/developers/how-tos/chrome-frame-getting-started -->
                     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -117,10 +88,12 @@
                             <xsl:apply-templates select="dri:body/*"/>
                         </xsl:when>
                         <xsl:otherwise>
-<!--                            <xsl:call-template name="buildHeader"/>
-                            <xsl:call-template name="buildTrail"/>-->
-                            <xsl:call-template name="segpres-header"/>
+                            <xsl:call-template name="buildHeader"/>
+                            <xsl:choose>
+                            <xsl:when test="$request-uri !=''">
                             <xsl:call-template name="buildTrail"/>
+                            </xsl:when>
+                            </xsl:choose>
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -129,108 +102,58 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                          
-                            
-                            
-                            
-                            <xsl:choose>
-                                <xsl:when test="$request-uri =''">
-                                    
-                                     <div class="container">
 
-                                <div class="row row-home" role="toolbar">
+                            <div id="main-container" class="container">
+                                <xsl:choose>
+                                    <xsl:when test="$request-uri =''">
+                                        <xsl:call-template name="gobierno-buscador"/>
+                                    </xsl:when>
+                                </xsl:choose>
+                                <div class="row row-offcanvas row-offcanvas-right">
+                                    <div class="horizontal-slider clearfix">
+                                        
+                                        <xsl:choose>
+                                        <xsl:when test="$request-uri !=''">
+                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content">
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
-                                            <xsl:call-template name="segpres-ministerios"/>
-                                            <xsl:call-template name="segpres-tipodocumento"/>
-                                            <xsl:call-template name="segpres-ultimos"/>
 
+<!--                                            <div class="visible-xs visible-sm">
+                                                <xsl:call-template name="buildFooter"/>
+                                            </div>-->
+                                        </div>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 main-content">
+                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
+<!--                                            <div class="visible-xs visible-sm">
+                                                <xsl:call-template name="buildFooter"/>
+                                            </div>-->
+                                        </div>
+                                        </xsl:otherwise>
+                                        </xsl:choose>
+                                        
+                                        
+                                        
+                                        <xsl:choose>
+                                        <xsl:when test="$request-uri !=''">
+                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                                            <xsl:apply-templates select="dri:options"/>
+                                        </div>
+                                        </xsl:when>
+                                        </xsl:choose>
+
+                                    </div>
                                 </div>
-                                
 
+                                <!--
+                            The footer div, dropping whatever extra information is needed on the page. It will
+                            most likely be something similar in structure to the currently given example. -->
+                            
                          </div>
-
-                           
-                                </xsl:when>
-                                <xsl:when test="starts-with($request-uri, 'handle')">
-
-                            <!--<div id="main-container" class="container">-->
-
-                                <div class="row-offcanvas row-offcanvas-right ficha">
-                                    <div class="container">
-                                        <div class="col-xs-12 col-sm-8">
-                                            <div id="container-floating" class="visible-xs">
-              <div id="floating-button" data-toggle="offcanvas">
-                <p class="menu"><i class="fa fa-indent" aria-hidden="true"></i></p>
-              </div>
-            </div>
-                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
-
-<!--                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>-->
-                                        </div>
-                                        <div class="col-xs-6 col-sm-4 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                
-                                
-
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <!--<xsl:call-template name="buildFooter"/>-->
-                             </div>
-                         <!--</div>-->
-                         
-                                </xsl:when>
-                                
-                                
-                                <xsl:otherwise>
-                                    
-                                     <!--<div id="main-container" class="container">-->
-
-                                <div class="row-offcanvas row-offcanvas-right ficha">
-                                    <div class="container">
-                                        <div class="search-list col-xs-12 col-sm-8">
-                                            <div id="container-floating" class="visible-xs">
-              <div id="floating-button" data-toggle="offcanvas">
-                <p class="menu"><i class="fa fa-indent" aria-hidden="true"></i></p>
-              </div>
-            </div>
-                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
-
-<!--                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>-->
-                                        </div>
-                                        <div class="col-xs-6 col-sm-4 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                
-                                
-
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <!--<xsl:call-template name="buildFooter"/>-->
-                             </div>
-                         <!--</div>-->
-                                   
-                                    
-                                </xsl:otherwise>
-                            </xsl:choose>
-                            
-                            <xsl:call-template name="segpres-footer"/>
+                         <!--<div class="hidden-xs hidden-sm">-->
+                            <xsl:call-template name="buildFooter"/>
+                             <!--</div>-->
 
                         </xsl:otherwise>
                     </xsl:choose>
@@ -307,29 +230,15 @@
                     </xsl:attribute>
                 </link>
             </xsl:for-each>
-
+            
+            <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet"/>
             <link rel="stylesheet" href="{concat($theme-path, 'styles/main.css')}"/>
-            <link rel="stylesheet" href="{concat($theme-path, 'styles/segpres-style.css')}"/>
-            <link rel="stylesheet" href="{concat($theme-path, 'styles/ie10-viewport-bug-workaround.css')}"/>
-            <link rel="stylesheet" href="{concat($theme-path, 'styles/offcanvas.css')}"/>
-            <link rel="stylesheet" href="{concat($theme-path, 'styles/slick.css')}"/>
-            <link rel="stylesheet" href="{concat($theme-path, 'styles/slick-theme.css')}"/>
-            
-            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-            
-            
+            <link rel="stylesheet" href="{concat($theme-path, 'styles/custom.css')}"/>
             <xsl:choose>
-                <xsl:when test="$request-uri !=''">
-                    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700, 400" rel="stylesheet"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet"/>
-
-                </xsl:otherwise>
+            <xsl:when test="$request-uri =''">
+                <link rel="stylesheet" href="{concat($theme-path, 'styles/home.css')}"/>
+            </xsl:when>
             </xsl:choose>
-            
-            
-            <script src="https://use.fontawesome.com/2014d578b9.js"></script>
 
             <!-- Add syndication feeds -->
             <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
@@ -411,6 +320,9 @@
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
+<!--                    <xsl:when test="starts-with($request-uri, 'claveunica-login')">
+                        <i18n:text>Acceso con clave única</i18n:text>
+                    </xsl:when>-->
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -448,6 +360,17 @@
                 </script>
                 <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
             </xsl:if>
+            
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-111468722-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-111468722-1');
+            </script>
+
 
         </head>
     </xsl:template>
@@ -462,7 +385,8 @@
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-
+                        <xsl:choose>
+                        <xsl:when test="$request-uri !=''">
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
@@ -471,14 +395,17 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        </xsl:when>
+                        </xsl:choose>
 
-                        <a href="{$context-path}/" class="navbar-brand">
+<!--                        <a href="{$context-path}/" class="navbar-brand">
                             <img src="{$theme-path}images/DSpace-logo-line.svg" />
-                        </a>
+                        </a>-->
+                        <a href="/" class="navbar-brand"><small>Biblioteca Digital</small></a>
 
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
+                        <ul class="nav nav-pills pull-left">
 
                             <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
                                 <li id="ds-language-selection-xs" class="dropdown">
@@ -535,14 +462,15 @@
                                     </li>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <li>
+<!--                                    <li>
                                         <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
                                             <button class="navbar-toggle navbar-link">
                                             <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                             </button>
                                         </form>
-                                    </li>
+                                    </li>-->
+                                    <a href="{$context-path}/openid"><img class="openidboton" src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
@@ -588,23 +516,34 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
+<!--                                        <a class="button button-block button-lightblue" href="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}">
                                             <span class="hidden-xs">
                                                 <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                <xsl:text>Ingreso a la plataforma</xsl:text>
                                             </span>
-                                        </a>
+                                        </a>-->
+<!--                                        <a class="button button-block button-lightblue" href="/claveunica-login">
+                                            <span class="hidden-xs">
+                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                <xsl:text>Ingreso a la plataforma</xsl:text>
+                                            </span>
+                                        </a>-->
+                                        <a href="{$context-path}/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_142px.png" alt=""/></a>
                                     </li>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </ul>
-
+                        <xsl:choose>
+                        <xsl:when test="$request-uri !=''">
                         <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
                             <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        </xsl:when>
+                        </xsl:choose>
                     </div>
                 </div>
             </div>
@@ -617,18 +556,16 @@
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
     <xsl:template name="buildTrail">
-        <!--<div class="trail-wrapper hidden-print">-->
-            <!--<div class="container">-->
-                <!--<div class="row">-->
+        <div class="trail-wrapper hidden-print">
+            <div class="container">
+                <div class="row">
                     <!--TODO-->
-                    <!--<div class="col-xs-12">-->
+                    <div class="col-xs-12">
                         <xsl:choose>
                             <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <ol class="breadcrumb dropdown visible-xs">
-                                    
+                                <div class="breadcrumb dropdown visible-xs">
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
-                                        <div class="breadcrumb container">
                                         <xsl:variable name="last-node"
                                                       select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
                                         <xsl:choose>
@@ -641,33 +578,26 @@
                                         </xsl:choose>
                                         <xsl:text>&#160;</xsl:text>
                                         <b class="caret"/>
-                                        </div>
                                     </a>
-                                    
-                                    
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
                                         <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
                                                              mode="dropdown"/>
                                     </ul>
-                                </ol>
-                                <ol class="breadcrumb hidden-xs">
-                                    <div class="breadcrumb container">
+                                </div>
+                                <ul class="breadcrumb hidden-xs">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
-                                    </div>
-                                </ol>
+                                </ul>
                             </xsl:when>
                             <xsl:otherwise>
-                                <ol class="breadcrumb">
-                                    <div class="breadcrumb container">
+                                <ul class="breadcrumb">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
-                                    </div>
-                                </ol>
+                                </ul>
                             </xsl:otherwise>
                         </xsl:choose>
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </xsl:template>
@@ -836,7 +766,7 @@
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
-        <footer>
+<!--        <footer>
                 <div class="row">
                     <hr/>
                     <div class="col-xs-7 col-sm-8">
@@ -874,7 +804,7 @@
 
                     </div>
                 </div>
-                <!--Invisible link to HTML sitemap (for search engines) -->
+                Invisible link to HTML sitemap (for search engines) 
                 <a class="hidden">
                     <xsl:attribute name="href">
                         <xsl:value-of
@@ -884,7 +814,30 @@
                     <xsl:text>&#160;</xsl:text>
                 </a>
             <p>&#160;</p>
-        </footer>
+        </footer>-->
+        <footer class="print-hide">
+	      	<!--<div class="navbar navbar-default"></div>-->
+	        <div class="area2">
+	            <div class="container">
+	                <div class="row">
+	                  <div class="col-xs-3">
+	                      <a class="main-logo" href="/" target="_blank"><img src="{$theme-path}images/logo-main.png" alt="Ministerio Secretaría General de la Presidencia"/></a>
+	                  </div>
+	                  <div class="col-xs-5">
+<!--	                      <h3>Enlaces</h3>
+	                      <ul>
+	                          <li><a href="http://www.minsegpres.gob.cl" target="_blank">Ministerio Secretaría General de la Presidencia</a></li>
+	                      </ul>-->
+	                  </div>
+	                  <div class="col-xs-4">
+	                      <div class="politicas">
+	                          <a href="#">Politicas de Privacidad</a>
+	                      </div>
+	                  </div>
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
     </xsl:template>
 
 
@@ -916,9 +869,21 @@
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
                 </xsl:when>
+                
+<!--                <xsl:when test="starts-with($request-uri, 'claveunica-login')">
+                    <div class="hero-unit">
+                        <h2 class="ds-div-head page-header first-page-header">Acceder con clave única</h2>
+                        <a href="/openid" class=""><img src="{$theme-path}images/botones/btn_claveunica_202px.png" alt=""/></a>
+                    </div>
+                </xsl:when>-->
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
+                    <xsl:choose>
+                    <xsl:when test="$request-uri =''">
+                    <xsl:call-template name="gobierno-estatico"/>
+                    </xsl:when>
+                    </xsl:choose>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -1099,586 +1064,78 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         </xsl:choose>
     </xsl:template>
     
-    
-    <xsl:template name="segpres-header">
-        
-        <nav class="navbar">
-        <div class="container">
-          <div class="up bicolor row">
-            <!--<a href="" class="ministerio min-logo text-center hidden-xs"><img src="{$theme-path}images/logo-segpres.png"/></a>-->
-
-                <span class="col-md-6 azul"></span>
-                <span class="col-md-6 rojo"></span> 
-                <!--<a href="/" class="ministerio text-center">Ministerio Segpres</a>-->
-
-          </div>
-          <div class="navbar-header">
-            <a type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <i class="fa fa-bars" aria-hidden="true"></i>
-            </a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="/">Volver al Inicio</a></li>
-              
-              <xsl:choose>
-                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                    <li class="dropdown">
-                                        <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown">
-                                            <span class="hidden-xs">
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
-                                                <xsl:text> </xsl:text>
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
-                                                &#160;
-                                                <b class="caret"/>
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                </xsl:when>
-                <xsl:otherwise>
-                    <li><a class="login-aux" href="/openid">Clave única</a></li>
-                </xsl:otherwise>
-              </xsl:choose>
-              
-              
-              
-              
-              
-            </ul>
-          </div><!--/.nav-collapse -->
+    <xsl:template name="gobierno-buscador">
+        <div class="search-form">
+        <form method="get" action="/discover">
+            <!--<input class="search-form_input" type="search" placeholder="Escribe aquí lo que deseas buscar"/>-->
+            <input class="search-form_input" type="text" placeholder="Buscar Estudios Gubernamentales">
+                <xsl:attribute name="name">
+                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
+                </xsl:attribute>
+            </input>
+            <button class="search-form_button search-form_button--submit" type="submit"><i class="icon-search"></i></button>
+        </form>
         </div>
-      </nav>
-
-
-      <div class="jumbotron text-center">
-        <span class="shadow">
-         <div class="container">    
-          <h1><a href="/">Biblioteca Digital del Gobierno de Chile</a></h1>
-          <blockquote>Un Gobierno abierto a la Ciudadanía</blockquote>
-        </div>
-
-        <xsl:if test="$request-uri = ''">
-        <div id="main-search" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="container"> 
-            <div class="row">
-              <div class="search-box">
-               <form method="get" action="{$url-principal}/discover">
-               <div class="input-group input-group-lg">
-                   <xsl:variable name="itemsTotal">
-                            <xsl:value-of select='format-number($total//response/result/@numFound, "###,###")'/>
-                     </xsl:variable>
-                <input class="form-control" type="text" placeholder="Busca en más de {$itemsTotal} recursos">
-                                <xsl:attribute name="name">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
-                                </xsl:attribute>
-                </input>
-                <!--<input type="text" class="form-control" placeholder="Busca en más de 13.244 recursos"/>-->
-                <span class="input-group-btn">
-                  <button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </span>
-              </div><!-- /input-group -->
-               </form>
-            </div>
-            <a href="/discover" class="advance-search btn btn-outline">Búsqueda avanzada</a>
-          </div>
-        </div>
-      </div><!-- /.col-lg-12-->
-        </xsl:if>
-    </span>
-  </div>
-        
     </xsl:template>
     
-    <xsl:template name="segpres-ministerios">
-        <div class="clearfix"></div>
+    <xsl:template name="gobierno-estatico">
         
-        <h2 class="text-center">MINISTERIOS</h2>
-      <p class="short-dec text-center">Acceda directamente a documentos y estudios desarrollados por cada ministerio.</p>
-      <section class="sec-ministerios row">
+        <div id="aspect_artifactbrowser_CommunityBrowser_div_comunity-browser1" class="ds-static-div primary">
+<p class="ds-paragraph">Elija una colección</p>
+<div id="aspect_artifactbrowser_CommunityBrowser_referenceSet_community-browser" class="ds-static-div community-browser-wrapper">
+<div class="ds-static-div row community-browser-row open-community-browser-row current-community-browser-row">
 
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/interior.png"/>
-          <h3 class="text-center">Ministerio del Interior y Seguridad Pública</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Interior y Seguridad Pública" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/minrel.jpg"/>
-          <h3 class="text-center">Ministerio de Relaciones Exteriores</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Relaciones Exteriores" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/dfensa.jpg"/>
-          <h3 class="text-center">Ministerio de Defensa</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/hacienda.png"/>
-          <h3 class="text-center">Ministerio de Hacienda</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio+de+Hacienda" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/segpress.png"/>
-          <h3 class="text-center">Ministerio Secretaría General de la Presidencia</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio+Secretaría+General+de+la+Presidencia" class="vermas"> Ver más</a>
-        </div>
-
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/msgg.jpg"/>
-          <h3 class="text-center">Ministerio Secretaría General de Gobierno</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio Secretaría General de Gobierno" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/economia.png"/>
-          <h3 class="text-center">Ministerio de Economía, Fomento y Turismo</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Economía, Fomento y Turismo" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/MDS.png"/>
-          <h3 class="text-center">Ministerio de Desarrollo Social</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Desarrollo Social" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/mineduc.png"/>
-          <h3 class="text-center">Ministerio de Educación</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Educación" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/justicia.png"/>
-          <h3 class="text-center">Ministerio de Justicia y Derechos Humanos</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Justicia y Derechos Humanos" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/trabajo.jpg"/>
-          <h3 class="text-center">Ministerio del Trabajo y Previsión Social</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Trabajo y Previsión Social" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/MOP.png"/>
-          <h3 class="text-center">Ministerio de Obras Públicas</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Obras Públicas" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/MINSAL.png"/>
-          <h3 class="text-center">Ministerio de Salud</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Salud" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/vivienda.jpg"/>
-          <h3 class="text-center">Ministerio de Vivienda y Urbanismo</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Vivienda y Urbanismo" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/agricultura.jpg"/>
-          <h3 class="text-center">Ministerio de Agricultura</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Agricultura" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/mineria.jpg"/>
-          <h3 class="text-center">Ministerio de Minería</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Minería" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/mtt.jpg"/>
-          <h3 class="text-center">Ministerio de  Transportes y Telecomunicaciones</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de  Transportes y Telecomunicaciones" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/bienes.jpg"/>
-          <h3 class="text-center">Ministerio de Bienes Nacionales</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Bienes Nacionales" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/energia.jpg"/>
-          <h3 class="text-center">Ministerio de Energía</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Energía" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/medioambiente.jpg"/>
-          <h3 class="text-center">Ministerio del  Medio Ambiente</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del  Medio Ambiente" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/deporte.png"/>
-          <h3 class="text-center">Ministerio del Deporte</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Deporte" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/mujer.png"/>
-          <h3 class="text-center">Ministerio de la Mujer y la Equidad de Género</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de la Mujer y la Equidad de Género" class="vermas"> Ver más</a>
-        </div>
-
-        <div class="minis-item">
-          <img class="img-circle" src="{$theme-path}images/cultura.png"/>
-          <h3 class="text-center">Ministerio de las Culturas, las Artes y el Patrimonio</h3>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de las Culturas, las Artes y el Patrimonio" class="vermas"> Ver más</a>
-        </div>
+<div class="ds-static-div col-xs-10 col-sm-11">
+<a href="/handle/123456789/19" name="community-browser-link"><strong>01.  Estudios</strong></a> </div>
+</div>
+<div id="collapse-123456789_19" class="ds-static-div sub-tree-wrapper">
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/21" name="community-browser-link">Análisis</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/24" name="community-browser-link">Estrategias</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/22" name="community-browser-link">Estudios Nacionales Finales</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/23" name="community-browser-link">Evaluaciones de Planes</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/25" name="community-browser-link">Informes</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/832" name="community-browser-link">Investigaciones</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/54" name="community-browser-link">Mediciones</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/55" name="community-browser-link">Modelos</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/56" name="community-browser-link">Monitoreo</a> </div>
+</div>
+<div class="ds-static-div row community-browser-row odd-community-browser-row">
+<div class="ds-static-div col-xs-10 col-sm-10 col-sm-offset-2 col-xs-offset-2">
+<a href="/handle/123456789/57" name="community-browser-link">Prospectivas</a> </div>
+</div>
+</div>
 
 
 
-        
-      </section>
-        
-        
-    </xsl:template>
-    
-    <xsl:template match="dri:body/dri:div[@n='comunity-browser']">
-        <xsl:choose>
-            <xsl:when test="$request-uri !=''">
-                <xsl:apply-templates />
-            </xsl:when>
-        </xsl:choose>
-    </xsl:template> 
-    
-    <xsl:template match="dri:body/dri:div/dri:div[@n='site-recent-submission']">
-        <xsl:choose>
-            <xsl:when test="$request-uri !=''">
-                <xsl:apply-templates />
-            </xsl:when>
-        </xsl:choose>
-    </xsl:template>
-    
-    
-    <xsl:template name="segpres-tipodocumento">
-        <div class="clearfix"></div>
-      <h2 class="text-center">TIPOS DE DOCUMENTOS</h2>
-      <p class="short-dec text-center">Acceda a los documentos clasificados por tipo de estudio.</p>
-      <section class="r-est-items row">
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/22" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/1.svg"/><br/>Estudios Nacionales Finales</a></div>
 
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/21" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/2.svg"/><br/>Análisis</a></div>
-
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/57" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Prospectivas</a></div>
-
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/55" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><br/>Modelos</a></div>
-
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/24" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/3.svg"/><br/>Estrategias</a></div>
-
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/23" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Evaluaciones de Planes</a></div>
-        
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/25" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Informes</a></div>
-        
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/26" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Investigaciones</a></div>
-        
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/54" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Mediciones</a></div>
-        
-        <div class="est-items col-md-6"><a href="/handle/{$repositoryID}/56" class="algo"><img class="img-circle" src="{$theme-path}images/icons/tipos/4.svg"/><br/>Monitoreo</a></div>
-      </section><!-- est-items -->
-      <a href="/handle/{$repositoryID}/19" class="vermas col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-10 col-xs-offset-1">Ver todos los estudios</a>
-
-    </xsl:template>
-    
-    <xsl:template name="segpres-ultimos">
-        
-        <div class="clearfix"></div>
-
-      <h2 class="text-center">ULTIMAS PUBLICACIONES</h2>
-      <section class="destacados">
-              
-          <xsl:choose>
-            <xsl:when test="$total//response/result/doc">
-                <xsl:for-each select="$total//response/result/doc">
-                    <xsl:if test="position() &lt;= 6">
-                    <xsl:variable name="item" select="concat($url-principal,'/metadata/handle/',str[@name='handle'], '/mets.xml')"/>
-                    <xsl:variable name="titulo" select="arr[@name='title']/str"/>
-                    <xsl:variable name="fecha" select="arr[@name='dc.date.issued']/str"/>
-                    <xsl:variable name="abstract" select="arr[@name='dc.description.abstract']/str"/>
-                    <xsl:variable name="datos" select="document($item)"/>
-                    
-                    
-                    <xsl:variable name="enlace" select="concat($url-principal,'/handle/', str[@name='handle'])"/>
-                    
-                    <div class="media col-xs-12  col-sm-12 col-md-4">
-                    <div class="media-left media-top">
-                    <a class="uestudios" href="{$enlace}">
-                    <xsl:choose>
-                                 <xsl:when test="$datos//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
-                                     <xsl:for-each select="$datos//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat">
-                                         <xsl:if test="position()=1">
-                                     
-                           
-                                    <img class="media-object">
-                                    <xsl:attribute name="src">
-                                       <xsl:value-of select="@xlink:href"/>
-                                    </xsl:attribute>
-                                    </img>
-                                    
-                        
-                                         </xsl:if>
-                                     </xsl:for-each>
-                                 </xsl:when>
-                                 <xsl:otherwise>
-                                     
-                                    <img class="media-object" height="80" width="60" alt="Thumbnail" src="{$theme-path}images/mime.png"/>
-                                    
-                                 </xsl:otherwise>
-                    </xsl:choose>
-                    </a>
-                    </div>
-                    <!--<xsl:value-of select="substring('Hola como estas',1, 24 )"/>-->
-                    <div class="media-body">
-                    <h4 class="media-heading "><a href="{$enlace}"><xsl:value-of select="substring($titulo,1,30)"/>
-                    
-                    <xsl:if test="string-length($titulo) &gt; 30">
-                        <xsl:text>...</xsl:text>
-                    </xsl:if>
-                    </a>
-                    </h4>
-                    
-                    <p class="date"><xsl:value-of select="$fecha"/></p>
-                    <p class="desc"><xsl:value-of select="substring($abstract,1,60)"/></p>
-                  </div>
-                    
-                    </div>
-                    
-                    
-                    </xsl:if>
-                </xsl:for-each>
-                
-            </xsl:when>
-        </xsl:choose>
-                
-        </section><!--/ ultimos envios-->
-      <a href="/recent-submissions" class="vermas col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-10 col-xs-offset-1">Ver todas las publicaciones</a>
-        <div class="clearfix"></div>
-    </xsl:template>
-    
-    <xsl:template name="segpres-footer">
-        
-        <footer class="row">
-      <div class="bicolor">
-        <span class="azul"></span>
-        <span class="rojo"></span>
-      </div>
-      <div class="container">
-      <div class="col-md-5 col-lg-5 lista border">
-        <h5>Sitios de Interés</h5>
-
-
-        <ul>
-          <li><a target="_blank" href="https://www.iadb.org/es">Banco Interamericano de Desarrollo</a></li>
-          <li><a target="_blank" href="https://www.cepal.org/es">Cepal</a></li>
-          <li><a target="_blank" href="http://www.oecd.org/chile/">OECD</a></li>
-          <li><a target="_blank" href="https://es.unesco.org/">UNESCO</a></li>
-        </ul>
-      </div>
-
-      <div class="col-md-7 col-lg-7 lista">
-        <h5>Sitios de Interés</h5>
-
-        <ul>
-          <li><a target="_blank" href="http://www.dipres.gob.cl/">Dipres</a></li>
-          <li><a target="_blank" href="http://www.conicyt.cl/">Conicyt</a></li>
-          <li><a target="_blank" href="https://www.bcn.cl/">Biblioteca del Congreso Nacional</a></li>
-          <li><a target="_blank" href="http://www.bibliotecanacional.cl/">Biblioteca Nacional</a></li>
-          
-          
-        </ul>
-      </div>
-      <div class="clearfix"></div>
-      <hr/>
-
-      <div class="address col-md-6 col-lg-6">
-        <h5>Ministerio Secretaría General de la Presidencia</h5>
-        <p>Teléfono +562 2694 5888</p>
-        <p>Moneda 1160 Entrepiso, Santiago - Chile.</p>
-      </div>
-
-      <div class="links col-md-6 col-lg-6">
-        <ul class="list-inline admin">
-          <a href="/" class="ministerio min-logo text-center hidden-xs"><img src="{$theme-path}images/logo-segpres.png"/></a>
-        </ul>
-      </div>
-      <div class="bottom col-md-12">
-        <div class="bicolor">
-          <span class="azul"></span>
-          <span class="rojo"></span>
-        </div>
-      </div>
-      </div><!--/.container-->
-    </footer>
-        
-    </xsl:template>
-    
-    <xsl:template name="segpres-menu">
-        
-          
-<!--                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='browse']/dri:list/dri:item">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='browse']/dri:list/dri:item">
-                                        
-                                        <i18n:text>
-                                            <xsl:value-of select="."/>
-                                        </i18n:text>
-                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>
-                                        <br/>
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>-->
-                            
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='browse']">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='browse']/dri:list">
-                                        <h2>
-                                        <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text>
-                                        </h2>
-<!--                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>-->
-                                        <br/>
-                                        <xsl:for-each select="dri:item">
-                                            <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text><br/>
-                                        </xsl:for-each>
-                                        
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='account']">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='account']">
-<!--                                        <h2>
-                                        <i18n:text>
-                                            <xsl:value-of select="dri/head"/>
-                                        </i18n:text>
-                                        </h2>-->
-<!--                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>-->
-                                        <!--<br/>-->
-                                        <xsl:for-each select="dri:item">
-                                            <i18n:text>
-                                                <xsl:value-of select="node()[not(self::dri:xref/i18n:translate)]"/>
-                                            </i18n:text>
-<!--                                            <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text>-->
-                                        <br/>
-                                        </xsl:for-each>
-                                        
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='context']">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='context']/dri:list">
-                                        <h2>
-                                        <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text>
-                                        </h2>
-<!--                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>-->
-                                        <br/>
-                                        <xsl:for-each select="dri:item">
-                                            <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text><br/>
-                                        </xsl:for-each>
-                                        
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='administrative']">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='administrative']/dri:list">
-                                        <h2>
-                                        <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text>
-                                        </h2>
-<!--                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>-->
-                                        <br/>
-                                        <xsl:for-each select="dri:item">
-                                            <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text><br/>
-                                        </xsl:for-each>
-                                        
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:options/dri:list[@n='discovery']">
-                                    
-                                    <xsl:for-each select="/dri:document/dri:options/dri:list[@n='discovery']/dri:list">
-                                        <h2>
-                                        <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text>
-                                        </h2>
-<!--                                        <xsl:text> === </xsl:text>
-                                        <xsl:value-of select="dri:xref/@target"/>-->
-                                        <br/>
-                                        <xsl:for-each select="dri:item">
-                                            <i18n:text>
-                                            <xsl:value-of select="node()"/>
-                                        </i18n:text><br/>
-                                        </xsl:for-each>
-                                        
-                                        
-                                    </xsl:for-each>
-                                    
-                                </xsl:when>
-                            </xsl:choose>
+</div>
+</div>
         
     </xsl:template>
 

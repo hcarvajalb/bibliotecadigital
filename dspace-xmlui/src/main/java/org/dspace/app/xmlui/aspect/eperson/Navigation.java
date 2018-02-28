@@ -190,12 +190,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         } 
         else 
         {
-            
-            if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.user.login", true))
-            {
-                account.addItemXref(contextPath+"/login",T_login);
-            }
-            
+            account.addItemXref(contextPath+"/openid",T_login);
             if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.user.registration", true))
             {
                 account.addItemXref(contextPath + "/register", T_register);
@@ -227,7 +222,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         }
 
         // Always have a login URL.
-        userMeta.addMetadata("identifier","loginURL").addContent(contextPath+"/login");
+        userMeta.addMetadata("identifier","loginURL").addContent(contextPath+"/openid");
         
         // Always add language information
         Request request = ObjectModelHelper.getRequest(objectModel);

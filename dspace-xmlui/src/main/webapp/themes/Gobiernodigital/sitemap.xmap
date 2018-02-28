@@ -132,7 +132,8 @@
         </map:component-configurations>
 
         <map:pipeline internal-only="true">
-            <map:parameter name="expires" value="access plus 1 hours"/>
+            <!--<map:parameter name="expires" value="access plus 1 hours"/>-->
+            <map:parameter name="expires" value="now"/>
 
             <!--
                  Bypass the file extension check for the gobiernodigital theme's scripts-dist.xml file.
@@ -152,7 +153,8 @@
         -->
         <map:pipeline>
             <!-- Allow the browser to cache static content for an hour -->
-            <map:parameter name="expires" value="access plus 1 hours"/>
+            <!--<map:parameter name="expires" value="access plus 1 hours"/>-->
+            <map:parameter name="expires" value="now"/>
 
             <!-- handle static js and css -->
             <map:match pattern="themes/*/**.js">
