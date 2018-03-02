@@ -624,7 +624,7 @@ i.fa-cog {
     margin: 20px 0;
 }
 .form-control {
-    height: 36px;
+    /*height: 36px;*/
 }
 .label {
     padding: .3em .6em .3em;
@@ -1010,7 +1010,7 @@ footer .container {
 }
 
 .btn-group>.btn:first-child {
-    padding-right: 0;
+    /*padding-right: 0;*/
 }
 
 
@@ -1041,3 +1041,10 @@ footer .container {
     margin: 0 auto 0 auto;
 }
 
+.ds-text-field.form-control,
+.ds-select-field.form-control,
+.ds-password-field.form-control {
+    border: 1px solid #01B5BC;
+    border-radius: 10px;
+    padding: 10px;
+}

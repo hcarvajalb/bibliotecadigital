@@ -180,8 +180,8 @@
                         <xsl:choose>
                             <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
                                 <xsl:variable name ="title" select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
-                                <xsl:copy-of select="substring($title, 1, 100)"/>
-                                <xsl:if test="string-length($title &gt; 100)">
+                                <xsl:copy-of select="substring($title, 1, 400)"/>
+                                <xsl:if test="string-length($title &gt; 400)">
                                 <xsl:text>...</xsl:text>
                             </xsl:if>
                             </xsl:when>
