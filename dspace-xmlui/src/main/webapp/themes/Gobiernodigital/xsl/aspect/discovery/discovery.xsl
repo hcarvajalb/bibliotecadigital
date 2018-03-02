@@ -199,27 +199,48 @@
                             <!-- non-breaking space to force separating the end tag -->
                 </xsl:element>
                 </h4>
-                
                         <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.contributor.author'))]">
+                        <xsl:when test="dri:list[@n=(concat($handle, ':dc.source.ministerio'))]">
+                    
+            
+                            <dl>
+                            <dt>Ministerio: </dt>
+                            <dd>
+                            <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.source.ministerio'))]/dri:item">
+                                <a>
+                                    <xsl:attribute name="href">
+                                                <xsl:value-of
+                                                   select="concat($context-path,'/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                                <xsl:copy-of select="./node()"/>
+                                    </xsl:attribute>
+                                <xsl:copy-of select="./node()"/>
+                                <xsl:if test="count(following-sibling::dri:item) != 0">
+                                                    <xsl:text>; </xsl:text>
+                                </xsl:if>
+                                </a>
+                            </xsl:for-each>
+                            </dd>
+                            </dl>
+                               
+
+                    
+                        </xsl:when>
+                    </xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.contributor.entity'))]">
                                 <dl>
-                                    <dt>Autor: </dt>
+                                    <dt>Autor Institucional: </dt>
                                     <dd>
-                                <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.contributor.author'))]/dri:item">
+                                <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.contributor.entity'))]/dri:item">
                                     
                                     <xsl:variable name="author">
                                         <xsl:apply-templates select="."/>
                                     </xsl:variable>
                                     <a>
-                                        <!--Check authority in the mets document-->
-                                        <xsl:if test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/dim:field[@element='contributor' and @qualifier='author' and . = $author]/@authority">
-                                            <xsl:attribute name="class">
-                                                <xsl:text>ds-dc_contributor_author-authority</xsl:text>
-                                            </xsl:attribute>
-                                        </xsl:if>
+                                       
                                         <xsl:attribute name="href">
                                     <xsl:value-of
-                                       select="concat($context-path,'/discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                       select="concat($context-path,'/discover?filtertype=entity&amp;filter_relational_operator=equals&amp;filter=')"/>
                                     <xsl:copy-of select="./node()"/>
                         </xsl:attribute>
                                         <xsl:apply-templates select="."/>
@@ -235,14 +256,40 @@
                                 </dl>
                             </xsl:when>
                             
-                            <xsl:otherwise>
+                        </xsl:choose>
+                        
+                        <xsl:choose>
+                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.category.document'))]">
                                 <dl>
-                                <dt>Autor: </dt>
+                                    <dt>Tipo de Estudio: </dt>
                                     <dd>
-                                <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
-                                    </dd>
+                                <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.category.document'))]/dri:item">
+                                    
+                                    <xsl:variable name="author">
+                                        <xsl:apply-templates select="."/>
+                                    </xsl:variable>
+                                    <a>
+                                        <!--Check authority in the mets document-->
+                                        
+                                        <xsl:attribute name="href">
+                                    <xsl:value-of
+                                       select="concat($context-path,'/discover?filtertype=category&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                    <xsl:copy-of select="./node()"/>
+                        </xsl:attribute>
+                                        <xsl:apply-templates select="."/>
+                                    
+
+                                    <xsl:if test="count(following-sibling::dri:item) != 0">
+                                        <xsl:text>; </xsl:text>
+                                    </xsl:if>
+                                    </a>
+                                    
+                                </xsl:for-each>
+                                </dd>
                                 </dl>
-                            </xsl:otherwise>
+                            </xsl:when>
+                            
+
                         </xsl:choose>
                     
                     
@@ -281,33 +328,7 @@
                     
                 
                 
-                        <xsl:choose>
-                        <xsl:when test="dri:list[@n=(concat($handle, ':dc.source.ministerio'))]">
-                    
-            
-                            <dl>
-                            <dt>Ministerio: </dt>
-                            <dd>
-                            <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.source.ministerio'))]/dri:item">
-                                <a>
-                                    <xsl:attribute name="href">
-                                                <xsl:value-of
-                                                   select="concat($context-path,'/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=')"/>
-                                                <xsl:copy-of select="./node()"/>
-                                    </xsl:attribute>
-                                <xsl:copy-of select="./node()"/>
-                                <xsl:if test="count(following-sibling::dri:item) != 0">
-                                                    <xsl:text>; </xsl:text>
-                                </xsl:if>
-                                </a>
-                            </xsl:for-each>
-                            </dd>
-                            </dl>
-                               
-
-                    
-                        </xsl:when>
-                    </xsl:choose>
+                        
                     
                 
                 

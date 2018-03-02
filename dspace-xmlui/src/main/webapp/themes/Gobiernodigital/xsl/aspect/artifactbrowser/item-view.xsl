@@ -345,7 +345,110 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-authors">
-        <xsl:if test="dim:field[@element='contributor'][@qualifier='author' and descendant::text()] or dim:field[@element='creator' and descendant::text()] or dim:field[@element='contributor' and descendant::text()]">
+        
+        <xsl:choose>
+                        <xsl:when test="dim:field[@element='contributor' and @qualifier='entity']">
+                            <dl>
+                            <dt><xsl:text>Autor Institucional: </xsl:text></dt>
+                            <dd>
+                            <xsl:for-each select="dim:field[@element='contributor' and @qualifier='entity']">
+                                
+                                
+                                
+                                <a>
+                        <xsl:attribute name="href">
+                                    <xsl:value-of
+                                       select="concat($context-path,'/discover?filtertype=entity&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                    <xsl:copy-of select="./node()"/>
+                        </xsl:attribute>
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='contributor' and @qualifier='entity']) != 0">
+                        <xsl:text>; </xsl:text>
+                    </xsl:if>
+                    </a>
+                                
+                                
+                                
+                                
+                                
+                            </xsl:for-each>
+                            </dd>
+                            </dl>
+                        </xsl:when>
+                        
+                    </xsl:choose>
+                    
+                    <xsl:choose>
+                        <xsl:when test="dim:field[@element='category' and @qualifier='document']">
+                            <dl>
+                            <dt><xsl:text>Tipo de Estudio: </xsl:text></dt>
+                            <dd>
+                            <xsl:for-each select="dim:field[@element='category' and @qualifier='document']">
+                                
+                                
+                                
+                                <a>
+                        <xsl:attribute name="href">
+                                    <xsl:value-of
+                                       select="concat($context-path,'/discover?filtertype=category&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                    <xsl:copy-of select="./node()"/>
+                        </xsl:attribute>
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='category' and @qualifier='document']) != 0">
+                        <xsl:text>; </xsl:text>
+                    </xsl:if>
+                    </a>
+                                
+                                
+                                
+                                
+                                
+                            </xsl:for-each>
+                            </dd>
+                            </dl>
+                        </xsl:when>
+                        
+<!--                        <xsl:otherwise>
+                            <dl>
+                            <dt><xsl:text>Autor: </xsl:text></dt>
+                            <dd>
+                            <i18n:text>xmlui.dri2xhtml.METS-1.0.no-author</i18n:text>
+                            </dd>
+                            </dl>
+                        </xsl:otherwise>-->
+                    </xsl:choose>
+                    
+                    
+                    
+                    <xsl:choose>
+                        <xsl:when test="dim:field[@element='source' and @qualifier='entity']">
+                            <dl>
+                            <dt><xsl:text>Fuente del Recurso: </xsl:text></dt>
+                            <dd>
+                            <xsl:for-each select="dim:field[@element='source' and @qualifier='entity']">
+                                
+
+                                
+                                <a>
+                        <xsl:attribute name="href">
+                                    <xsl:value-of
+                                       select="concat($context-path,'/discover?filtertype=fuente&amp;filter_relational_operator=equals&amp;filter=')"/>
+                                    <xsl:copy-of select="./node()"/>
+                        </xsl:attribute>
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='source' and @qualifier='entity']) != 0">
+                        <xsl:text>; </xsl:text>
+                    </xsl:if>
+                    </a>
+                                
+                            </xsl:for-each>
+                            </dd>
+                            </dl>
+                        </xsl:when>
+                    </xsl:choose>
+        
+        
+<!--        <xsl:if test="dim:field[@element='contributor'][@qualifier='author' and descendant::text()] or dim:field[@element='creator' and descendant::text()] or dim:field[@element='contributor' and descendant::text()]">
             <dl>
                 <dt><i18n:text>xmlui.dri2xhtml.METS-1.0.item-author</i18n:text><xsl:text>: </xsl:text></dt>
                 <dd>
@@ -392,7 +495,7 @@
                 </xsl:choose>
                 </dd>
             </dl>
-        </xsl:if>
+        </xsl:if>-->
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-authors-entry">
