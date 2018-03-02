@@ -1343,11 +1343,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         </div>
 
         <div class="minis-item">
-            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa">
+            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa Nacional">
           <img class="img-circle" src="{$theme-path}images/dfensa.jpg"/>
-          <h3 class="text-center carrusel">Ministerio de Defensa</h3>
+          <h3 class="text-center carrusel">Ministerio de Defensa Nacional</h3>
             </a>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa" class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Defensa Nacional" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
@@ -1456,11 +1456,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         </div>
 
         <div class="minis-item">
-            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de  Transportes y Telecomunicaciones">
+            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Transportes y Telecomunicaciones">
           <img class="img-circle" src="{$theme-path}images/mtt.jpg"/>
-          <h3 class="text-center carrusel">Ministerio de  Transportes y Telecomunicaciones</h3>
+          <h3 class="text-center carrusel">Ministerio de Transportes y Telecomunicaciones</h3>
             </a>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de  Transportes y Telecomunicaciones" class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio de Transportes y Telecomunicaciones" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
@@ -1480,11 +1480,11 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
         </div>
 
         <div class="minis-item">
-            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del  Medio Ambiente">
+            <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Medio Ambiente">
           <img class="img-circle" src="{$theme-path}images/medioambiente.jpg"/>
-          <h3 class="text-center carrusel">Ministerio del  Medio Ambiente</h3>
+          <h3 class="text-center carrusel">Ministerio del Medio Ambiente</h3>
             </a>
-          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del  Medio Ambiente" class="vermas"> Ver más</a>
+          <a href="/discover?filtertype=ministerio&amp;filter_relational_operator=equals&amp;filter=Ministerio del Medio Ambiente" class="vermas"> Ver más</a>
         </div>
 
         <div class="minis-item">
