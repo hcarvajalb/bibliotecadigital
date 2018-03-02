@@ -1184,7 +1184,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
           <div class="container"> 
             <div class="row">
               <div class="search-box">
-               <form method="get" action="{$url-principal}/discover">
+               <form method="get" action="/discover">
                <div class="input-group input-group-lg">
                    <xsl:variable name="itemsTotal">
                             <xsl:value-of select='format-number($total//response/result/@numFound, "###,###")'/>
