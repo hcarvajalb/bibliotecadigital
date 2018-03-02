@@ -88,6 +88,18 @@
                     <hint>Persona natural responsable de crear el contenido intelectual del recurso que se describe.</hint>
                     <required></required>
                 </field>
+                
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>source</dc-element>
+                    <dc-qualifier>ministerio</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Ministerio</label>
+                    <input-type value-pairs-name="source_ministerio">dropdown</input-type>
+                    <hint>Ministerio de donde proviene el recurso.</hint>
+                    <required></required>
+                </field>
+                
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>contributor</dc-element>
@@ -410,6 +422,106 @@
  <!-- stores the associated stored-values in the database.                  -->
 
  <form-value-pairs>
+     
+    <value-pairs value-pairs-name="source_ministerio" dc-term="ministerio">
+        <pair>
+            <displayed-value>Ministerio del Interior y Seguridad Pública</displayed-value>
+            <stored-value>Ministerio del Interior y Seguridad Pública</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Relaciones Exteriores</displayed-value>
+            <stored-value>Ministerio de Relaciones Exteriores</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Defensa Nacional</displayed-value>
+            <stored-value>Ministerio de Defensa Nacional</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Hacienda</displayed-value>
+            <stored-value>Ministerio de Hacienda</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio Secretaría General de la Presidencia</displayed-value>
+            <stored-value>Ministerio Secretaría General de la Presidencia</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio Secretaría General de Gobierno</displayed-value>
+            <stored-value>Ministerio Secretaría General de Gobierno</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Economía, Fomento y Turismo</displayed-value>
+            <stored-value>Ministerio de Economía, Fomento y Turismo</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Desarrollo Social</displayed-value>
+            <stored-value>Ministerio de Desarrollo Social</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Educación</displayed-value>
+            <stored-value>Ministerio de Educación</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Justicia y Derechos Humanos</displayed-value>
+            <stored-value>Ministerio de Justicia y Derechos Humanos</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio del Trabajo y Previsión Social</displayed-value>
+            <stored-value>Ministerio del Trabajo y Previsión Social</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Obras Públicas</displayed-value>
+            <stored-value>Ministerio de Obras Públicas</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Salud</displayed-value>
+            <stored-value>Ministerio de Salud</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Vivienda y Urbanismo</displayed-value>
+            <stored-value>Ministerio de Vivienda y Urbanismo</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Agricultura</displayed-value>
+            <stored-value>Ministerio de Agricultura</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Minería</displayed-value>
+            <stored-value>Ministerio de Minería</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Transportes y Telecomunicaciones</displayed-value>
+            <stored-value>Ministerio de Transportes y Telecomunicaciones</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Bienes Nacionales</displayed-value>
+            <stored-value>Ministerio de Bienes Nacionales</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de Energía</displayed-value>
+            <stored-value>Ministerio de Energía</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio del Medio Ambiente</displayed-value>
+            <stored-value>Ministerio del Medio Ambiente</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio del Deporte</displayed-value>
+            <stored-value>Ministerio del Deporte</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de la Mujer y la Equidad de Género</displayed-value>
+            <stored-value>Ministerio de la Mujer y la Equidad de Género</stored-value>
+        </pair>
+        <pair>
+            <displayed-value>Ministerio de las Culturas, las Artes y el Patrimonio</displayed-value>
+            <stored-value>Ministerio de las Culturas, las Artes y el Patrimonio</stored-value>
+        </pair>
+        
+        <pair>
+            <displayed-value>Ninguno</displayed-value>
+            <stored-value></stored-value>
+        </pair>
+     </value-pairs>
      <value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
             <pair>
                 <displayed-value>Español</displayed-value>
