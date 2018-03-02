@@ -43,9 +43,10 @@
     -->
     <!-- TODO: figure out why i18n tags break the go button -->
     <xsl:template match="dri:options">
-        <div id="ds-options" class="word-break hidden-print">
+        <div class="panel panel-default">
+            <div id="lateral-search">
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
-                <div id="ds-search-option" class="ds-option-set">
+                <!--<div id="ds-search-option" class="ds-option-set">-->
                     <!-- The form, complete with a text box and a button, all built from attributes referenced
                  from under pageMeta. -->
                     <form id="ds-search-form" class="" method="post">
@@ -54,9 +55,9 @@
                             <xsl:value-of
                                     select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
                         </xsl:attribute>
-                        <fieldset>
+                        <!--<fieldset>-->
                             <div class="input-group">
-                                <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
+                                <input class="form-control search-page" type="text" placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
                                         <xsl:value-of
@@ -64,8 +65,8 @@
                                     </xsl:attribute>
                                 </input>
                                 <span class="input-group-btn">
-                                    <button class="ds-button-field btn btn-default search-icon search-icon" title="xmlui.general.go" i18n:attr="title">
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+                                    <button class="btn btn-default" title="xmlui.general.go" i18n:attr="title">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
                                         <xsl:attribute name="onclick">
                                                     <xsl:text>
                                                         var radio = document.getElementById(&quot;ds-search-form-scope-container&quot;);
@@ -118,21 +119,22 @@
                                     </label>
                                 </div>
                             </xsl:if>
-                        </fieldset>
+                        <!--</fieldset>-->
                     </form>
-                </div>
+                <!--</div>-->
             </xsl:if>
+            </div>
             <xsl:apply-templates/>
             <!-- DS-984 Add RSS Links to Options Box -->
             <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
-                <div>
-                    <h2 class="ds-option-set-head h6">
+                
+                    <div class="panel-heading">
                         <i18n:text>xmlui.feed.header</i18n:text>
-                    </h2>
-                    <div id="ds-feed-option" class="ds-option-set list-group">
-                        <xsl:call-template name="addRSSLinks"/>
                     </div>
-                </div>
+                    <ul id="ds-feed-option" class="ds-option-set list-group">
+                        <xsl:call-template name="addRSSLinks"/>
+                    </ul>
+                
 
             </xsl:if>
         </div>
@@ -141,7 +143,8 @@
     <!-- Add each RSS feed from meta to a list -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item">
+            <li class="list-group-item">
+            <a>
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
@@ -163,6 +166,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </a>
+            </li>
         </xsl:for-each>
     </xsl:template>
 
@@ -174,13 +178,13 @@
 
     <xsl:template match="dri:options/dri:list" priority="3">
         <xsl:apply-templates select="dri:head"/>
-        <div>
+        <ul>
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group</xsl:with-param>
             </xsl:call-template>
             <xsl:apply-templates select="dri:item"/>
             <xsl:apply-templates select="dri:list"/>
-        </div>
+        </ul>
     </xsl:template>
 
 
@@ -194,9 +198,10 @@
     </xsl:template>
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
+        <li class="list-group-item">
         <a href="{dri:xref/@target}">
             <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                <xsl:with-param name="class"></xsl:with-param>
             </xsl:call-template>
             <xsl:choose>
                 <xsl:when test="dri:xref/node()">
@@ -208,26 +213,27 @@
             </xsl:choose>
 
         </a>
+        </li>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
         <xsl:call-template name="renderHead">
-            <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+            <xsl:with-param name="class">panel-heading</xsl:with-param>
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
-            <span>
-                <xsl:call-template name="standardAttributes">
+        <li class="title">
+            <!--<span>-->
+<!--                <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">
                         <xsl:value-of select="@rend"/>
                         <xsl:text> list-group-item-heading</xsl:text>
                     </xsl:with-param>
-                </xsl:call-template>
+                </xsl:call-template>-->
                 <xsl:apply-templates/>
-            </span>
-        </a>
+            <!--</span>-->
+        </li>
     </xsl:template>
 
     <xsl:template match="dri:list[count(child::*)=0]"/>

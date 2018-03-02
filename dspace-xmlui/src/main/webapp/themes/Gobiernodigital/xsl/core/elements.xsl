@@ -647,7 +647,7 @@
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">
                     <xsl:value-of select="$class"/>
-                    <xsl:if test="$head_count = 1 and not($class='ds-option-set-head')">
+                    <xsl:if test="$head_count = 1 and not($class='panel-heading')">
                         <xsl:text> page-header</xsl:text>
                     </xsl:if>
                     <xsl:if test="$is_first_head_on_page">
