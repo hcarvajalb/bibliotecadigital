@@ -902,7 +902,7 @@ i.fa-cog {
 .search-result-box .ds-select-field {
     border: 1px solid #01B5BC;
     border-radius: 10px!important;
-    padding: 18px;
+    /*padding: 18px;*/
     height: 49px;
 }
 
@@ -1046,5 +1046,4 @@ footer .container {
 .ds-password-field.form-control {
     border: 1px solid #01B5BC;
     border-radius: 10px;
-    padding: 10px;
 }

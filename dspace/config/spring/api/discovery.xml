@@ -96,12 +96,12 @@
             <list>
                 <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
                 <!--<ref bean="searchFilterEditor" />-->
-                <ref bean="searchFilterFuente" />
+                <!--<ref bean="searchFilterFuente" />-->
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -113,12 +113,12 @@
                 <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
                 <!--<ref bean="searchFilterEditor" />-->
-                <ref bean="searchFilterFuente" />
+                <!--<ref bean="searchFilterFuente" />-->
                 
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
@@ -214,12 +214,12 @@
             <list>
                 <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
 <!--                <ref bean="searchFilterEditor" />-->
-                <ref bean="searchFilterFuente" />
+                <!--<ref bean="searchFilterFuente" />-->
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -231,12 +231,12 @@
                 <ref bean="searchFilterMinisterio" />
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterCategory" />
                 <ref bean="searchFilterEntity" />
 <!--                <ref bean="searchFilterEditor" />-->
-                <ref bean="searchFilterFuente" />
+                <!--<ref bean="searchFilterFuente" />-->
 		        <!--<ref bean="searchFilterContentInOriginalBundle"/>-->
             </list>
         </property>
@@ -300,7 +300,7 @@
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
         <property name="tagCloudFacets">
             <list>
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterMinisterio" />
             </list>
         </property>
     </bean>
@@ -312,7 +312,7 @@
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
         <property name="tagCloudFacets">
             <list>
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterMinisterio" />
             </list>
         </property>
     </bean>
@@ -407,7 +407,7 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
-    <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+<!--    <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
@@ -418,7 +418,7 @@
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
-    </bean>
+    </bean>-->
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="dateIssued"/>
@@ -466,7 +466,7 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
     </bean>-->
-    <bean id="searchFilterFuente" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+<!--    <bean id="searchFilterFuente" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="fuente"/>
         <property name="metadataFields">
             <list>
@@ -477,7 +477,7 @@
         <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
-    </bean>
+    </bean>-->
     
     <bean id="searchFilterMinisterio" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="ministerio"/>
