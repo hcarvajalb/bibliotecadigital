@@ -420,7 +420,7 @@
                     
                     
                     
-                    <xsl:choose>
+<!--                    <xsl:choose>
                         <xsl:when test="dim:field[@element='source' and @qualifier='entity']">
                             <dl>
                             <dt><xsl:text>Fuente del Recurso: </xsl:text></dt>
@@ -445,7 +445,7 @@
                             </dd>
                             </dl>
                         </xsl:when>
-                    </xsl:choose>
+                    </xsl:choose>-->
         
         
 <!--        <xsl:if test="dim:field[@element='contributor'][@qualifier='author' and descendant::text()] or dim:field[@element='creator' and descendant::text()] or dim:field[@element='contributor' and descendant::text()]">
@@ -587,7 +587,7 @@
         </xsl:if>
     </xsl:template>
     
-    <xsl:template name="itemSummaryView-DIM-fuente">
+<!--    <xsl:template name="itemSummaryView-DIM-fuente">
         <xsl:if test="dim:field[@element='source' and @qualifier='entity']">
             <dl>
                 <dt>
@@ -611,7 +611,7 @@
                 </xsl:for-each>
             </dl>
         </xsl:if>
-    </xsl:template>
+    </xsl:template>-->
 
     <xsl:template name="itemSummaryView-show-full">
             

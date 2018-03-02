@@ -332,7 +332,7 @@
                     
                 
                 
-                    <xsl:choose>
+<!--                    <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.source.entity'))]">
                     
             
@@ -358,7 +358,7 @@
 
                     
                         </xsl:when>
-                    </xsl:choose>
+                    </xsl:choose>-->
                     
                 <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item">

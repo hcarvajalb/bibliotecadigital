@@ -246,7 +246,7 @@
                     
                     
                     
-                    <xsl:choose>
+<!--                    <xsl:choose>
                         <xsl:when test="dim:field[@element='source' and @qualifier='entity']">
                             <dl>
                             <dt><xsl:text>Fuente del Recurso: </xsl:text></dt>
@@ -271,7 +271,7 @@
                             </dd>
                             </dl>
                         </xsl:when>
-                    </xsl:choose>
+                    </xsl:choose>-->
                 
                 
             
