@@ -173,17 +173,19 @@ blockquote {
   padding: 5px 0px;
   margin-bottom: 0;
 /*  background-color:#01B5BC;*/
-background-color:#ffffff;
+background-color:#0A132D;
+color: #ffffff;
   border-radius: 0;
 }
 ol.breadcrumb {
-    border-top: 3px solid #000000;
+    max-width: 1440px;
+    margin: 0 auto 0 auto;
 }
 .breadcrumb a {
-  color: #000;
+  color: #fff;
 }
 .breadcrumb>.active {
-    color: #6C338A;
+    color: rgba(255,255,255,0.4);
 }
 #main-search {
 	margin: 0 0 20px;
@@ -1033,3 +1035,9 @@ footer .container {
 #aspect_artifactbrowser_ConfigurableBrowse_list_jump-list {
     margin-left: 0 !important;
 }
+
+.jumbotron {
+    max-width: 1443px;
+    margin: 0 auto 0 auto;
+}
+

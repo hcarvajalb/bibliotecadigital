@@ -175,6 +175,7 @@ li.list-group-item>a:hover {
 #sidebar .list-group {
   border: 1px solid #01B5BC;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 #sidebar .list-group-item {

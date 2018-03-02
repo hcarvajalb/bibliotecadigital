@@ -1230,7 +1230,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="/">Volver al Inicio</a></li>
+              <!--<li class="active"><a href="/">Volver al Inicio</a></li>-->
               
               <xsl:choose>
                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
@@ -1291,7 +1291,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
           <div class="container"> 
             <div class="row">
               <div class="search-box">
-               <form method="get" action="{$url-principal}/discover">
+               <form method="get" action="/discover">
                <div class="input-group input-group-lg">
                    <xsl:variable name="itemsTotal">
                             <xsl:value-of select='format-number($total//response/result/@numFound, "###,###")'/>
@@ -1583,7 +1583,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                     <xsl:variable name="datos" select="document($item)"/>
                     
                     
-                    <xsl:variable name="enlace" select="concat($url-principal,'/handle/', str[@name='handle'])"/>
+                    <xsl:variable name="enlace" select="concat('/handle/', str[@name='handle'])"/>
                     
                     <div class="media col-xs-12  col-sm-12 col-md-4">
                     <div class="media-left media-top">
@@ -1672,7 +1672,6 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                     <!--<xsl:value-of select="substring('Hola como estas',1, 24 )"/>-->
                     <div class="media-body">
                     <h4 class="media-heading "><a href="{$enlace}"><xsl:value-of select="substring($titulo,1,30)"/>
-                    
                     <xsl:if test="string-length($titulo) &gt; 30">
                         <xsl:text>...</xsl:text>
                     </xsl:if>

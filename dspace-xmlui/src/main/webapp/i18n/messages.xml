@@ -24,7 +24,7 @@
 		-->
 
 	<!-- General keys -->
-	<message key="xmlui.general.dspace_home">DSpace Home</message>
+	<message key="xmlui.general.dspace_home">Home</message>
 	<message key="xmlui.general.search">Search</message>
 	<message key="xmlui.general.go">Go</message>
 	<message key="xmlui.general.go_home">Go to DSpace home</message>
@@ -2506,12 +2506,14 @@
     
     
     
+    
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.category">Tipo de Estudio</message>
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.category">Tipo de Estudio</message>
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.category.column_heading">Tipo de Estudio</message>
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.category">Tipo de Estudio</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_category">Tipo de Estudio</message>
     <message key="xmlui.Discovery.AbstractSearch.type_category">Tipo de Estudio</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_category">Tipo de Estudio</message>
     
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.entity">Autor institucional</message>
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.entity">Autor institucional</message>
@@ -2519,6 +2521,7 @@
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.entity">Autor institucional</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_entity">Autor institucional</message>
     <message key="xmlui.Discovery.AbstractSearch.type_entity">Autor institucional</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_entity">Autor institucional</message>
     
     
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.editor">Editor</message>
@@ -2527,6 +2530,7 @@
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.editor">Editor</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_editor">Editor</message>
     <message key="xmlui.Discovery.AbstractSearch.type_editor">Editor</message>
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_editor">Editor</message>
     
     
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.fuente">Fuente del Recurso</message>
@@ -2535,7 +2539,7 @@
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.fuente">Fuente del Recurso</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_fuente">Fuente del Recurso</message>
     <message key="xmlui.Discovery.AbstractSearch.type_fuente">Fuente del Recurso</message>
-    
+    <message key="xmlui.ArtifactBrowser.Navigation.browse_fuente">Fuente del Recurso</message>
     
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ministerio">Ministerio</message>
     <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.ministerio">Ministerio</message>
