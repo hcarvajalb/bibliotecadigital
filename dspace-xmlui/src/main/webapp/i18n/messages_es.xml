@@ -246,7 +246,7 @@
 <message key="xmlui.ArtifactBrowser.ItemViewer.trail">Ver ítem</message>
 <message key="xmlui.ArtifactBrowser.ItemViewer.head_parent_collections">Este ítem aparece en la(s) siguiente(s) colección(ones)</message>
 <message key="xmlui.ArtifactBrowser.ItemViewer.show_simple">Mostrar el registro sencillo del ítem</message>
-<message key="xmlui.ArtifactBrowser.ItemViewer.show_full">Mostrar el registro completo del ítem</message>
+<message key="xmlui.ArtifactBrowser.ItemViewer.show_full">Ver ficha técnica</message>
 
 <message key="xmlui.ArtifactBrowser.ItemViewer.withdrawn">Este ítem ha sido retirado y no está disponible</message>
 
@@ -620,7 +620,7 @@
 <message key="xmlui.Submission.general.workflow.title">Envío de ítems</message>
 <message key="xmlui.Submission.general.workflow.trail">Envío de ítems</message>
 <message key="xmlui.Submission.general.workflow.head">Envío de ítems</message>
-<message key="xmlui.Submission.general.showfull">Mostrar el registro completo del ítem</message>
+<message key="xmlui.Submission.general.showfull">Ver ficha técnica</message>
 <message key="xmlui.Submission.general.showsimple">Mostrar el registro sencillo del ítem</message>
 <message key="xmlui.Submission.general.default.title">Envío</message>
 <message key="xmlui.Submission.general.default.trail">Envío</message>

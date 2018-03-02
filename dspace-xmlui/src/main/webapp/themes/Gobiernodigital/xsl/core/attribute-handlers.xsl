@@ -117,7 +117,7 @@
                     <xsl:choose>
                         <xsl:when test="$position = 'top' and $gear">
                             <div class="row">
-                                <div class="col-xs-10">
+                                <div class="col-xs-9">
                                     <p class="pagination-info">
                                         <i18n:translate>
                                             <xsl:choose>
@@ -141,7 +141,7 @@
                                         </i18n:translate>
                                     </p>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     <xsl:call-template name="renderSortOptionsMenu"/>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="$prev-page"/>
                                     </xsl:attribute>
-                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                    <span aria-hidden="true">«</span>
                                 </a>
                             </li>
                             <li>
@@ -202,7 +202,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="$next-page"/>
                                     </xsl:attribute>
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                    <span aria-hidden="true">»</span>
                                 </a>
                             </li>
                         </ul>
@@ -291,7 +291,7 @@
                                             <xsl:value-of
                                                     select="substring-after(parent::node()/@pageURLMask,'{pageNum}')"/>
                                         </xsl:attribute>
-                                        <span class="glyphicon glyphicon-arrow-left"></span>
+                                        <span aria-hidden="true">«</span>
                                     </a>
                                 </li>
                                 <xsl:if test="(parent::node()/@currentPage - 4) &gt; 0">
@@ -365,7 +365,7 @@
                                                 <xsl:value-of
                                                         select="substring-after(parent::node()/@pageURLMask,'{pageNum}')"/>
                                             </xsl:attribute>
-                                            <span class="glyphicon glyphicon-arrow-right"></span>
+                                            <span aria-hidden="true">»</span>
                                         </a>
                                     </li>
                                 </xsl:if>
@@ -457,8 +457,9 @@
     </xsl:template>
 
     <xsl:template name="renderGearButton">
-        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"/>
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+            Configurar
+            <i class="fa fa-cog" aria-hidden="true"></i>
         </button>
     </xsl:template>
 
