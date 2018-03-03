@@ -1300,7 +1300,7 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                                 <xsl:attribute name="name">
                                     <xsl:value-of
                                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
-                                </xsl:attribute>
+                                </xsl:attribute> 
                 </input>
                 <!--<input type="text" class="form-control" placeholder="Busca en más de 13.244 recursos"/>-->
                 <span class="input-group-btn">
