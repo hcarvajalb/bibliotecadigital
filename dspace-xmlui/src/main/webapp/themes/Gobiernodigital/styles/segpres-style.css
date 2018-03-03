@@ -1047,3 +1047,8 @@ footer .container {
     border: 1px solid #01B5BC;
     border-radius: 10px;
 }
+
+.item-details .media-body {
+    display: block;
+    margin-bottom: 20px;
+}
